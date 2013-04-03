@@ -45,6 +45,7 @@ done
 echo "Installing bundles..."
 if [ $(which ruby 2>/dev/null) ]; then
   ruby `pwd`/vim/bin/vim-update-bundles.rb
+  gem install interactive_editor
 else
   echo "ERROR: ruby is not installed. You have to install ruby package!"
 fi
