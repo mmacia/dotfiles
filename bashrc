@@ -3,7 +3,6 @@
 # for examples
 
 export PATH=${PATH}:$HOME/local/bin:$HOME/.rvm/bin:/opt/android/tools:/opt/android/platform-tools
-export MASTERBRANCH_HOME=$HOME/workspace/masterbranch
 
 # loads RVM into shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
