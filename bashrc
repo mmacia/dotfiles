@@ -8,6 +8,9 @@ export MASTERBRANCH_HOME=$HOME/workspace/masterbranch
 # loads RVM into shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# loads phpbrew config
+[[ -s "$HOME/.phpbrew/bashrc" ]] && . "$HOME/.phpbrew/bashrc"
+
 # set vi mode
 set -o vi
 
