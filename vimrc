@@ -140,7 +140,7 @@ map <F1> :NERDTreeToggle<CR>
 
 
 " PHP Syntax (updated to 5.4)
-" Bundle: https://github.com/vim-scripts/phpvim.git
+" Bundle: https://github.com/mageekguy/php.vim
 let php_sql_query = 1
 let php_htmlInStrings = 1
 let php_parent_error_close = 1

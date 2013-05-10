@@ -26,6 +26,7 @@ configure_git() {
   git config --global alias.pr "pull --rebase --stat"
   git config --global alias.in "merge --squash --commit"
   git config --global core.editor vim
+  git config --global core.pager "less -x4"
 }
 
 echo "Saving old files ..."
