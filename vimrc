@@ -293,9 +293,6 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 
-" Rails plugin
-" Bundle: https://github.com/tpope/vim-rails.git
-
 
 " Vim ruby
 " Bundle: https://github.com/vim-ruby/vim-ruby.git
