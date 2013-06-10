@@ -60,7 +60,7 @@ autocmd BufRead *.twig set filetype=htmltwig
 " folding settings
 autocmd FileType xml setlocal foldmethod=indent foldlevel=1
 autocmd FileType cpp,hpp set foldlevel=1 foldmethod=syntax foldnestmax=3 foldcolumn=4
-autocmd FileType ruby,eruby,javascript set foldmethod=indent foldlevel=1 foldnestmax=2 foldcolumn=4 
+autocmd FileType ruby,eruby,javascript set foldmethod=indent foldlevel=1 foldnestmax=3 foldcolumn=4 
 
 " decrease XML, HTML and Twig tabs to 2 spaces
 autocmd FileType xml,html,htmltwig,eruby set tabstop=2 shiftwidth=2

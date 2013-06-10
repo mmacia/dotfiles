@@ -27,6 +27,7 @@ configure_git() {
   git config --global alias.in "merge --squash --commit"
   git config --global core.editor vim
   git config --global core.pager "less -x4"
+  git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 }
 
 echo "Saving old files ..."
