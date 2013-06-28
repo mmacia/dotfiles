@@ -293,13 +293,6 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 
-" Ruby debugger
-" Bundle: https://github.com/astashov/vim-ruby-debugger.git
-autocmd FileType ruby map <F7> :call g:RubyDebugger.step()<CR>
-autocmd FileType ruby map <F8> :call g:RubyDebugger.continue()<CR>
-autocmd FileType ruby map <F5> :call g:RubyDebugger.next()<CR>
-
-
 " Vim ruby
 " Bundle: https://github.com/vim-ruby/vim-ruby.git
 
