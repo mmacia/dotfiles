@@ -1,0 +1,2 @@
+# avoind install gems documentation
+gem: --no-rdoc --no-ri
