@@ -44,7 +44,7 @@ function! <SID>CodeStylingPHP()
 endfunction
 
 autocmd BufWritePre *.py                     :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{rb,erb}               :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.{rb,erb,rake}          :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre *.sh                     :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre *.{js,json}              :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre *.css                    :call <SID>StripTrailingWhitespaces()
