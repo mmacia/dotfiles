@@ -198,7 +198,7 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " Less annoying delimiters - DelimitMate
 " Bundle: http://github.com/Raimondi/delimitMate.git
 let delimitMate_smart_quotes = 1
-let delimitMate_visual_leader = ","
+"let delimitMate_autoclose = 1
 
 
 " Lorem ipsum dummy text generator
@@ -287,7 +287,6 @@ let g:protodefprotogetter = $HOME . '/.vim/bundle/ProtoDef/pullproto.pl'
 
 " Ctrl+P
 " Bundle: https://github.com/kien/ctrlp.vim.git
-nmap <silent> <Leader>t :CommandT<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
