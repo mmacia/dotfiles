@@ -188,7 +188,7 @@ let g:tagbar_autofocus = 1
 
 " Ack, a better grep 
 " Bundle: http://github.com/mileszs/ack.vim
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column --ignore-dir=.gems"
 
 
 " Match it

@@ -3,6 +3,8 @@
 # for examples
 
 export PATH=${PATH}:$HOME/local/bin:$HOME/.rvm/bin:/opt/android/tools:/opt/android/platform-tools
+export EDITOR=vim
+export SHELL=bash
 
 # loads RVM into shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

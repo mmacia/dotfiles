@@ -40,7 +40,7 @@ for file in ~/.vimrc ~/.vim ~/.vimrc-keymaps ~/.vimrc-au ~/.bashrc ~/.bash_alias
 done
 
 echo "Linking dot files ..."
-for file in vim vimrc vimrc-keymaps vimrc-au bashrc bash_aliases bash_colors irbrc gemrc tmyx.conf; do
+for file in vim vimrc vimrc-keymaps vimrc-au bashrc bash_aliases bash_colors irbrc gemrc tmux.conf; do
   ln -s "`pwd`/$file" "$HOME/.$file"
 done
 
