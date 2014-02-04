@@ -209,10 +209,9 @@ let delimitMate_smart_quotes = 1
 " Bundle: http://github.com/triglav/vim-visual-increment.git
 
 
-" Zen Coding
-" Bundle: http://github.com/mattn/zencoding-vim.git
-let g:user_zen_leader_key = '<c-z>'
-let g:user_zen_settings = { 'indentation': '  ' }
+" Sparkup
+" Bundle: http://github.com/rstacruz/sparkup.git
+" BundleCommand: make vim-pathogen
 
 
 " Gundo
