@@ -295,9 +295,6 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 " Bundle: https://github.com/vim-ruby/vim-ruby.git
 
 
-" Vim javascript
-" Bundle: https://github.com/pangloss/vim-javascript.git
-
 
 "**************************************************************
 "                Autocmds and keybindings                     *
