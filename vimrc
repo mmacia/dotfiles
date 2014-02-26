@@ -214,9 +214,13 @@ let delimitMate_smart_quotes = 1
 " BundleCommand: make vim-pathogen
 
 
+" Vim rails
+" Bundle: http://github.com/tpope/vim-rails.git
+
+
 " Gundo
-" Bundle: http://github.com/sjl/gundo.vim.git
-nnoremap <F3> :GundoToggle<CR>
+" -Bundle: http://github.com/sjl/gundo.vim.git
+"nnoremap <F3> :GundoToggle<CR>
 
 
 " Camel case motion
