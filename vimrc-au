@@ -70,9 +70,9 @@ autocmd FileType xml,html,htmltwig,eruby set tabstop=2 shiftwidth=2
 autocmd FileType txt set textwidth=80
 
 " view special characters
-autocmd FileType xhtml,html,xml,php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript set list
-autocmd FileType xhtml,html,xml set listchars=tab:▸\ 
-autocmd FileType php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript set listchars=tab:▸\ ,eol:¬
+autocmd FileType xhtml,html,xml,php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript,j2 set list
+autocmd FileType xhtml,html,xml,j2 set listchars=tab:▸\ 
+autocmd FileType php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript,j2 set listchars=tab:▸\ ,eol:¬
 
 " Remember last location in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")

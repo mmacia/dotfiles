@@ -131,7 +131,9 @@ nnoremap gR gD[{V%:s/<C-R>///gc<left><left><left>
 
 
 " NerdTree
-" Bundle: http://github.com/scrooloose/nerdtree.git
+" Bundle: http://github.com/Xuyuanp/nerdtree
+"-- Bundle: http://github.com/scrooloose/nerdtree.git
+let g:nerdtree_show_git_status = 1
 map <F1> :NERDTreeToggle<CR>
 
 
@@ -298,6 +300,9 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 " Vim ruby
 " Bundle: https://github.com/vim-ruby/vim-ruby.git
 
+
+" Jinja syntax
+" Bundle: https://github.com/Glench/Vim-Jinja2-Syntax
 
 
 "**************************************************************
