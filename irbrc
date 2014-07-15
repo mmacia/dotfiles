@@ -5,13 +5,6 @@ if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
 end
 
-# interactive editor: use vim from within irb
-begin
-  require 'interactive_editor'
-rescue LoadError => err
-  warn "Couldn't load interactive_editor: #{err}"
-end
-
 class Object
   def interesting_methods
     case self.class

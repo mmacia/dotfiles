@@ -51,13 +51,8 @@ set mouse=a
 
 set laststatus=2
 set t_Co=256
-set background=dark    " your eyes will thank you
 
-if has("gui_running")
-  colorscheme vombato
-else
-  colorscheme wombat256
-endif
+colorscheme Tomorrow-Night-Eighties
 
 " vim behaviour
 command! W :w " for mistyping :w as :W
@@ -303,6 +298,10 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 " Jinja syntax
 " Bundle: https://github.com/Glench/Vim-Jinja2-Syntax
+
+
+" Tomorrow night eighties
+" Bundle: http://github.com/chriskempson/vim-tomorrow-theme.git
 
 
 "**************************************************************
