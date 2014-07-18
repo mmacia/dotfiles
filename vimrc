@@ -68,7 +68,7 @@ let xml_syntax_folding=1
 " directories for .swp files
 set directory=~/.vim/swp//,/tmp//
 set tags+=tags;/ " search recursively upwards for the tags file
-set wildignore=**/cache/**,**/build/**,**/logs/**
+set wildignore=**/cache/**,**/build/**,**/logs/**,**/log/**,**/coverage/**,**/.gems/**
 
 syntax on           " enable syntax highlight
 filetype on
@@ -289,6 +289,7 @@ let g:protodefprotogetter = $HOME . '/.vim/bundle/ProtoDef/pullproto.pl'
 " Bundle: https://github.com/kien/ctrlp.vim.git
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 
