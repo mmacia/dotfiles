@@ -68,7 +68,7 @@ let xml_syntax_folding=1
 " directories for .swp files
 set directory=~/.vim/swp//,/tmp//
 set tags+=tags;/ " search recursively upwards for the tags file
-set wildignore=**/cache/**,**/build/**,**/logs/**,**/log/**,**/coverage/**,**/.gems/**
+set wildignore=**/cache/**,**/build/**,**/logs/**,**/log/**,**/coverage/**,**/.gems/**,**/db/sphinx/**
 
 syntax on           " enable syntax highlight
 filetype on
@@ -303,6 +303,9 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 " Tomorrow night eighties
 " Bundle: http://github.com/chriskempson/vim-tomorrow-theme.git
+
+" Vim tmux navigator
+" Bundle: 'https://github.com/christoomey/vim-tmux-navigator'
 
 
 "**************************************************************
