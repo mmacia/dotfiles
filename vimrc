@@ -307,6 +307,9 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 " Vim tmux navigator
 " Bundle: 'https://github.com/christoomey/vim-tmux-navigator'
 
+" Editor config
+" Bundle: 'https://github.com/editorconfig/editorconfig-vim'
+
 
 "**************************************************************
 "                Autocmds and keybindings                     *

@@ -9,51 +9,6 @@ autocmd BufNewFile *.c   s-^-#include <stdio.h>\r\rint main(int argc, char** arg
 autocmd BufNewFile *.cpp s-^-#include <iostream>\r\rusing namespace std;\r\rint main(int argc, char* argv[]) {\r\treturn 0;\r}-
 autocmd BufNewFile *.php s-^-<?php\r\r-
 
-" remove trailing spaces
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" Reformat PHP code following these style rules:
-" - In control structures place opening brace in same line separated by one space
-" - In methods/functions place opening brace in new line
-" - In control structures place a space between keyword and parentheses
-function! <SID>CodeStylingPHP()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/){$/) {/e
-    %s/function\(\s\+\S\+\)(\(.*\))\s*{$/function\1(\2)\r\t{/e
-    %s/\(\s\+if\|\s\+for\|\s\+foreach\|\s\+while\|\s\+do\|\s\+switch\|\s\+catch\)(/\1 (/e
-    %s/\(\s\+else\|\s\+try\){$/\1 {/e
-    %s/}catch/} catch/e
-    retab
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-autocmd BufWritePre *.py                     :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{rb,erb,rake}          :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.sh                     :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{js,json}              :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.css                    :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{php,twig,ctp,yml}     :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.php                    :call <SID>CodeStylingPHP()
-autocmd BufWritePre *.sql                    :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{html,htm,xml,xsd,xsl} :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.{c,cpp,h,hpp}          :call <SID>StripTrailingWhitespaces()
-
 " Twig syntax colors
 autocmd BufRead *.twig set filetype=htmltwig
 
@@ -63,24 +18,17 @@ autocmd FileType cpp,hpp set foldlevel=1 foldmethod=syntax foldnestmax=3 foldcol
 autocmd FileType ruby,eruby,javascript set foldmethod=indent foldlevel=1 foldnestmax=3 foldcolumn=4
 autocmd FileType javascript set foldmethod=indent foldlevel=1 foldnestmax=5 foldcolumn=6
 
-" decrease XML, HTML and Twig tabs to 2 spaces
-autocmd FileType xml,html,htmltwig,eruby set tabstop=2 shiftwidth=2
-
 " set textwidth to 80 columns in txt files
 autocmd FileType txt set textwidth=80
 
 " view special characters
 autocmd FileType xhtml,html,xml,php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript,j2 set list
-autocmd FileType xhtml,html,xml,j2 set listchars=tab:▸\ 
-autocmd FileType php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript,j2 set listchars=tab:▸\ ,eol:¬
+autocmd FileType xhtml,html,xml,j2 set listchars=tab:·\ 
+autocmd FileType php,yaml,htmltwig,cpp,hpp,ruby,eruby,javascript,j2 set listchars=tab:·\ ,eol:¬
 
 " Remember last location in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
-
-" save and restore current file view (folds openend/closed, cursor, etc)
-autocmd BufWinLeave * silent! mkview
-autocmd BufWinEnter * silent! loadview
 
 " nicer comments
 autocmd BufNewFile,BufRead *.h,*.php set comments=s:/**,mb:*,ex:*/
