@@ -1,0 +1,2 @@
+alias o="xdg-open"
+alias ontruck-vpn='sshuttle -r moises_macia_ontruck_com@bastion.ontruck.io 172.16.42.0/28'
