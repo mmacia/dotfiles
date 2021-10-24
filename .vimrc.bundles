@@ -1,0 +1,68 @@
+" Ansible managed
+
+if &compatible
+  set nocompatible
+end
+
+filetype off
+  set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" common plugins
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
+Plugin 'vim-scripts/MatchTag'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular.git'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'chaoren/vim-wordmotion'
+Plugin 'vim-scripts/vim-tags'
+
+" --- Crystal plugins
+Plugin 'vim-crystal/vim-crystal' " crystal syntax
+
+" --- Python plugins
+Plugin 'nvie/vim-flake8'         " Style checker
+Plugin 'davidhalter/jedi-vim'    " Autocomplete
+
+" --- Ruby / Rails plugins
+Plugin 'vim-ruby/vim-ruby'
+
+" --- C++ plugins
+Plugin 'peterhoeg/vim-qml'       " QML syntax
+Plugin 'cdelledonne/vim-cmake'   " CMake integration
+
+" --- Themes
+Plugin 'morhetz/gruvbox'
+
+" --- Writing
+Plugin 'junegunn/goyo.vim'              " distraction free writing
+Plugin 'junegunn/limelight.vim'         " focus on current paragraph
+Plugin 'vimwiki/vimwiki'                " wiki for vim
+
+" --- Other
+Plugin 'vim-scripts/loremipsum'         " Lorem ipsum generator
+Plugin 'rstacruz/sparkup'               " auto generate HTML
+Plugin 'bling/vim-airline'              " Airline status
+Plugin 'vim-scripts/buffet.vim'         " Buffer manager
+Plugin 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
+Plugin 'shime/vim-livedown'             " Live preview for markdown
+Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
+Plugin 'AndrewRadev/sideways.vim'       " Swap arguments
+Plugin 'prabirshrestha/vim-lsp'         " LSP support
+
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()
+filetype on

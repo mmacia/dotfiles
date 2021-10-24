@@ -1,0 +1,226 @@
+set exrc
+set secure
+
+" color theme
+colorscheme gruvbox
+
+let mapleader = ','    " remap leader key to ,
+let maplocalleader = '\'
+
+
+set wildignore+=cache,build,log,logs,.gems,__pycache__,.DS_Store,.coverage,htmlcov,coverage
+set wildignore+=*.pyc,*.o,*.obj,*.swp,*.class
+set spelllang=es_es,en_us
+
+
+""""""""""""""""""""""""""""""""""""""
+""""        Keymaps               """"
+""""""""""""""""""""""""""""""""""""""
+map <F10> :bdelete<CR>       " close current buffer
+
+" cycle between buffers
+map <C-Left> <ESC>:bprev!<CR>
+map <C-Right> <ESC>:bnext!<CR>
+
+
+" open tag under cursor in new tab
+nmap <C-Enter> <C-w><C-]><C-w>T
+
+" Tabularize shortcuts
+if exists(":Tabularize")
+  " variable assigments
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+
+  " JSON objects
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+
+  " PHP array arrows
+  nmap <Leader>a> :Tabularize /=><CR>
+  vmap <Leader>a> :Tabularize /=><CR>
+
+  " PHP variables
+  nmap <Leader>a$ :Tabularize /\$\w*<CR>
+  vmap <Leader>a$ :Tabularize /\$\w*<CR>
+endif
+
+" Swap arguments
+nmap sh :SidewaysJumpLeft<CR>
+nmap sl :SidewaysJumpRight<CR>
+nmap sH :SidewaysLeft<CR>
+nmap sL :SidewaysRight<CR>
+
+""""""""""""""""""""""""""""""""""""""
+""""        Auto commands         """"
+""""""""""""""""""""""""""""""""""""""
+" file warmups
+autocmd BufNewFile *.go  s-^-package main\r\rimport "fmt"\r\rfunc main() {\r\r}-
+autocmd BufNewFile *.sh  s-^-#!/bin/bash\r\r-
+autocmd BufNewFile *.c   s-^-#include <stdio.h>\r\rint main(int argc, char** argv) {\r\treturn 0;\r}-
+autocmd BufNewFile *.php s-^-<?php\r\r-
+
+" Jinja2 syntax colors
+autocmd BufRead *.j2,*.twig set filetype=jinja
+
+
+" view special characters
+autocmd BufRead * set list
+autocmd BufRead * set listchars=tab:·\ 
+autocmd BufRead * set listchars=tab:·\ ,eol:¬
+
+" Remember last location in file
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+
+" nicer comments
+autocmd BufNewFile,BufRead *.h,*.php set comments=s:/**,mb:*,ex:*/
+
+
+" limeligth comments
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Magically build interim directories if necessary
+function! AskQuit (msg, options, quit_option)
+  if confirm(a:msg, a:options) == a:quit_option
+      exit
+  endif
+endfunction
+
+function! EnsureDirExists ()
+  let required_dir = expand("%:h")
+  if !isdirectory(required_dir)
+    call AskQuit("Parent directory '" . required_dir . "' doesn't exist.",
+         \ "&Create it\nor &Quit?", 2)
+
+    try
+      call mkdir( required_dir, 'p' )
+      catch
+       call AskQuit("Can't create '" . required_dir . "'",
+          \ "&Quit\nor &Continue anyway?", 1)
+      endtry
+  endif
+endfunction
+
+augroup AutoMkdir
+  autocmd!
+  autocmd BufNewFile * :call EnsureDirExists()
+augroup END
+
+
+" Jenkinsfiles
+autocmd BufNewFile,BufRead Jenkinsfile setf groovy
+
+" Python tweaks
+augroup filetype_python
+  autocmd!
+  autocmd FileType python set cursorcolumn
+augroup END
+
+" Text file tweaks
+augroup filetype_text
+  autocmd!
+  autocmd FileType text,tex,markdown set textwidth=80
+  autocmd FileType text,tex,markdown DittoOn
+augroup END
+
+""""""""""""""""""""""""""""""""""""""
+""""        Plugin config         """"
+""""""""""""""""""""""""""""""""""""""
+
+" NERDTree
+let g:nerdtree_show_git_status=1
+let NERDTreeRespectWildIgnore=1
+
+
+" TagBar
+map <F2> :TagbarToggle<CR>
+let g:tagbar_iconchars = ['▾', '▸']
+let g:tagbar_foldlevel = 1
+let g:tagbar_autofocus = 1
+
+
+" Ack
+let g:ack_autofold_results = 1
+
+" DelimitMate
+let delimitMate_smart_quotes = 1
+
+" Ctrl+P
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+
+" Vim airline
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.colnr = '℅'
+
+" Lens / Animate
+let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'defx', 'vundle', '', 'tagbar', 'diff', 'NERD_tree_1', '[ No Name]', 'quickfix']
+let g:lens#width_resize_max = 120
+let g:lens#width_resize_max = 80
+
+" cmake
+let g:cmake_build_dir_location = './build'
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
+
+" LSP
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
+" --- LSP for python
+if executable('pyls')
+  let g:jedi#popup_select_first = 0
+  let g:jedi#auto_vim_configuration = 1
+  let g:jedi#completions_enabled = 1
+  let g:jedi#show_call_signatures = "1"
+  let g:jedi#smart_auto_mappings = 1
+
+  au FileType python setlocal completeopt-=preview
+
+  let s:pyls_config = {'pyls': {'plugins': {
+    \   'autopep8': {
+    \     'enabled': v:true,
+    \   },
+    \   'pycodestyle': {'enabled': v:false},
+    \   'pydocstyle': {'enabled': v:false},
+    \   'pylint': {'enabled': v:false},
+    \   'pyflakes': {'enabled': v:false},
+    \   'flake8': {'enabled': v:true},
+    \   'jedi_definition': {
+    \     'follow_imports': v:true,
+    \     'follow_builtin_imports': v:true,
+    \   },
+    \   'pyls_mypy': {
+    \     'enabled': v:true,
+    \     'live_mode': v:true,
+    \   },
+    \ }}}
+
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'pyls',
+      \ 'cmd': {server_info->['pyls']},
+      \ 'whitelist': ['python'],
+      \ 'workspace_config': s:pyls_config
+      \ })
+endif
+
+" --- LSP for C++
+if executable('clangd')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'clangd',
+    \ 'cmd': {server_info->['clangd', '-background-index']},
+    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+    \ })
+endif
+
+" --- end LSP
