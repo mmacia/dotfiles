@@ -1,2 +1,0 @@
-alias mux=tmuxinator
-alias ontruck-vpn='sshuttle -r moises_macia_ontruck_com@bastion.ontruck.io 172.16.42.0/28 172.18.42.0/28 172.16.48.0/24'

@@ -25,5 +25,5 @@ pip install --upgrade \
 
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
-    vim +PluginUpdate +PluginClean +qall
+    vim -es '+PluginUpdate' '+PluginClean' '+qal' || true
 fi

@@ -70,7 +70,7 @@ export EDITOR=vim
 export SHELL=zsh
 export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="xterm-256color"
+export TERM="screen-256color"
 export XDG_CONFIG_HOME=$HOME/.config
 
 source $ZSH/oh-my-zsh.sh
@@ -119,10 +119,6 @@ export KEYTIMEOUT=1
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [ -f $HOME/.zsh/aliases ]; then
   source $HOME/.zsh/aliases

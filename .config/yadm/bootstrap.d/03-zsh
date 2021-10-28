@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# versions to install
+fzf_version='0.27.3'
+fzf_tab_version='master'
+
+
+echo "Bootstraping zsh"
+
+sudo aptitude install -y \
+  zsh \
+  tmux
+
+
+# ------
+# --- Install fzf
+# ------
+
+fzf_install_path='/usr/local/share/fzf'
+
+fzf_repo='https://github.com/junegunn/fzf.git'
+fzf_tab_repo='https://github.com/Aloxaf/fzf-tab.git'
+
+if [ -d "$fzf_install_path" ]; then
+  cd ${fzf_install_path} && sudo git fetch -p && sudo git checkout $fzf_version && cd -
+else
+  sudo git clone $fzf_repo -o $fzf_install_path -b $fzf_version
+fi
+
+sudo $fzf_install_path/install --all --xdg --no-update-rc
+
+
+# ------
+# --- Install ohmyzsh
+# ------
+
+
+echo "Bootstraping oh my zsh"
+
+ohmyzsh_repo='https://github.com/robbyrussell/oh-my-zsh.git'
+ohmyzsh_install_path=${HOME}/.oh-my-zsh
+
+if [ ! -d "$ohmyzsh_install_path" ]; then
+  git clone $ohmyzsh_repo -o $ohmyzsh_install_path
+  mkdir -p ${ohmyzsh_install_path}/custom/themes
+  ln -s ${XDG_CONFIG_HOME}/yadm/robbyrussell.zsh-theme ${ohmyzsh_install_path}/custom/themes/robbyrussell.zsh-theme
+  chsh -s /usr/bin/zsh
+fi
+
+# third party plugins:
+for plugin in zsh-syntax-highlighting zsh-autosuggestions zsh-completions; do
+  plugin_dir=${ohmyzsh_install_path}/custom/plugins/${plugin}
+
+  if [ -d "$plugin_dir" ]; then
+    cd $plugin_dir && git fetch -p && git pr origin master && cd -
+  else
+    git clone https://github.com/zsh-users/${plugin}.git -o $plugin_dir
+  fi
+done
+
+fzf_tab_install_path=${ohmyzsh_install_path}/custom/plugins/fzf-tab
+
+if [ -d "$fzf_tab_install_path" ]; then
+  cd $fzf_tab_install_path && git fetch -p && git co $fzf_tab_version && git pr origin $fzf_tab_version && cd -
+else
+  git clone $fzf_tab_repo -o $fzf_tab_install_path -b $fzf_tab_version
+fi
+
+# ------
+# --- Configure tmux
+# ------
+
+
+echo "Bootstraping tmux"
+
+pip install --upgrade powerline-status psutil
