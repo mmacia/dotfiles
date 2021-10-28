@@ -1,6 +1,8 @@
 # Basic options
 --recurse=yes
 --tag-relative=yes
+--fields=+iaS
+--extras=+q
 
 # excludes
 --exclude=.git
@@ -9,6 +11,9 @@
 --exclude=vendor
 --exclude=build
 --exclude=tmp
+
+# C++
+--c++-kinds=+p
 
 # PHP
 --langmap=php:.engine.inc.module.theme.install.php

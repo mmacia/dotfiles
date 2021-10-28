@@ -170,8 +170,48 @@ let g:lens#width_resize_max = 80
 " cmake
 let g:cmake_build_dir_location = './build'
 
+function! CppFileToggle()
+  let file_path = expand("%")
+  let file_name = expand("%<")
+  let extension = split(file_path, '\.')[-1] " '\.' is how you really split on dot
+  let err_msg = "There is no file "
+
+  if extension == "cpp"
+    let next_file = join([file_name, ".h"], "")
+
+    if filereadable(next_file)
+      :e %<.h
+    else
+      echo join([err_msg, next_file], "")
+    endif
+  elseif extension == "h"
+    let next_file = join([file_name, ".cpp"], "")
+
+    if filereadable(next_file)
+      :e %<.cpp
+    else
+      echo join([err_msg, next_file], "")
+    endif
+  endif
+endfunction
+
+augroup filetype_cpp
+  autocmd!
+  au BufNewFile,BufRead *.cpp,*.h,*.cc,*.c nnoremap <leader>b :CMakeBuild<CR>
+  au BufNewFile,BufRead *.cpp,*.h,*.cc,*.c nnoremap <leader>q :CMakeClose<CR>
+  au BufNewFile,BufRead *.cpp,*.h,*.cc,*.c nnoremap <leader>g :CMakeGenerate<CR>
+  au BufNewFile,BufRead *.cpp,*.h          nnoremap <F3>      :call CppFileToggle()<CR>
+augroup END
+
 " vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+\ 'num_processes': 2,
+\ })
+set completeopt+=noinsert
 
 " LSP
 let g:lsp_diagnostics_enabled = 1
@@ -218,9 +258,46 @@ endif
 if executable('clangd')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'clangd',
-    \ 'cmd': {server_info->['clangd', '-background-index']},
+    \ 'cmd': {server_info->['clangd',
+    \                       '--background-index',
+    \                       '--all-scopes-completion',
+    \                       '--clang-tidy',
+    \                       '--completion-style=detailed',
+    \                       '--header-insertion-decorators',
+    \                       '--header-insertion=never',
+    \                       '--limit-results=250',
+    \                       '-j=2',
+    \                       '--pch-storage=memory']},
     \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
     \ })
 endif
 
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gD <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+  let g:lsp_format_sync_timeout = 1000
+  autocmd! BufWritePre *.rs,*.go,*.py call execute('LspDocumentFormatSync')
+
+  " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 " --- end LSP

@@ -51,18 +51,20 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 
-" vim behaviour
-command! W :w " for mistyping :w as :W
-let mapleader = ',' " remap leader key to ,
-
-
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles  " load custom bundles
 endif
 
+" vim behaviour
+command! W :w " for mistyping :w as :W
+let mapleader = ',' " remap leader key to ,
+
 " handle misstypings
 command! W :w
 command! Q :q
+
+" basic remaps
+nnoremap <leader>r :redraw!<CR>:nohlsearch<CR>
 
 set directory=~/.vim/swp//,/tmp//   " directories for .swp files
 

@@ -1,5 +1,3 @@
-" Ansible managed
-
 if &compatible
   set nocompatible
 end
@@ -26,6 +24,13 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'chaoren/vim-wordmotion'
 Plugin 'vim-scripts/vim-tags'
 
+" omnicompletion
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'                  " deoplete dep
+Plugin 'roxma/vim-hug-neovim-rpc'         " deoplete dep
+Plugin 'lighttiger2505/deoplete-vim-lsp'  " completion based on LSP
+
+
 " --- Crystal plugins
 Plugin 'vim-crystal/vim-crystal' " crystal syntax
 
@@ -39,6 +44,7 @@ Plugin 'vim-ruby/vim-ruby'
 " --- C++ plugins
 Plugin 'peterhoeg/vim-qml'       " QML syntax
 Plugin 'cdelledonne/vim-cmake'   " CMake integration
+Plugin 'bfrg/vim-cpp-modern'     " better syntax highlight
 
 " --- Themes
 Plugin 'morhetz/gruvbox'
