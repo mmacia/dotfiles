@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# install vim and C++ LSP server
+sudo aptitude install -y \
+    vim-nox \
+    clangd-12 \
+    clang-format \
+    python3 \
+    python3-pip
+
+# install python deps
+pip install --upgrade \
+    'jedi<0.18.0' \
+    'flake8>=3.9.2,<4' \
+    rope \
+    mccabe \
+    'pycodestyle<2.8.0,>=2.7.0' \
+    pydocstyle \
+    'autopep8<1.6.0' \
+    pyls-mypy \
+    pyls-isort \
+    pyls-black \
+    python-language-server[all] \
+    pynvim
+
+if command -v vim >/dev/null 2>&1; then
+    echo "Bootstraping Vim"
+    vim +PluginUpdate +PluginClean +qall
+fi

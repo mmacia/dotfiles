@@ -1,0 +1,56 @@
+#!/bin/bash
+
+reset
+sudo apt-get update && sudo apt-get dist-upgrade -y
+sudo apt-get install -y \
+  aptitude \
+  ack \
+  autojump \
+  blender \
+  build-essential \
+  chromium-browser \
+  cmus \
+  digikam \
+  deborphan \
+  default-jre \
+  ffmpegthumbs \
+  firefox \
+  firefox-locale-es \
+  filelight \
+  gawk \
+  git \
+  intel-gpu-tools \
+  jq \
+  kde-config-tablet \
+  krita \
+  kcolorchooser \
+  kruler \
+  kubuntu-restricted-addons \
+  meld \
+  mediainfo \
+  mkvtoolnix-gui \
+  mpv \
+  libnotify-bin \
+  okteta \
+  pandoc \
+  partitionmanager \
+  plasma-applet-redshift-control \
+  powertop \
+  pulseeffects \
+  redshift \
+  sshpass \
+  sqlite3 \
+  sweeper \
+  tldr \
+  translate-shell \
+  tree \
+  unclutter \
+  unrar \
+  vlc \
+  wget \
+  whois \
+  xclip \
+  xsel \
+  zstd
+
+sudo aptitude update && sudo aptitude dist-upgrade
