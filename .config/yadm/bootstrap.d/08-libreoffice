@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Bootstrap libreoffice"
+
+repository_file="/etc/apt/sources.list.d/libreoffice-ubuntu-ppa-$(lsb_release -cs).list"
+
+if [ ! -f "$repository_file" ]; then
+  sudo aptitude install -y software-properties-common
+
+  sudo add-apt-repository ppa:libreoffice/ppa
+  sudo aptitude update && sudo aptitude install -y \
+    libreoffice \
+    libreoffice-kf5 \
+    libreoffice-plasma \
+    libreoffice-qt5 \
+    libreoffice-l10n-es \
+    libreoffice-l10n-en-gb
+    
+fi
