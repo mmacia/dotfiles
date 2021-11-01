@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Bootstrap Xournal++"
+
+repository_file="/etc/apt/sources.list.d/apandada1-ubuntu-xournalpp-stable-$(lsb_release -cs).list"
+
+if [ ! -f "$repository_file" ]; then
+  sudo aptitude install -y software-properties-common
+
+  sudo add-apt-repository ppa:apandada1/xournalpp-stable
+  sudo aptitude update && sudo aptitude install -y \
+    xournalpp
+fi
