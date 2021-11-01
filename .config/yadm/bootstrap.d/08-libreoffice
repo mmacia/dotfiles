@@ -15,5 +15,4 @@ if [ ! -f "$repository_file" ]; then
     libreoffice-qt5 \
     libreoffice-l10n-es \
     libreoffice-l10n-en-gb
-    
 fi
