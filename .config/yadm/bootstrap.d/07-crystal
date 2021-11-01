@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Bootstrap crystal"
+
+if [ ! -f "/etc/apt/sources.list.d/crystal.list" ]; then
+  curl -fsSL https://crystal-lang.org/install.sh | sudo bash -s -- --channel=stable
+fi
