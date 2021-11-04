@@ -41,7 +41,7 @@ ohmyzsh_repo='https://github.com/robbyrussell/oh-my-zsh.git'
 ohmyzsh_install_path=${HOME}/.oh-my-zsh
 
 if [ ! -d "$ohmyzsh_install_path" ]; then
-  git clone $ohmyzsh_repo -o $ohmyzsh_install_path
+  git clone $ohmyzsh_repo $ohmyzsh_install_path
   mkdir -p ${ohmyzsh_install_path}/custom/themes
   ln -s ${XDG_CONFIG_HOME}/yadm/robbyrussell.zsh-theme ${ohmyzsh_install_path}/custom/themes/robbyrussell.zsh-theme
   chsh -s /usr/bin/zsh
@@ -54,7 +54,7 @@ for plugin in zsh-syntax-highlighting zsh-autosuggestions zsh-completions; do
   if [ -d "$plugin_dir" ]; then
     cd $plugin_dir && git fetch -p && git pr origin master && cd -
   else
-    git clone https://github.com/zsh-users/${plugin}.git -o $plugin_dir
+    git clone https://github.com/zsh-users/${plugin}.git $plugin_dir
   fi
 done
 
@@ -63,7 +63,7 @@ fzf_tab_install_path=${ohmyzsh_install_path}/custom/plugins/fzf-tab
 if [ -d "$fzf_tab_install_path" ]; then
   cd $fzf_tab_install_path && git fetch -p && git co $fzf_tab_version && git pr origin $fzf_tab_version && cd -
 else
-  git clone $fzf_tab_repo -o $fzf_tab_install_path -b $fzf_tab_version
+  git clone $fzf_tab_repo $fzf_tab_install_path -b $fzf_tab_version
 fi
 
 # ------

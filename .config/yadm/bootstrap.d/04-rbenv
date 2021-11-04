@@ -27,5 +27,5 @@ sudo aptitude install -y \
 if [ -d "$rbenv_install_path" ]; then
   cd ${rbenv_install_path} && git fetch -p && git checkout $rbenv_version && cd -
 else
-  git clone $rbenv_repo -o $rbenv_install_path -b $rbenv_version
+  git clone $rbenv_repo $rbenv_install_path -b $rbenv_version
 fi
