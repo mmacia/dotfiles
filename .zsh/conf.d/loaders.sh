@@ -5,8 +5,8 @@
 
 # initialize pyenv if present
 if [ -d "$HOME/.pyenv" ]; then
-  export PATH=$HOME/.pyenv/bin:$PATH;
-  eval "$(pyenv init -)"
+  export PATH="$HOME/.pyenv/bin:$PATH";
+  eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
   . $(pyenv root)/completions/pyenv.zsh
 fi
