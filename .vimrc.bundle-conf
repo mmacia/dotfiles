@@ -122,7 +122,6 @@ augroup END
 augroup filetype_text
   autocmd!
   autocmd FileType text,tex,markdown set textwidth=80
-  autocmd FileType text,tex,markdown DittoOn
 augroup END
 
 """"""""""""""""""""""""""""""""""""""

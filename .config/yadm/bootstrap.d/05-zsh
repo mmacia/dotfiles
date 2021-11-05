@@ -24,7 +24,7 @@ fzf_tab_repo='https://github.com/Aloxaf/fzf-tab.git'
 if [ -d "$fzf_install_path" ]; then
   cd ${fzf_install_path} && sudo git fetch -p && sudo git checkout $fzf_version && cd -
 else
-  sudo git clone $fzf_repo -o $fzf_install_path -b $fzf_version
+  sudo git clone $fzf_repo $fzf_install_path -b $fzf_version
 fi
 
 sudo $fzf_install_path/install --all --xdg --no-update-rc
