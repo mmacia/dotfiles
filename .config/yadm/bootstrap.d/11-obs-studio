@@ -6,8 +6,8 @@ echo "Bootstrap OBS Studio"
 repository_file="/etc/apt/sources.list.d/obsproject-ubuntu-obs-studio-$(lsb_release -cs).list"
 
 if [ ! -f "$repository_file" ]; then
-  sudo add-apt-repository ppa:obsproject/obs-studio
-  sudo aptitude update && sudo aptitude -y \
+  sudo add-apt-repository -y ppa:obsproject/obs-studio
+  sudo aptitude update && sudo aptitude install -y \
     ffmpeg \
     v4l2loopback-dkms \
     obs-studio
