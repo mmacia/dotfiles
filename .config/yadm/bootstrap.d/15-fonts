@@ -1,0 +1,87 @@
+#!/bin/bash
+
+echo "Bootsrap fonts"
+
+# install fonts.conf
+if [ ! -f ~/.fonts.conf ]; then
+  echo '<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd">' \
+  '<fontconfig>' \
+  ' <dir>~/.fonts</dir>' \
+  '</fontconfig>' > ~/.fonts.conf
+fi
+
+fonts_dir="${HOME}/.local/share/fonts"
+
+if [ ! -d "${fonts_dir}" ]; then
+  echo "mkdir -p $fonts_dir"
+  mkdir -p "${fonts_dir}"
+fi
+
+# install core fonts
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+sudo aptitude install -y \
+  ttf-mscorefonts-installer \
+  fonts-roboto \
+  ttf-ubuntu-font-family \
+  cabextract \
+  fonts-symbola
+
+# install windows 10 fonts
+win10_count=$(find $fonts_dir/win10 -type f -name "calibri*" 2> /dev/null | wc -l)
+win10_fonts_bundle=/keybase/private/mmacia/fonts/win10.tar.zst
+
+if [[ -f $win10_fonts_bundle && $win10_count -eq 0 ]]; then
+  tar -axvf ${win10_fonts_bundle} --directory ${fonts_dir}
+fi
+
+# install FiraCode
+fira_code_count=$(find $fonts_dir -type f -name "FiraCode*" 2> /dev/null | wc -l)
+
+if [[ $fira_code_count -eq 0 ]]; then
+  version=5.2
+  zip=/tmp/Fira_Code_v${version}.zip
+  dir=${fonts_dir}/firacode
+  curl --fail --location --show-error https://github.com/tonsky/FiraCode/releases/download/${version}/Fira_Code_v${version}.zip --output ${zip}
+  mkdir -p ${dir}
+  unzip -o -q -d ${dir} ${zip}
+  rm ${zip}
+fi
+
+# install Macintosh fonts
+mac_count=$(find $fonts_dir/mac -type f -name "AppleGaramond*" 2> /dev/null | wc -l)
+mac_fonts_bundle=/keybase/private/mmacia/fonts/mac.tar.zst
+
+if [[ -f $mac_fonts_bundle && $mac_count -eq 0 ]]; then
+  tar -axvf ${mac_fonts_bundle} --directory ${fonts_dir}
+fi
+
+# instal Monaco font
+monaco_count=$(find $fonts_dir/monaco -type f -name "monaco*" 2> /dev/null | wc -l)
+monaco_fonts_bundle=/keybase/private/mmacia/fonts/monaco.tar.zst
+
+if [[ -f $monaco_fonts_bundle && $monaco_count -eq 0 ]]; then
+  tar -axvf ${monaco_fonts_bundle} --directory ${fonts_dir}
+fi
+
+# install ProFont
+pro_font_count=$(find $fonts_dir/profont -type f -name "ProFont*" 2> /dev/null | wc -l)
+
+if [[ $pro_font_count -eq 0 ]]; then
+  zip=/tmp/profont.zip
+  dir=${fonts_dir}/profont
+  curl --fail --location --show-error https://tobiasjung.name/downloadfile.php\?file=ProFontWinTweaked.zip --output ${zip}
+  mkdir -p ${dir}
+  unzip -o -q -d ${dir} ${zip}
+  rm ${zip}
+fi
+# ...
+
+# install Helvetica fonts
+helvetica_count=$(find $fonts_dir/helvetica -type f -name "Helvetica*" 2> /dev/null | wc -l)
+helvetica_fonts_bundle=/keybase/private/mmacia/fonts/helvetica.tar.zst
+
+if [[ -f $helvetica_fonts_bundle && $helvetica_count -eq 0 ]]; then
+  tar -axvf ${helvetica_fonts_bundle} --directory ${fonts_dir}
+fi
+
+fc-cache -rf
