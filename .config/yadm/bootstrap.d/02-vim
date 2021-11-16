@@ -3,6 +3,7 @@
 # install vim and C++ LSP server
 sudo aptitude install -y \
     vim-nox \
+    exuberant-ctags \
     clangd-12 \
     clang-format \
     python3 \

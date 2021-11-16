@@ -13,7 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
-Plugin 'vim-scripts/MatchTag'
+Plugin 'leafOfTree/vim-matchtag'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -55,6 +55,7 @@ Plugin 'junegunn/limelight.vim'         " focus on current paragraph
 Plugin 'vimwiki/vimwiki'                " wiki for vim
 
 " --- Other
+Plugin 'mattn/emmet-vim'                " HTML expands
 Plugin 'vim-scripts/loremipsum'         " Lorem ipsum generator
 Plugin 'rstacruz/sparkup'               " auto generate HTML
 Plugin 'bling/vim-airline'              " Airline status
