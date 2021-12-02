@@ -243,6 +243,7 @@ augroup END
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
 \ 'num_processes': 2,
+\ 'on_insert_enter': v:false,
 \ })
 set completeopt+=noinsert
 
