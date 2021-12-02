@@ -1,5 +1,3 @@
-# Ansible managed
-
 # Path to your oh-my-zsh installation.
 ZSH=/home/mmacia/.oh-my-zsh
 
@@ -49,7 +47,11 @@ DISABLE_AUTO_UPDATE="false"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # SSH ids
-zstyle :omz:plugins:ssh-agent identities id_xps9360 id_ontruck
+{% if yadm.host == "xps13-9305" %}
+zstyle :omz:plugins:ssh-agent identities id_circular
+{% else %}
+zstyle :omz:plugins:ssh-agent identities id_xps9360 id_circular
+{% endif %}
 
 zstyle ":completion:*:git-checkout:*" sort false
 zstyle ':completion:*:descriptions' format '[%d]'
