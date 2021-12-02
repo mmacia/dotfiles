@@ -203,7 +203,41 @@ augroup filetype_cpp
 augroup END
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
+let wiki = {}
+let wiki.path = '~/Documents/wiki'
+let wiki.nested_syntaxes = {
+  \ 'python': 'python',
+  \ 'c++': 'cpp',
+  \ 'ruby': 'ruby',
+  \ 'crystal': 'crystal',
+  \ 'rust': 'rust',
+  \}
+let g:vimwiki_list = [wiki]
+
+augroup ft_vimwiki
+  au!
+
+  au BufRead,BufNewFile *.wiki set filetype=vimwiki
+
+  " Automatically update diary links.
+  au BufEnter diary.md :VimwikiDiaryGenerateLinks
+  au BufEnter diary.wiki :VimwikiDiaryGenerateLinks
+
+  " Automatically generate a header for new wiki pages.
+  " NOTE: Waiting for g:vimwiki_auto_header to get added. Think it's still in the dev branch.
+  " SOURCE: https://github.com/vimwiki/vimwiki/issues/245
+  au BufNewFile *.wiki :r! echo = %:t:r =
+  au BufNewFile *.wiki :norm kddo
+
+  au FileType vimwiki setlocal textwidth=80
+
+  " Prevent remapping <CR> so i can interact with an open OmniCompletion popup:
+  " SOURCE: https://github.com/vimwiki/vimwiki/blob/master/doc/vimwiki.txt#L1491
+  " SOURCE: https://github.com/vimwiki/vimwiki/issues/283
+  au FileType vimwiki inoremap <silent> <buffer> <expr> <CR>   pumvisible() ? "\<CR>"   : "<Esc>:VimwikiReturn 1 5<CR>"
+  au FileType vimwiki inoremap <silent> <buffer> <expr> <S-CR> pumvisible() ? "\<S-CR>" : "<Esc>:VimwikiReturn 2 2<CR>"
+augroup END
+
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
