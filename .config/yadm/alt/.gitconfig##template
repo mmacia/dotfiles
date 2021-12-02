@@ -1,0 +1,29 @@
+[user]
+    name = Moisès Macià
+{% if yadm.hostname == "xps13-9305" %}
+    email = moises@circular.io
+{% else %}
+    email = mmacia@gmail.com
+{% endif %}
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    df = diff
+    cp = cherry-pick
+    pr = pull --rebase --stat
+
+    cam = commit --amend
+    ours = checkout --ours
+    theirs = checkuot --theirs
+
+[core]
+    editor = vim
+
+[color]
+    ui = true
+
+[remote "origin"]
+    prune = true  # remove local branch when do a fetch/pull if remote was deleted
