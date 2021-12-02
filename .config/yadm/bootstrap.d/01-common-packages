@@ -17,11 +17,14 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   firefox \
   firefox-locale-es \
   filelight \
+  fdupes \
+  findimagedupes \
   gawk \
   git \
   htop \
   intel-gpu-tools \
   jq \
+  kalendar \
   kde-config-tablet \
   krita \
   kcolorchooser \
