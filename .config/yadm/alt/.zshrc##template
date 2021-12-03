@@ -72,7 +72,7 @@ export EDITOR=vim
 export SHELL=zsh
 export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="screen-256color"
+export TERM="xterm-256color"
 export XDG_CONFIG_HOME=$HOME/.config
 
 source $ZSH/oh-my-zsh.sh
