@@ -2,6 +2,11 @@
 
 set -eu
 
+# sparse checkout
+yadm gitconfig core.sparseCheckout true
+yadm sparse-checkout set '/*' '!README.md' '!LICENSE'
+
+
 # Directory to look for bootstrap executables in
 BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
 
