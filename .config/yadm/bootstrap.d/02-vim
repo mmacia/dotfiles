@@ -2,6 +2,9 @@
 
 # install vim and C++ LSP server
 sudo aptitude install -y \
+    aspell \
+    aspell-en \
+    aspell-es \
     vim-nox \
     exuberant-ctags \
     clangd-12 \

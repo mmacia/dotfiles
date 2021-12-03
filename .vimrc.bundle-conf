@@ -11,6 +11,7 @@ let maplocalleader = '\'
 set wildignore+=cache,build,log,logs,.gems,__pycache__,.DS_Store,.coverage,htmlcov,coverage
 set wildignore+=*.pyc,*.o,*.obj,*.swp,*.class
 set spelllang=es_es,en_us
+set complete+=kspell
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -121,7 +122,9 @@ augroup END
 " Text file tweaks
 augroup filetype_text
   autocmd!
-  autocmd FileType text,tex,markdown set textwidth=80
+  autocmd FileType text,tex,markdown,vimwiki set textwidth=80
+  autocmd FileType text,tex,markdown,vimwiki setlocal spell
+  autocmd FileType gitcommit setlocal spell
 augroup END
 
 """"""""""""""""""""""""""""""""""""""
