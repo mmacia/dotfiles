@@ -23,3 +23,8 @@ fi
 if type "autojump" > /dev/null; then
   . /usr/share/autojump/autojump.sh
 fi
+
+# add node to path
+if [ -d /opt/node ]; then
+  export PATH=/opt/node/bin:$PATH
+fi
