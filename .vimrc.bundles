@@ -65,6 +65,7 @@ Plugin 'shime/vim-livedown'             " Live preview for markdown
 Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
 Plugin 'AndrewRadev/sideways.vim'       " Swap arguments
 Plugin 'prabirshrestha/vim-lsp'         " LSP support
+Plugin 'tpope/vim-markdown'             " Markdown syntax
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
