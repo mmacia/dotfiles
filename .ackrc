@@ -1,7 +1,6 @@
 # only search with case sensitivity if there is mixed case
 --smart-case
-# follow symlinks
---follow
+--nofollow
 
 # ignore dirs
 --ignore-dir=log
