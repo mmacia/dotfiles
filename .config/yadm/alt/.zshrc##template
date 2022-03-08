@@ -62,7 +62,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git git-extras gitignore rake ssh-agent docker copybuffer copydir copyfile zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
+plugins=(common-aliases git git-extras gitignore rake ssh-agent docker copybuffer copypath copyfile zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
 
 # User configuration
 
