@@ -207,7 +207,9 @@ augroup END
 
 " vimwiki
 let wiki = {}
-let wiki.path = '~/Documents/wiki'
+let wiki.path = '~/Documents/Wiki'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
 let wiki.nested_syntaxes = {
   \ 'python': 'python',
   \ 'c++': 'cpp',
