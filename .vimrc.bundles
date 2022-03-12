@@ -1,76 +1,72 @@
-if &compatible
-  set nocompatible
-end
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-filetype off
-  set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 
 " common plugins
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'Raimondi/delimitMate'
-Plugin 'leafOfTree/vim-matchtag'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular.git'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'chaoren/vim-wordmotion'
-Plugin 'vim-scripts/vim-tags'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'leafOfTree/vim-matchtag'
+Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'git://github.com/godlygeek/tabular.git'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'chaoren/vim-wordmotion'
+Plug 'vim-scripts/vim-tags'
 
 " omnicompletion
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'                  " deoplete dep
-Plugin 'roxma/vim-hug-neovim-rpc'         " deoplete dep
-Plugin 'lighttiger2505/deoplete-vim-lsp'  " completion based on LSP
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'                  " deoplete dep
+Plug 'roxma/vim-hug-neovim-rpc'         " deoplete dep
+Plug 'lighttiger2505/deoplete-vim-lsp'  " completion based on LSP
 
 
 " --- Crystal plugins
-Plugin 'vim-crystal/vim-crystal' " crystal syntax
+Plug 'vim-crystal/vim-crystal', { 'for': 'crystal' } " crystal syntax
 
 " --- Python plugins
-Plugin 'nvie/vim-flake8'         " Style checker
-Plugin 'davidhalter/jedi-vim'    " Autocomplete
+Plug 'nvie/vim-flake8', { 'for': 'python' }         " Style checker
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }    " Autocomplete
 
 " --- Ruby / Rails plugins
-Plugin 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 " --- C++ plugins
-Plugin 'peterhoeg/vim-qml'       " QML syntax
-Plugin 'cdelledonne/vim-cmake'   " CMake integration
-Plugin 'bfrg/vim-cpp-modern'     " better syntax highlight
+Plug 'peterhoeg/vim-qml', { 'for': 'cpp' }       " QML syntax
+Plug 'cdelledonne/vim-cmake', { 'for': 'cpp' }   " CMake integration
+Plug 'bfrg/vim-cpp-modern', { 'for': 'cpp' }     " better syntax highlight
 
 " --- Themes
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " --- Writing
-Plugin 'junegunn/goyo.vim'              " distraction free writing
-Plugin 'junegunn/limelight.vim'         " focus on current paragraph
-Plugin 'vimwiki/vimwiki'                " wiki for vim
+Plug 'junegunn/goyo.vim'              " distraction free writing
+Plug 'junegunn/limelight.vim'         " focus on current paragraph
+Plug 'vimwiki/vimwiki'                " wiki for vim
 
 " --- Other
-Plugin 'mattn/emmet-vim'                " HTML expands
-Plugin 'vim-scripts/loremipsum'         " Lorem ipsum generator
-Plugin 'rstacruz/sparkup'               " auto generate HTML
-Plugin 'bling/vim-airline'              " Airline status
-Plugin 'vim-scripts/buffet.vim'         " Buffer manager
-Plugin 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
-Plugin 'shime/vim-livedown'             " Live preview for markdown
-Plugin 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
-Plugin 'AndrewRadev/sideways.vim'       " Swap arguments
-Plugin 'prabirshrestha/vim-lsp'         " LSP support
-Plugin 'tpope/vim-markdown'             " Markdown syntax
+Plug 'mattn/emmet-vim'                " HTML expands
+Plug 'vim-scripts/loremipsum'         " Lorem ipsum generator
+Plug 'rstacruz/sparkup'               " auto generate HTML
+Plug 'bling/vim-airline'              " Airline status
+Plug 'vim-scripts/buffet.vim'         " Buffer manager
+Plug 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
+Plug 'shime/vim-livedown'             " Live preview for markdown
+Plug 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
+Plug 'AndrewRadev/sideways.vim'       " Swap arguments
+Plug 'prabirshrestha/vim-lsp'         " LSP support
+Plug 'tpope/vim-markdown'             " Markdown syntax
+
+call plug#end()
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
-
-call vundle#end()
-filetype on
