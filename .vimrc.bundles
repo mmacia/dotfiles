@@ -63,6 +63,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
 Plug 'AndrewRadev/sideways.vim'       " Swap arguments
 Plug 'prabirshrestha/vim-lsp'         " LSP support
 Plug 'tpope/vim-markdown'             " Markdown syntax
+Plug 'airblade/vim-gitgutter'         " Git gutter symbols
 
 call plug#end()
 
