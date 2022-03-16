@@ -27,9 +27,11 @@ Plug 'roxma/nvim-yarp'                  " deoplete dep
 Plug 'roxma/vim-hug-neovim-rpc'         " deoplete dep
 Plug 'lighttiger2505/deoplete-vim-lsp'  " completion based on LSP
 
+" Testing
+Plug 'vim-test/vim-test', { 'for': ['ruby', 'python', 'crystal', 'javascript'] }   " run tests easilly
 
 " --- Crystal plugins
-Plug 'vim-crystal/vim-crystal', { 'for': 'crystal' } " crystal syntax
+Plug 'vim-crystal/vim-crystal'   " crystal syntax
 
 " --- Python plugins
 Plug 'nvie/vim-flake8', { 'for': 'python' }         " Style checker
@@ -64,6 +66,7 @@ Plug 'AndrewRadev/sideways.vim'       " Swap arguments
 Plug 'prabirshrestha/vim-lsp'         " LSP support
 Plug 'tpope/vim-markdown'             " Markdown syntax
 Plug 'airblade/vim-gitgutter'         " Git gutter symbols
+Plug 'tpope/vim-endwise'              " add `end` to code blocks if needed
 
 call plug#end()
 
