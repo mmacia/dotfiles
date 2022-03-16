@@ -27,24 +27,9 @@ map <C-Right> <ESC>:bnext!<CR>
 " open tag under cursor in new tab
 nmap <C-Enter> <C-w><C-]><C-w>T
 
-" Tabularize shortcuts
-if exists(":Tabularize")
-  " variable assigments
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-
-  " JSON objects
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-
-  " PHP array arrows
-  nmap <Leader>a> :Tabularize /=><CR>
-  vmap <Leader>a> :Tabularize /=><CR>
-
-  " PHP variables
-  nmap <Leader>a$ :Tabularize /\$\w*<CR>
-  vmap <Leader>a$ :Tabularize /\$\w*<CR>
-endif
+" Easy align shortcuts
+xmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
 
 " Swap arguments
 nmap sh :SidewaysJumpLeft<CR>
