@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Bootstrap Syncthing"
+
+syncthing_running=$(docker inspect --format="{{.State.Running}}" syncthing 2> /dev/null)
+
+if [ "$syncthing_running" == "false" ]; then
+  docker-compose -f ~/.local/share/syncthing/docker-compose.yml --env-file ~/.config/sycthing.conf up -d
+fi

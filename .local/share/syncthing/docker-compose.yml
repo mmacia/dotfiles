@@ -1,0 +1,17 @@
+---
+version: "3"
+services:
+  syncthing:
+    image: syncthing/syncthing:1.19
+    container_name: syncthing
+    hostname: ${HOST}
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${VOLUME_MOUNT}:/var/syncthing
+    ports:
+      - ${PRIVATE_NET_ADDR}:8384:8384
+      - 22000:22000/tcp
+      - 22000:22000/udp
+    restart: unless-stopped
