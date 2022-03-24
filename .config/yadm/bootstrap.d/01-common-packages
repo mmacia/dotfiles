@@ -70,3 +70,5 @@ ACCEPT_EULA=Y sudo apt-get install -y \
 
 sudo aptitude update && sudo aptitude dist-upgrade
 check-language-support | xargs sudo aptitude install -y
+
+sudo snap install telegram-desktop
