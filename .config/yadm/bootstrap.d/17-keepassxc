@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Bootstrap Keepassxc"
+
+version=2.7.0
+appimage_file=$HOME/.local/bin/KeePassXC-${version}-x86_64.AppImage
+appimage_url=https://github.com/keepassxreboot/keepassxc/releases/download/${version}/KeePassXC-${version}-x86_64.AppImage
+
+if [ ! -f "$appimage_file" ]; then
+  wget -O $appimage_file $appimage_url
+  chmod +x $appimage_file
+  ln -s $appimage_file $HOME/.local/bin/keepassxc
+
+  systemctl daemon-reload --user
+  systemctl start ssh-agent --user
+  systemctl enable ssh-agent --user
+fi

@@ -25,7 +25,6 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   intel-gpu-tools \
   jq \
   kalendar \
-  keepassxc \
   kde-config-tablet \
   krita \
   kcolorchooser \

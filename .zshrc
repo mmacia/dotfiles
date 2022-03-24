@@ -46,13 +46,6 @@ DISABLE_AUTO_UPDATE="false"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# SSH ids
-{% if yadm.host == "xps13-9305" %}
-zstyle :omz:plugins:ssh-agent identities id_circular
-{% else %}
-zstyle :omz:plugins:ssh-agent identities id_xps9360 id_circular
-{% endif %}
-
 zstyle ":completion:*:git-checkout:*" sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -62,7 +55,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git git-extras gitignore rake ssh-agent docker copybuffer copypath copyfile zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
+plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath copyfile zsh-syntax-highlighting zsh-autosuggestions fzf-tab)
 
 # User configuration
 
@@ -74,6 +67,7 @@ export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 export XDG_CONFIG_HOME=$HOME/.config
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 source $ZSH/oh-my-zsh.sh
 
