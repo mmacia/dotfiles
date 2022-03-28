@@ -59,15 +59,11 @@ plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath
 
 # User configuration
 
-export PATH=$HOME/.local/bin:$PATH
-
 export EDITOR=vim
 export SHELL=zsh
 export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
-export XDG_CONFIG_HOME=$HOME/.config
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 source $ZSH/oh-my-zsh.sh
 
