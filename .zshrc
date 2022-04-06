@@ -115,13 +115,3 @@ export KEYTIMEOUT=1
 if [ -f $HOME/.zsh/aliases ]; then
   source $HOME/.zsh/aliases
 fi
-
-# Load custom configs
-
-if [ -d $HOME/.zsh/conf.d ]; then
-  for i in $HOME/.zsh/conf.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-fi
