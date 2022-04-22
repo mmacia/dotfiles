@@ -14,6 +14,7 @@ sudo aptitude install -y \
 
 # install python deps
 pip install --upgrade \
+    'python-lsp-server<=1.3.3' \
     'jedi<0.18.0' \
     'flake8>=3.9.2,<4' \
     rope \
@@ -23,8 +24,10 @@ pip install --upgrade \
     'autopep8<1.6.0' \
     pyls-mypy \
     pyls-isort \
-    pyls-black \
+    python-lsp-black \
     python-language-server[all] \
+    pylint \
+    pyling_django \
     pynvim
 
 if command -v vim >/dev/null 2>&1; then
