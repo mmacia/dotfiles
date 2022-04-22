@@ -63,10 +63,17 @@ Plug 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
 Plug 'shime/vim-livedown'             " Live preview for markdown
 Plug 'Glench/Vim-Jinja2-Syntax'       " Jinja2 syntax
 Plug 'AndrewRadev/sideways.vim'       " Swap arguments
-Plug 'prabirshrestha/vim-lsp'         " LSP support
+
+if !has('nvim')
+  Plug 'prabirshrestha/vim-lsp'         " LSP support
+else
+  Plug 'neovim/nvim-lspconfig'          " LSP support
+endif
+
 Plug 'tpope/vim-markdown'             " Markdown syntax
 Plug 'airblade/vim-gitgutter'         " Git gutter symbols
 Plug 'tpope/vim-endwise'              " add `end` to code blocks if needed
+Plug 'github/copilot.vim'
 
 call plug#end()
 
