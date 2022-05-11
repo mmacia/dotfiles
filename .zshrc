@@ -115,3 +115,5 @@ export KEYTIMEOUT=1
 if [ -f $HOME/.zsh/aliases ]; then
   source $HOME/.zsh/aliases
 fi
+
+[ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
