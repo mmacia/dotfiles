@@ -39,6 +39,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }    " Autocomplete
 
 " --- Ruby / Rails plugins
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 " --- C++ plugins
 Plug 'peterhoeg/vim-qml', { 'for': 'cpp' }       " QML syntax
