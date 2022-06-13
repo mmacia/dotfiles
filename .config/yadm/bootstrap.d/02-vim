@@ -27,7 +27,7 @@ pip install --upgrade \
     python-lsp-black \
     python-language-server[all] \
     pylint \
-    pyling_django \
+    pylint_django \
     pynvim
 
 if command -v vim >/dev/null 2>&1; then
