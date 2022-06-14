@@ -117,3 +117,11 @@ if [ -f $HOME/.zsh/aliases ]; then
 fi
 
 [ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+
+# initialize rbenv if present
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH=$HOME/.rbenv/bin:$PATH;
+  export RBENV_ROOT=$HOME/.rbenv;
+  eval "$(rbenv init - zsh)";
+  . $RBENV_ROOT/completions/rbenv.zsh
+fi

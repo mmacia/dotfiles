@@ -1,8 +1,9 @@
 #!/bin/bash
 
 rbenv_version=v1.2.0
-rbenv_repo=git://github.com/rbenv/rbenv.git
+rbenv_repo=https://github.com/rbenv/rbenv.git
 rbenv_install_path=$HOME/.rbenv
+rbenv_build_version=v20220610
 
 # install dependencies
 sudo aptitude install -y \
@@ -25,7 +26,18 @@ sudo aptitude install -y \
 
 
 if [ -d "$rbenv_install_path" ]; then
-  cd ${rbenv_install_path} && git fetch -p && git checkout $rbenv_version && cd -
+  rbenv update
 else
   git clone $rbenv_repo $rbenv_install_path -b $rbenv_version
+
+  # install plugins
+  mkdir -p ${rbenv_install_path}/plugins
+
+  # ruby-build
+  cd ${rbenv_install_path}/plugins && git clone https://github.com/rbenv/ruby-build.git -b $rbenv_build_version
+  # rbenv-default-gems
+  cd ${rbenv_install_path}/plugins && git clone https://github.com/rbenv/rbenv-default-gems.git
+  echo "bundler\nrake" > ${rbenv_install_path}/default-gems
+  # rbenv-update
+  cd ${rbenv_install_path}/plugins && git clone https://github.com/rkh/rbenv-update.git
 fi
