@@ -56,6 +56,7 @@ Plug 'vimwiki/vimwiki'                " wiki for vim
 
 " --- Other
 Plug 'mattn/emmet-vim'                " HTML expands
+Plug 'mattn/webapi-vim'               " Emmet dependency
 Plug 'vim-scripts/loremipsum'         " Lorem ipsum generator
 Plug 'rstacruz/sparkup'               " auto generate HTML
 Plug 'bling/vim-airline'              " Airline status
