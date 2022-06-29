@@ -134,11 +134,8 @@ let g:ack_autofold_results = 1
 " DelimitMate
 let delimitMate_smart_quotes = 1
 
-" Ctrl+P
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+" FZF
+let g:fzf_history_dir = $HOME.'/.cache/fzf'
 
 " Vim airline
 let g:airline_powerline_fonts = 1

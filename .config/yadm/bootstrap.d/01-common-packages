@@ -4,8 +4,8 @@ reset
 sudo apt-get update && sudo apt-get dist-upgrade -y && \
 ACCEPT_EULA=Y sudo apt-get install -y \
   aptitude \
-  ack \
   autojump \
+  bat \
   blender \
   build-essential \
   chromium-browser \
@@ -49,6 +49,7 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   powertop \
   pulseeffects \
   redshift \
+  silversearcher-ag \
   sshpass \
   sqlite3 \
   sweeper \
