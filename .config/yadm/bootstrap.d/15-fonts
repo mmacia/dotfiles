@@ -28,10 +28,10 @@ sudo aptitude install -y \
 
 # install windows 10 fonts
 win10_count=$(find $fonts_dir/win10 -type f -name "calibri*" 2> /dev/null | wc -l)
-win10_fonts_bundle=/keybase/private/mmacia/fonts/win10.tar.zst
+win10_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/win10.tar.zst
 
-if [[ -f $win10_fonts_bundle && $win10_count -eq 0 ]]; then
-  tar -axvf ${win10_fonts_bundle} --directory ${fonts_dir}
+if [[ -f "$win10_fonts_bundle" && $win10_count -eq 0 ]]; then
+  tar -axvf "${win10_fonts_bundle}" --directory ${fonts_dir}
 fi
 
 # install FiraCode
@@ -49,18 +49,18 @@ fi
 
 # install Macintosh fonts
 mac_count=$(find $fonts_dir/mac -type f -name "AppleGaramond*" 2> /dev/null | wc -l)
-mac_fonts_bundle=/keybase/private/mmacia/fonts/mac.tar.zst
+mac_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/mac.tar.zst
 
-if [[ -f $mac_fonts_bundle && $mac_count -eq 0 ]]; then
-  tar -axvf ${mac_fonts_bundle} --directory ${fonts_dir}
+if [[ -f "$mac_fonts_bundle" && $mac_count -eq 0 ]]; then
+  tar -axvf "${mac_fonts_bundle}" --directory ${fonts_dir}
 fi
 
 # instal Monaco font
 monaco_count=$(find $fonts_dir/monaco -type f -name "monaco*" 2> /dev/null | wc -l)
-monaco_fonts_bundle=/keybase/private/mmacia/fonts/monaco.tar.zst
+monaco_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/monaco.tar.zst
 
-if [[ -f $monaco_fonts_bundle && $monaco_count -eq 0 ]]; then
-  tar -axvf ${monaco_fonts_bundle} --directory ${fonts_dir}
+if [[ -f "$monaco_fonts_bundle" && $monaco_count -eq 0 ]]; then
+  tar -axvf "${monaco_fonts_bundle}" --directory ${fonts_dir}
 fi
 
 # install ProFont
@@ -78,10 +78,10 @@ fi
 
 # install Helvetica fonts
 helvetica_count=$(find $fonts_dir/helvetica -type f -name "Helvetica*" 2> /dev/null | wc -l)
-helvetica_fonts_bundle=/keybase/private/mmacia/fonts/helvetica.tar.zst
+helvetica_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/helvetica.tar.zst
 
-if [[ -f $helvetica_fonts_bundle && $helvetica_count -eq 0 ]]; then
-  tar -axvf ${helvetica_fonts_bundle} --directory ${fonts_dir}
+if [[ -f "$helvetica_fonts_bundle" && $helvetica_count -eq 0 ]]; then
+  tar -axvf "${helvetica_fonts_bundle}" --directory ${fonts_dir}
 fi
 
 fc-cache -rf

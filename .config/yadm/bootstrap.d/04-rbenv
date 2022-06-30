@@ -37,7 +37,7 @@ else
   cd ${rbenv_install_path}/plugins && git clone https://github.com/rbenv/ruby-build.git -b $rbenv_build_version
   # rbenv-default-gems
   cd ${rbenv_install_path}/plugins && git clone https://github.com/rbenv/rbenv-default-gems.git
-  echo "bundler\nrake\nsolargraph\nforeman" > ${rbenv_install_path}/default-gems
+  echo -e "bundler\nrake\nsolargraph\nforeman" > ${rbenv_install_path}/default-gems
   # rbenv-update
   cd ${rbenv_install_path}/plugins && git clone https://github.com/rkh/rbenv-update.git
 fi
