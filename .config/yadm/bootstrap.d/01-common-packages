@@ -18,6 +18,7 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   firefox-locale-es \
   filelight \
   fdupes \
+  fd-find \
   findimagedupes \
   gawk \
   git \

@@ -8,7 +8,7 @@ let mapleader = ','    " remap leader key to ,
 let maplocalleader = '\'
 
 
-set wildignore+=cache,build,log,logs,.gems,__pycache__,.DS_Store,.coverage,htmlcov,coverage
+set wildignore+=cache,build,log,logs,.gems,__pycache__,.DS_Store,.coverage,htmlcov,coverage,tmp,node_modules
 set wildignore+=*.pyc,*.o,*.obj,*.swp,*.class
 set spelllang=es_es,en_us
 set complete+=kspell
