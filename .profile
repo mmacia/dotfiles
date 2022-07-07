@@ -20,6 +20,14 @@ if [ -d "$HOME/.pyenv" ]; then
   . $(pyenv root)/completions/pyenv.zsh
 fi
 
+# initialize rbenv if present
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH=$HOME/.rbenv/bin:$PATH;
+  export RBENV_ROOT=$HOME/.rbenv;
+  eval "$(rbenv init -)";
+  . $RBENV_ROOT/completions/rbenv.zsh
+fi
+
 # load autojump if present
 if type "autojump" > /dev/null; then
   . /usr/share/autojump/autojump.sh
