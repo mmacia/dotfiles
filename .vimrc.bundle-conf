@@ -137,6 +137,14 @@ let delimitMate_smart_quotes = 1
 " FZF
 let g:fzf_history_dir = $HOME.'/.cache/fzf'
 
+nmap <leader>f :Files<CR>
+nmap <leader>F :GFiles<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>s :Ag<CR>
+nmap <leader>t :Tags<CR>
+nmap <leader>c :Commits<CR>
+nmap <leader>C :BCommits<CR>
+
 " Vim airline
 let g:airline_powerline_fonts = 1
 
