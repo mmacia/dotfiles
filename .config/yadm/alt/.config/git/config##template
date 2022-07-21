@@ -1,7 +1,7 @@
 [user]
     name = Moisès Macià
-{% if yadm.hostname == "xps13-9305" %}
-    email = moises@circular.io
+{% if yadm.hostname == "thinkpad" %}
+    email = moises.macia@jobandtalent.com
 {% else %}
     email = mmacia@gmail.com
 {% endif %}
