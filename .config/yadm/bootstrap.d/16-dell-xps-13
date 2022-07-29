@@ -1,31 +1,35 @@
 #!/bin/bash
 
-echo "Bootstrap Dell XP 13 stuff"
+sudo lshw -class system | grep "XPS 13"
 
-repo_file=/etc/apt/sources.list.d/dell-$(lsb_release -cs).list
+if [ $? -eq 0 ]; then
+  echo "Bootstrap Dell XP 13 stuff"
 
-if [ ! -f "$repo_file" ]; then
-  sudo sh -c 'cat > /etc/apt/sources.list.d/dell-$(lsb_release -cs).list << EOF
-deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-dell public
-# deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-dell public
+  repo_file=/etc/apt/sources.list.d/dell-$(lsb_release -cs).list
 
-deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-oem public
-# deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-oem public
+  if [ ! -f "$repo_file" ]; then
+    sudo sh -c 'cat > /etc/apt/sources.list.d/dell-$(lsb_release -cs).list << EOF
+  deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-dell public
+  # deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-dell public
 
-deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville public
-# deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville public
+  deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-oem public
+  # deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-oem public
 
-deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville-melisa public
-# deb-src http://dell.archive.canonical.com/updates $(lsb_release -cs)-somerville-melisa public
-EOF'
+  deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville public
+  # deb-src http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville public
 
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9FDA6BED73CDC22
-  sudo aptitude update
+  deb http://dell.archive.canonical.com/updates/ $(lsb_release -cs)-somerville-melisa public
+  # deb-src http://dell.archive.canonical.com/updates $(lsb_release -cs)-somerville-melisa public
+  EOF'
+
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9FDA6BED73CDC22
+    sudo aptitude update
+  fi
+
+  sudo aptitude install -y \
+    oem-somerville-meta \
+    oem-somerville-melisa-meta \
+    libfprint-2-tod1-goodix \
+    fprintd \
+    tlp-config
 fi
-
-sudo aptitude install -y \
-  oem-somerville-meta \
-  oem-somerville-melisa-meta \
-  libfprint-2-tod1-goodix \
-  fprintd \
-  tlp-config
