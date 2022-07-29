@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Bootstrap Nodejs"
+
+nodejs_repo_file=/etc/apt/sources.list.d/nodesource.list
+
+if [ ! -f "$nodejs_repo_file" ]; then
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -q
+  sudo npm install --global yarn
+fi
+
