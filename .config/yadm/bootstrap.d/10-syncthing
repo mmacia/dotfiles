@@ -3,7 +3,14 @@
 echo "Bootstrap Syncthing"
 
 syncthing_running=$(docker inspect --format="{{.State.Running}}" syncthing 2> /dev/null)
+syncthing_conf_file=~/.config/syncthing.conf
+
+if [ ! -f "$syncthing_conf_file" ]; then
+  echo "HOST=$(hostname)" > $syncthing_conf_file
+  echo "VOLUME_MOUNT=$HOME/.local/share/syncthing/" >> $syncthing_conf_file
+  echo "PRIVATE_NET_ADDR=127.0.0.1" >> $syncthing_conf_file
+fi
 
 if [ "$syncthing_running" == "false" ]; then
-  docker-compose -f ~/.local/share/syncthing/docker-compose.yml --env-file ~/.config/sycthing.conf up -d
+  docker compose -f ~/.local/share/syncthing/docker-compose.yml --env-file $syncthing_conf_file up -d
 fi
