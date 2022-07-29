@@ -14,3 +14,11 @@ fi
 if [ "$syncthing_running" == "false" ]; then
   docker compose -f ~/.local/share/syncthing/docker-compose.yml --env-file $syncthing_conf_file up -d
 fi
+
+# special settings for chromium
+apparmor_chromium_conf=/etc/apparmor.d/tunables/home.d/chromium
+
+if [ ! -f $apparmor_chromium_conf ]; then
+  sudo echo "@{HOMEDIRS}+=$HOME/.local/share/syncthing" > $apparmor_chromium_conf
+  sudo rm -f /etc/apparmor.d/cache/* /var/cache/apparmor/snap.*
+fi
