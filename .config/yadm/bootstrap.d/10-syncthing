@@ -4,6 +4,7 @@ echo "Bootstrap Syncthing"
 
 syncthing_running=$(docker inspect --format="{{.State.Running}}" syncthing 2> /dev/null)
 syncthing_conf_file=~/.config/syncthing.conf
+syncthing_dir=~/.local/share/syncthing
 
 if [ ! -f "$syncthing_conf_file" ]; then
   echo "HOST=$(hostname)" > $syncthing_conf_file
@@ -12,7 +13,7 @@ if [ ! -f "$syncthing_conf_file" ]; then
 fi
 
 if [ "$syncthing_running" == "false" ]; then
-  docker compose -f ~/.local/share/syncthing/docker-compose.yml --env-file $syncthing_conf_file up -d
+  docker compose -f $syncthing_dir/docker-compose.yml --env-file $syncthing_conf_file up -d
 fi
 
 # special settings for chromium
@@ -22,3 +23,22 @@ if [ ! -f $apparmor_chromium_conf ]; then
   sudo echo "@{HOMEDIRS}+=$HOME/.local/share/syncthing" > $apparmor_chromium_conf
   sudo rm -f /etc/apparmor.d/cache/* /var/cache/apparmor/snap.*
 fi
+
+# create symlinks
+documents_dir="$HOME/Documents"
+
+for link in Courses Invoices Other\ docs Payrolls Renta\ Moises Secrets Wiki Work\ documents; do
+  if [ ! -L "$documents_dir/$link" ]; then
+    ln -s "$syncthing_dir/$link" "$documents_dir/$link"
+  fi
+done
+
+for link in Downloads Pictures; do
+  if [ ! -L "$HOME/$link" ]; then
+    if [ -d "$HOME/$link" ]; then
+      mv "$HOME/$link" "$HOME/$link.old"
+    fi
+
+    ln -s "$syncthing_dir/$link" "$HOME/$link"
+  fi
+done
