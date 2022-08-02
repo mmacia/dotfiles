@@ -43,7 +43,7 @@ ohmyzsh_install_path=${HOME}/.oh-my-zsh
 if [ ! -d "$ohmyzsh_install_path" ]; then
   git clone $ohmyzsh_repo $ohmyzsh_install_path
   mkdir -p ${ohmyzsh_install_path}/custom/themes
-  ln -s ${XDG_CONFIG_HOME}/yadm/robbyrussell.zsh-theme ${ohmyzsh_install_path}/custom/themes/robbyrussell.zsh-theme
+  ln -s ${XDG_CONFIG_HOME:-$HOME/.config}/yadm/robbyrussell.zsh-theme ${ohmyzsh_install_path}/custom/themes/robbyrussell.zsh-theme
   chsh -s /usr/bin/zsh
 fi
 
