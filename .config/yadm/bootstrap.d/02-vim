@@ -33,4 +33,5 @@ pip install --upgrade \
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
     vim -es '+PlugUpdate' '+PlugClean' '+qal' || true
+    mkdir -p ~/.vim/undodir
 fi

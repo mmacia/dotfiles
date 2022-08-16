@@ -37,6 +37,7 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   mesa-utils \
   mkvtoolnix-gui \
   mpv \
+  net-tools \
   language-pack-en \
   language-pack-es \
   language-pack-kde-es \

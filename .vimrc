@@ -35,7 +35,7 @@ set synmaxcol=125   " stop rendering syntax colors in long lines (improves rende
 " undo
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000  " maximum number of changes that can be undoed
+set undolevels=10000 " maximum number of changes that can be undoed
 set undoreload=10000 " maximum number lines to save for undo on a buffer reload
 
 " basic ui settings
