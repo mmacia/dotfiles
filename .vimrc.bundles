@@ -76,7 +76,6 @@ endif
 Plug 'tpope/vim-markdown'             " Markdown syntax
 Plug 'airblade/vim-gitgutter'         " Git gutter symbols
 Plug 'tpope/vim-endwise'              " add `end` to code blocks if needed
-Plug 'github/copilot.vim'
 
 call plug#end()
 
