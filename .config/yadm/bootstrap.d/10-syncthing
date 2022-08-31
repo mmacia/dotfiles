@@ -24,6 +24,20 @@ if [ ! -f $apparmor_chromium_conf ]; then
   sudo rm -f /etc/apparmor.d/cache/* /var/cache/apparmor/snap.*
 fi
 
+# install syncthing tray
+syncthing_tray_version=1.2.2
+syncthing_tray_bin=syncthingtray-$syncthing_tray_version-x86_64-pc-linux-gnu
+syncthing_tray_bin_path=$HOME/.local/bin/$syncthing_tray_bin
+syncthing_tray_url=https://github.com/Martchus/syncthingtray/releases/download/v$syncthing_tray_version/$syncthing_tray_bin.tar.xz
+
+if [ ! -f $syncthing_tray_bin_path ]; then
+  # remove previous versions if any
+  rm -f ~/.local/bin/syncthingtray*
+  curl -L $syncthing_tray_url --output /tmp/$syncthing_tray_bin.tar.xz
+  tar -Jxvf /tmp/$syncthing_tray_bin.tar.xz --directory=$HOME/.local/bin/
+  ln -s ~/.local/bin/syncthingtray-x86_64-pc-linux-gnu ~/.local/bin/syncthingtray
+fi
+
 # create symlinks
 documents_dir="$HOME/Documents"
 
