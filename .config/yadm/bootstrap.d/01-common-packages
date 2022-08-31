@@ -1,8 +1,8 @@
 #!/bin/bash
 
 reset
-sudo apt-get update && sudo apt-get dist-upgrade -y && \
-ACCEPT_EULA=Y sudo apt-get install -y \
+sudo apt update && sudo apt dist-upgrade -y && \
+sudo apt install -y \
   aptitude \
   autojump \
   bat \
@@ -60,10 +60,6 @@ ACCEPT_EULA=Y sudo apt-get install -y \
   tree \
   unclutter \
   unrar \
-  virtualbox \
-  virtualbox-ext-pack \
-  virtualbox-guest-utils \
-  virtualbox-qt \
   vlc \
   wget \
   whois \
@@ -75,3 +71,10 @@ sudo aptitude update && sudo aptitude dist-upgrade
 check-language-support | xargs sudo aptitude install -y
 
 sudo snap install telegram-desktop
+
+# virtualbox stuff
+ACCEPT_EULA=Y sudo apt install -y \
+  virtualbox \
+  virtualbox-ext-pack \
+  virtualbox-guest-utils \
+  virtualbox-qt \
