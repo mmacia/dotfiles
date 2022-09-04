@@ -2,6 +2,9 @@
 
 echo "Bootsrap fonts"
 
+external_hd=/media/$USER/WP\ My\ Book/Backup/fonts
+
+
 # install fonts.conf
 if [ ! -f ~/.fonts.conf ]; then
   echo '<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd">' \
@@ -19,7 +22,7 @@ fi
 
 # install core fonts
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-sudo aptitude install -y \
+sudo apt install -y \
   ttf-mscorefonts-installer \
   fonts-roboto \
   ttf-ubuntu-font-family \
@@ -28,7 +31,7 @@ sudo aptitude install -y \
 
 # install windows 10 fonts
 win10_count=$(find $fonts_dir/win10 -type f -name "calibri*" 2> /dev/null | wc -l)
-win10_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/win10.tar.zst
+win10_fonts_bundle=$external_hd/win10.tar.zst
 
 if [[ -f "$win10_fonts_bundle" && $win10_count -eq 0 ]]; then
   tar -axvf "${win10_fonts_bundle}" --directory ${fonts_dir}
@@ -38,7 +41,7 @@ fi
 fira_code_count=$(find $fonts_dir -type f -name "FiraCode*" 2> /dev/null | wc -l)
 
 if [[ $fira_code_count -eq 0 ]]; then
-  version=5.2
+  version=6.2
   zip=/tmp/Fira_Code_v${version}.zip
   dir=${fonts_dir}/firacode
   curl --fail --location --show-error https://github.com/tonsky/FiraCode/releases/download/${version}/Fira_Code_v${version}.zip --output ${zip}
@@ -49,7 +52,7 @@ fi
 
 # install Macintosh fonts
 mac_count=$(find $fonts_dir/mac -type f -name "AppleGaramond*" 2> /dev/null | wc -l)
-mac_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/mac.tar.zst
+mac_fonts_bundle=$external_hd/mac.tar.zst
 
 if [[ -f "$mac_fonts_bundle" && $mac_count -eq 0 ]]; then
   tar -axvf "${mac_fonts_bundle}" --directory ${fonts_dir}
@@ -57,7 +60,7 @@ fi
 
 # instal Monaco font
 monaco_count=$(find $fonts_dir/monaco -type f -name "monaco*" 2> /dev/null | wc -l)
-monaco_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/monaco.tar.zst
+monaco_fonts_bundle=$external_hd/monaco.tar.zst
 
 if [[ -f "$monaco_fonts_bundle" && $monaco_count -eq 0 ]]; then
   tar -axvf "${monaco_fonts_bundle}" --directory ${fonts_dir}
@@ -78,7 +81,7 @@ fi
 
 # install Helvetica fonts
 helvetica_count=$(find $fonts_dir/helvetica -type f -name "Helvetica*" 2> /dev/null | wc -l)
-helvetica_fonts_bundle=/media/$USER/WP\ My\ Book/Backup/fonts/helvetica.tar.zst
+helvetica_fonts_bundle=$external_hd/helvetica.tar.zst
 
 if [[ -f "$helvetica_fonts_bundle" && $helvetica_count -eq 0 ]]; then
   tar -axvf "${helvetica_fonts_bundle}" --directory ${fonts_dir}
