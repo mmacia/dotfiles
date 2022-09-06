@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install vim and C++ LSP server
-sudo aptitude install -y \
+sudo apt install -y \
     aspell \
     aspell-en \
     aspell-es \

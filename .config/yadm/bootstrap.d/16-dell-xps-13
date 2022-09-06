@@ -23,10 +23,10 @@ if [ $? -eq 0 ]; then
   EOF'
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F9FDA6BED73CDC22
-    sudo aptitude update
+    sudo apt update
   fi
 
-  sudo aptitude install -y \
+  sudo apt install -y \
     oem-somerville-meta \
     oem-somerville-melisa-meta \
     libfprint-2-tod1-goodix \

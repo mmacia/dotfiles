@@ -5,10 +5,10 @@ echo "Bootstrap libreoffice"
 repository_file="/etc/apt/sources.list.d/libreoffice-ubuntu-ppa-$(lsb_release -cs).list"
 
 if [ ! -f "$repository_file" ]; then
-  sudo aptitude install -y software-properties-common
+  sudo apt install -y software-properties-common
 
   sudo add-apt-repository ppa:libreoffice/ppa
-  sudo aptitude update && sudo aptitude install -y \
+  sudo apt update && sudo apt install -y \
     libreoffice \
     libreoffice-kf5 \
     libreoffice-plasma \

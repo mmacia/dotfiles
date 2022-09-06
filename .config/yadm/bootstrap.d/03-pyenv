@@ -5,7 +5,7 @@ pyenv_repo=https://github.com/pyenv/pyenv.git
 pyenv_install_path=$HOME/.pyenv
 
 # install dependencies
-sudo aptitude install -y \
+sudo apt install -y \
   build-essential \
   libssl-dev \
   zlib1g-dev \

@@ -7,7 +7,7 @@ repository_file="/etc/apt/sources.list.d/obsproject-ubuntu-obs-studio-$(lsb_rele
 
 if [ ! -f "$repository_file" ]; then
   sudo add-apt-repository -y ppa:obsproject/obs-studio
-  sudo aptitude update && sudo aptitude install -y \
+  sudo apt update && sudo apt install -y \
     ffmpeg \
     v4l2loopback-dkms \
     obs-studio

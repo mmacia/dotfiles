@@ -7,7 +7,7 @@ fzf_tab_version='master'
 
 echo "Bootstraping zsh"
 
-sudo aptitude install -y \
+sudo apt install -y \
   zsh \
   tmux
 

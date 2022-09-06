@@ -12,10 +12,10 @@ if [ ! -f "$repository_file" ]; then
   echo "deb [signed-by=$sign_key_filename] https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main" | \
     sudo tee $repository_file >/dev/null
 
-  sudo aptitude update 
+  sudo apt update
   sudo rm -f $sign_key_filename
 
-  sudo aptitude install -y kitware-archive-keyring cmake cmake-qt-gui
+  sudo apt install -y kitware-archive-keyring cmake cmake-qt-gui
 else
   sudo rm -f $sign_key_filename
 fi

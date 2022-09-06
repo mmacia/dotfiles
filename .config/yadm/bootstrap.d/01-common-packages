@@ -3,7 +3,6 @@
 reset
 sudo apt update && sudo apt dist-upgrade -y && \
 sudo apt install -y \
-  aptitude \
   autojump \
   bat \
   blender \
@@ -67,8 +66,8 @@ sudo apt install -y \
   xsel \
   zstd
 
-sudo aptitude update && sudo aptitude dist-upgrade
-check-language-support | xargs sudo aptitude install -y
+sudo apt update && sudo apt dist-upgrade
+check-language-support | xargs sudo apt install -y
 
 sudo snap install telegram-desktop
 

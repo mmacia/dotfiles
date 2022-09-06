@@ -11,7 +11,7 @@ if [ ! -f "$repository_file" ]; then
   echo "deb [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ focal main" | sudo tee $repository_file
   echo "deb-src [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ focal main" | sudo tee -a $repository_file
 
-  sudo aptitude update && sudo aptitude install -y \
+  sudo apt update && sudo apt install -y \
     mkvtoolnix \
     mkvtoolnix-gui
 fi

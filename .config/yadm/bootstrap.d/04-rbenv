@@ -6,7 +6,7 @@ rbenv_install_path=$HOME/.rbenv
 rbenv_build_version=v20220610
 
 # install dependencies
-sudo aptitude install -y \
+sudo apt install -y \
   build-essential \
   libssl-dev \
   zlib1g-dev \
