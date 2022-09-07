@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# resume and enable your selected sound sources and sinks
+
+default_sink=alsa_output.usb-FX-AUDIO_FX-AUDIO-DAC-X6-00.analog-stereo
+default_source=alsa_input.usb-Generic_Blue_Microphones_2130BAH01LK8-00.analog-stereo
+
+if pactl list short sinks | grep -q "$default_sink"; then
+  pactl suspend-sink     "$default_sink" 0  # resume device
+  pactl set-default-sink "$default_sink"
+fi
+
+
+if pactl list short sources | grep -q "$default_source"; then
+  pactl suspend-source     "$default_source" 0  # resume device
+  pactl set-default-source "$default_source"
+fi
