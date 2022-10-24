@@ -14,14 +14,14 @@ sudo apt install -y \
 
 # install python deps
 pip install --upgrade \
-    'python-lsp-server<=1.3.3' \
-    'jedi<0.18.0' \
-    'flake8>=3.9.2,<4' \
+    python-lsp-server \
+    jedi \
+    flake8 \
     rope \
     mccabe \
-    'pycodestyle<2.8.0,>=2.7.0' \
+    pycodestyle \
     pydocstyle \
-    'autopep8<1.6.0' \
+    autopep8 \
     pyls-mypy \
     pyls-isort \
     python-lsp-black \
