@@ -8,8 +8,8 @@ sign_file=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg
 if [ ! -f "$repository_file" ]; then
   sudo wget -O $sign_file https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
 
-  echo "deb [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ focal main" | sudo tee $repository_file
-  echo "deb-src [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ focal main" | sudo tee -a $repository_file
+  echo "deb [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ $(lsb_release -cs) main" | sudo tee $repository_file
+  echo "deb-src [arch=amd64 signed-by=$sign_file] https://mkvtoolnix.download/ubuntu/ $(lsb_release -cs) main" | sudo tee -a $repository_file
 
   sudo apt update && sudo apt install -y \
     mkvtoolnix \

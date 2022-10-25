@@ -7,7 +7,7 @@ sudo apt install -y \
     aspell-es \
     vim-nox \
     exuberant-ctags \
-    clangd-12 \
+    clangd-14 \
     clang-format \
     python3 \
     python3-pip
