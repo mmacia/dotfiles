@@ -3,7 +3,7 @@
 echo "Bootstrap ugee m708 pentablet"
 
 ugee_file="/usr/lib/ugee-pentablet/ugee-pentablet"
-driver_url=https://ugeecom-download.oss-us-west-1.aliyuncs.com/file/2022/02/UGEE-pentablet-3.2.3.220107-1.x86_64.deb
+driver_url=https://ugeecom-download.oss-us-west-1.aliyuncs.com/file/2022/09/ugee-pentablet-3.2.3.220908-2.x86_64.deb
 
 if [ ! -f "$ugee_file" ]; then
   curl $driver_url --output /tmp/ugee.deb

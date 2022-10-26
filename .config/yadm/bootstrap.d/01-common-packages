@@ -46,10 +46,8 @@ sudo apt install -y \
   okteta \
   pandoc \
   partitionmanager \
-  plasma-applet-redshift-control \
   powertop \
   pulseeffects \
-  redshift \
   silversearcher-ag \
   sshpass \
   sqlite3 \
@@ -66,8 +64,7 @@ sudo apt install -y \
   xsel \
   zstd
 
-sudo apt update && sudo apt dist-upgrade
-check-language-support | xargs sudo apt install -y
+sudo apt update && sudo apt dist-upgrade -y
 
 sudo snap install telegram-desktop
 

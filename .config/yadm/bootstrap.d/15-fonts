@@ -25,7 +25,6 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 sudo apt install -y \
   ttf-mscorefonts-installer \
   fonts-roboto \
-  ttf-ubuntu-font-family \
   cabextract \
   fonts-symbola
 

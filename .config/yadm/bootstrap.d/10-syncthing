@@ -20,7 +20,7 @@ fi
 apparmor_chromium_conf=/etc/apparmor.d/tunables/home.d/chromium
 
 if [ ! -f $apparmor_chromium_conf ]; then
-  sudo echo "@{HOMEDIRS}+=$HOME/.local/share/syncthing" > $apparmor_chromium_conf
+  sudo bash -c 'echo "@{HOMEDIRS}+=$HOME/.local/share/syncthing" > /etc/apparmor.d/tunables/home.d/chromium'
   sudo rm -f /etc/apparmor.d/cache/* /var/cache/apparmor/snap.*
 fi
 
