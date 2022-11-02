@@ -22,9 +22,22 @@ prompt_hostname() {
   [[ -n "" ]] && echo "%{$yellow%}[`hostname`]"
 }
 
+prompt_python_version() {
+  # test pyenv
+  pyenv local 1> /dev/null 2>&1
+  local pyenv_enabled=$?
+
+  if [ $pyenv_enabled -eq 0 ]; then
+    echo -e "%{$reset_colors%}%{$green%}Py: %{$reset_colors%}%{$yellow%}$(pyenv_prompt_info)"
+  else
+    echo ""
+  fi
+}
+
 local ret_status="%(?:%{$green%}➜ :%{$red%}➜ %s)"
 
-PROMPT='${ret_status}$(prompt_hostname)$(prompt_vim_subshell) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
+
+PROMPT='${ret_status}$(prompt_python_version)$(prompt_hostname)$(prompt_vim_subshell) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$blue%}git:(%{$red%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
