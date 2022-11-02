@@ -13,22 +13,7 @@ sudo apt install -y \
     python3-pip
 
 # install python deps
-pip install --upgrade \
-    python-lsp-server \
-    jedi \
-    flake8 \
-    rope \
-    mccabe \
-    pycodestyle \
-    pydocstyle \
-    autopep8 \
-    pyls-mypy \
-    pyls-isort \
-    python-lsp-black \
-    python-language-server[all] \
-    pylint \
-    pylint_django \
-    pynvim
+pip install --upgrade pynvim
 
 if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
