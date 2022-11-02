@@ -34,10 +34,26 @@ prompt_python_version() {
   fi
 }
 
+prompt_ruby_version() {
+  # test pyenv
+  rbenv local 1> /dev/null 2>&1
+  local rbenv_enabled=$?
+
+  if [ $rbenv_enabled -eq 0 ]; then
+    if [ "$(rbenv local)" != "system" ]; then
+      echo -e "%{$reset_colors%}%{$green%}Rb: %{$reset_colors%}%{$yellow%}$(rbenv_prompt_info)"
+    else
+      echo ""
+    fi
+  else
+    echo ""
+  fi
+}
+
 local ret_status="%(?:%{$green%}➜ :%{$red%}➜ %s)"
 
 
-PROMPT='${ret_status}$(prompt_python_version)$(prompt_hostname)$(prompt_vim_subshell) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='${ret_status}$(prompt_python_version)$(prompt_ruby_version)$(prompt_hostname)$(prompt_vim_subshell) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$blue%}git:(%{$red%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
