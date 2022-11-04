@@ -28,7 +28,7 @@ prompt_python_version() {
   local pyenv_enabled=$?
 
   if [ $pyenv_enabled -eq 0 ]; then
-    echo -e "%{$reset_colors%}%{$green%}Py: %{$reset_colors%}%{$yellow%}$(pyenv_prompt_info)"
+    echo -e "🐍%{$reset_colors%}%{$yellow%}$(pyenv_prompt_info)"
   else
     echo ""
   fi
@@ -41,7 +41,7 @@ prompt_ruby_version() {
 
   if [ $rbenv_enabled -eq 0 ]; then
     if [ "$(rbenv local)" != "system" ]; then
-      echo -e "%{$reset_colors%}%{$green%}Rb: %{$reset_colors%}%{$yellow%}$(rbenv_prompt_info)"
+      echo -e "💎%{$reset_colors%}%{$yellow%}$(rbenv_prompt_info)"
     else
       echo ""
     fi
