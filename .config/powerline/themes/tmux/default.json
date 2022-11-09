@@ -23,13 +23,16 @@
         "priority": 50
       },
       {
-        "function": "powerline.segments.common.time.date"
+        "function": "powerline.segments.common.time.date",
+        "args": {
+          "format": "📅%Y-%m-%d"
+        }
       },
       {
         "function": "powerline.segments.common.time.date",
         "name": "time",
         "args": {
-          "format": "%H:%M",
+          "format": "⏰%H:%M",
           "istime": true
         }
       },

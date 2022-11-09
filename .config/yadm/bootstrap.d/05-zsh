@@ -74,3 +74,12 @@ fi
 echo "Bootstraping tmux"
 
 pip install --upgrade powerline-status psutil
+
+tmux_tpm_install_path=~/.tmux/plugins/tpm
+
+if [ -d "$fzf_tab_install_path" ]; then
+  cd $tmux_tpm_install_path && git fetch -p && git pr origin master && cd -
+else
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm $tmux_tpm_install_path
+fi
