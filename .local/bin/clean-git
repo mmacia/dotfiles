@@ -1,0 +1,11 @@
+#!/bin/bash
+
+git_dirs=$(find $HOME -type d -name ".git" -print)
+
+for git_dir in $git_dirs; do
+  dir=$(dirname ${git_dir})
+  echo -e "\n\n> Processing ${dir}"
+  cd $dir
+  git gc --aggressive --prune=now
+  cd - > /dev/null
+done
