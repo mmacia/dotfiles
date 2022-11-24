@@ -63,7 +63,7 @@ export EDITOR=vim
 export SHELL=zsh
 export LC_TYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export TERM="xterm-256color"
+export TERM="tmux-256color"
 
 source $ZSH/oh-my-zsh.sh
 
