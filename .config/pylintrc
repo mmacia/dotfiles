@@ -1,3 +1,0 @@
-[pylint]
-max-line-length = 120
-disable = missing-module-docstring, missing-function-docstring
