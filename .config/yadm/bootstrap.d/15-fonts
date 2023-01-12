@@ -36,17 +36,14 @@ if [[ -f "$win10_fonts_bundle" && $win10_count -eq 0 ]]; then
   tar -axvf "${win10_fonts_bundle}" --directory ${fonts_dir}
 fi
 
-# install FiraCode
+# install FiraCode patched font
 fira_code_count=$(find $fonts_dir -type f -name "FiraCode*" 2> /dev/null | wc -l)
 
 if [[ $fira_code_count -eq 0 ]]; then
-  version=6.2
-  zip=/tmp/Fira_Code_v${version}.zip
-  dir=${fonts_dir}/firacode
-  curl --fail --location --show-error https://github.com/tonsky/FiraCode/releases/download/${version}/Fira_Code_v${version}.zip --output ${zip}
-  mkdir -p ${dir}
-  unzip -o -q -d ${dir} ${zip}
-  rm ${zip}
+  git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git /tmp/nerd-fonts
+  mkdir -p $fonts_dir/FiraCode
+  cp -R /tmp/nerd-fonts/patched-fonts/FiraCode/**/*.ttf $fonts_dir/FiraCode/
+  rm -rf /tmp/nerd-fonts
 fi
 
 # install Macintosh fonts

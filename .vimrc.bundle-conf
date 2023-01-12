@@ -52,7 +52,7 @@ autocmd BufRead *.j2,*.twig set filetype=jinja
 
 " view special characters
 autocmd BufRead * set list
-autocmd BufRead * set listchars=tab:·\ 
+autocmd BufRead * set listchars=tab:·\
 autocmd BufRead * set listchars=tab:·\ ,eol:¬
 
 " Remember last location in file
@@ -241,6 +241,7 @@ call deoplete#custom#option({
 \ 'on_insert_enter': v:false,
 \ })
 set completeopt+=noinsert
+setlocal omnifunc=lsp#complete
 
 " LSP
 let g:lsp_diagnostics_enabled = 1

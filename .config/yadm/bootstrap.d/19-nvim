@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+# install latest nvim from appimage
+neovim_appimage_url=https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+curl $neovim_appimage_url -O ~/.local/bin/nvim.appimage
+
+if [ ! -f ~/.local/bin/nvim ]; then
+  ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
+fi
+
+# install providers
+pip install --upgrade pynvim
+
+
+# LSP servers for python and ruby are installed using pyenv and rbenv
+
+# install LSP deps for C++
+sudo apt install -y \
+    clangd-14 \
+    clang-format \
+    clang-tools \
+    clang-tidy
+
+# install LSP server for HTML
+sudo npm install -g vscode-langservers-extracted
+
+# livedown preview for markdown
+sudo npm install -g livedown

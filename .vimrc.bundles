@@ -27,6 +27,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'                  " deoplete dep
 Plug 'roxma/vim-hug-neovim-rpc'         " deoplete dep
 Plug 'lighttiger2505/deoplete-vim-lsp'  " completion based on LSP
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " Testing
 Plug 'vim-test/vim-test', { 'for': ['ruby', 'python', 'crystal', 'javascript'] }   " run tests easilly
