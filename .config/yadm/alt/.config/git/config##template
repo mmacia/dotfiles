@@ -27,3 +27,6 @@
 
 [remote "origin"]
     prune = true  # remove local branch when do a fetch/pull if remote was deleted
+
+[init]
+    defaultBranch = main
