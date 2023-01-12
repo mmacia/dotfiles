@@ -46,16 +46,11 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-zstyle ":completion:*:git-checkout:*" sort false
-zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath copyfile zsh-syntax-highlighting zsh-autosuggestions fzf-tab pyenv rbenv)
+plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath copyfile pyenv rbenv)
 
 # User configuration
 
@@ -90,6 +85,49 @@ bindkey -M vicmd "^V" edit-command-line
 
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
+
+
+# Zplug
+
+# install zplug, plugin manager for zsh, https://github.com/zplug/zplug
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+# zplug configruation
+if [[ ! -d "${ZPLUG_HOME}" ]]; then
+  if [[ ! -d ~/.local/share/zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.local/share/zplug
+    # If we can't get zplug, it'll be a very sobering shell experience. To at
+    # least complete the sourcing of this file, we'll define an always-false
+    # returning zplug function.
+    if [[ $? != 0 ]]; then
+      function zplug() {
+        return 1
+      }
+    fi
+  fi
+  export ZPLUG_HOME=~/.local/share/zplug
+fi
+if [[ -d "${ZPLUG_HOME}" ]]; then
+  source "${ZPLUG_HOME}/init.zsh"
+fi
+
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-completions', defer:2
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'lincheney/fzf-tab-completion'
+
+if ! zplug check; then
+  zplug install
+fi
+
+zplug load
+
+
+zstyle ':completion:*' fzf-search-display true
+zstyle ':completion::*:(ls|vim)::*' fzf-completion-opts --preview='eval exa --icons {1}'
+
+local fzf_completion_file=$ZPLUG_HOME/repos/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+[ -f $fzf_completion_file ] && source $fzf_completion_file
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

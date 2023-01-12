@@ -47,25 +47,6 @@ if [ ! -d "$ohmyzsh_install_path" ]; then
   chsh -s /usr/bin/zsh
 fi
 
-# third party plugins:
-for plugin in zsh-syntax-highlighting zsh-autosuggestions zsh-completions; do
-  plugin_dir=${ohmyzsh_install_path}/custom/plugins/${plugin}
-
-  if [ -d "$plugin_dir" ]; then
-    cd $plugin_dir && git fetch -p && git pr origin master && cd -
-  else
-    git clone https://github.com/zsh-users/${plugin}.git $plugin_dir
-  fi
-done
-
-fzf_tab_install_path=${ohmyzsh_install_path}/custom/plugins/fzf-tab
-
-if [ -d "$fzf_tab_install_path" ]; then
-  cd $fzf_tab_install_path && git fetch -p && git co $fzf_tab_version && git pr origin $fzf_tab_version && cd -
-else
-  git clone $fzf_tab_repo $fzf_tab_install_path -b $fzf_tab_version
-fi
-
 # ------
 # --- Configure tmux
 # ------
@@ -77,7 +58,7 @@ pip install --upgrade powerline-status psutil
 
 tmux_tpm_install_path=~/.tmux/plugins/tpm
 
-if [ -d "$fzf_tab_install_path" ]; then
+if [ -d "$tmux_tpm_install_path" ]; then
   cd $tmux_tpm_install_path && git fetch -p && git pr origin master && cd -
 else
   mkdir -p ~/.tmux/plugins
