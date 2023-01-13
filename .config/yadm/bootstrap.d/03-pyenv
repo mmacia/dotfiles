@@ -25,8 +25,11 @@ sudo apt install -y \
 
 
 if [ -d "$pyenv_install_path" ]; then
+  echo "upgrading pyenv"
   cd ${pyenv_install_path} && git fetch -p && git co tags/$pyenv_version && cd -
+  echo "upgrading pyenv-virtualenv"
   cd ${pyenv_install_path}/plugins/pyenv-virtualenv && git fetch -p && git pull --rebase origin master && cd -
+  echo "upgrading default packages"
   cd ${pyenv_install_path}/plugins/pyenv-default-packages && git fetch -p && git pull --rebase origin master && cd -
 else
   git clone $pyenv_repo $pyenv_install_path -b $pyenv_version

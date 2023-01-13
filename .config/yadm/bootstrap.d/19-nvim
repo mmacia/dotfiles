@@ -5,6 +5,7 @@
 neovim_appimage_url=https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 cd ~/.local/bin/
 curl -LO $neovim_appimage_url
+chmod +x nvim.appimage
 cd -
 
 if [ ! -f ~/.local/bin/nvim ]; then

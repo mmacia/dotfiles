@@ -42,7 +42,7 @@ fira_code_count=$(find $fonts_dir -type f -name "FiraCode*" 2> /dev/null | wc -l
 if [[ $fira_code_count -eq 0 ]]; then
   git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git /tmp/nerd-fonts
   mkdir -p $fonts_dir/FiraCode
-  cp -R /tmp/nerd-fonts/patched-fonts/FiraCode/**/*.ttf $fonts_dir/FiraCode/
+  find /tmp/nerd-fonts/patched-fonts/FiraCode -type f -name "*.ttf" -exec cp \{\} $fonts_dir/FiraCode \;
   rm -rf /tmp/nerd-fonts
 fi
 
