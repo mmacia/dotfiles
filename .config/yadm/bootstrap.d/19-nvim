@@ -3,7 +3,9 @@
 
 # install latest nvim from appimage
 neovim_appimage_url=https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-curl $neovim_appimage_url -O ~/.local/bin/nvim.appimage
+cd ~/.local/bin/
+curl -LO $neovim_appimage_url
+cd -
 
 if [ ! -f ~/.local/bin/nvim ]; then
   ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
