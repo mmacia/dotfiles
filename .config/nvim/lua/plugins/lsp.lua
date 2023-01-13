@@ -20,12 +20,12 @@ function M.config()
     buf_set_keymap('n', '<Leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     --buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    --buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -34,7 +34,7 @@ function M.config()
   --- Python setup
   ---
   if vim.fn.executable('pylsp') then
-    require('lspconfig').pylsp.setup{
+    require('lspconfig').pylsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -64,7 +64,7 @@ function M.config()
           },
         }
       }
-    }
+    })
   end
 
 
@@ -74,7 +74,7 @@ function M.config()
   if vim.fn.executable('solargraph') then
     local util = require('lspconfig.util')
 
-    require('lspconfig').solargraph.setup{
+    require('lspconfig').solargraph.setup({
       on_attach = on_attach,
       root_dir = util.root_pattern('Gemfile', '.ruby-version', '.git'),
       capabilities = capabilities,
@@ -95,14 +95,14 @@ function M.config()
       init_options = {
         formatting = true
       }
-    }
+    })
   end
 
   ---
   --- C++ setup
   ---
   if vim.fn.executable('clangd') then
-    require('lspconfig').clangd.setup{
+    require('lspconfig').clangd.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       cmd = { 'clangd',
@@ -129,7 +129,7 @@ function M.config()
           DeducedTypes   = false,
         },
       }
-    }
+    })
   end
 
 
