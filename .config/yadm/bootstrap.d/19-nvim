@@ -30,3 +30,6 @@ sudo npm install -g vscode-langservers-extracted
 
 # livedown preview for markdown
 sudo npm install -g livedown
+
+# nvim dependency
+sudo npm install -g prettier
