@@ -11,18 +11,19 @@ function M.config()
       '.ruby-version',
       'Gemfile',
       'Makefile',
-      '.git'
+      '.git',
+      'package.json'
     ),
     sources = {
       -- General
       null_ls.builtins.code_actions.refactoring,
       null_ls.builtins.completion.luasnip,
+      null_ls.builtins.formatting.prettier,
 
       -- Python
       null_ls.builtins.diagnostics.flake8,
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.isort,
-      null_ls.builtins.formatting.prettier,
       null_ls.builtins.diagnostics.pylint.with({
         diagnostics_postprocess = function(diagnostic)
           diagnostic.code = diagnostic.message_id
@@ -46,7 +47,7 @@ function M.config()
           group = augroup,
           buffer = bufnr,
           callback = function()
-            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 3000 })
+            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 5000 })
           end,
         })
       end
