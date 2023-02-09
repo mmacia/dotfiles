@@ -20,6 +20,10 @@ function M.config()
       null_ls.builtins.completion.luasnip,
       null_ls.builtins.formatting.prettier,
 
+      -- Markdown
+      null_ls.builtins.formatting.remark,
+      null_ls.builtins.diagnostics.proselint,
+
       -- Python
       null_ls.builtins.diagnostics.flake8,
       null_ls.builtins.formatting.black,
