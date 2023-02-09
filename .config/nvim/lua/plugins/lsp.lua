@@ -134,6 +134,14 @@ function M.config()
 
 
   ---
+  --- Crystal LSP setup
+  ---
+  if vim.fn.executable('crystalline') then
+    require('lspconfig').crystalline.setup({})
+  end
+
+
+  ---
   --- HTML setup
   ---
   if vim.fn.executable('vscode-html-language-server') then
