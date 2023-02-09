@@ -19,11 +19,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'leafOfTree/vim-matchtag'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'nvim-tree/nvim-tree.lua'"
+Plug 'nvim-tree/nvim-tree.lua' " tree view
 Plug 'junegunn/vim-easy-align'
 Plug 'stevearc/aerial.nvim'  " Class layout
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'mortepau/codicons.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'windwp/nvim-autopairs'  " autoclose pairs
+Plug 'RRethy/nvim-treesitter-endwise' " autoclose ends in languages like ruby, lua, vimscript, elixir, etc
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'lcheylus/overlength.nvim'  " mark line overlength in other color
+Plug 'jghauser/mkdir.nvim'       " create directories if not exists as you go
+
 
 " --- omnicompletion
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -35,17 +43,6 @@ Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-
-Plug 'onsails/lspkind.nvim'
-Plug 'mortepau/codicons.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'nvim-lua/plenary.nvim'  " null-ls dep
-Plug 'windwp/nvim-autopairs'  " autoclose pairs
-Plug 'RRethy/nvim-treesitter-endwise' " autoclose ends in languages like ruby, lua, vimscript, elixir, etc
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'lcheylus/overlength.nvim'  " mark line overlength in other color
-Plug 'jghauser/mkdir.nvim'       " create directories if not exists as you go
 
 " --- Testing
 Plug 'klen/nvim-test', { 'for': ['ruby', 'python', 'crystal', 'javascript'] }  " run tests easilly
@@ -71,6 +68,9 @@ Plug 'vimwiki/vimwiki'                " wiki for vim
 " --- LSP stuff
 Plug 'neovim/nvim-lspconfig'
 Plug 'ThePrimeagen/refactoring.nvim'
+Plug 'onsails/lspkind.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'  " use refactor actions, formatters, linters, etc with LSP
+Plug 'nvim-lua/plenary.nvim'  " null-ls dep
 
 " --- Themes
 Plug 'ellisonleao/gruvbox.nvim'
