@@ -53,3 +53,14 @@ vim.api.nvim_set_keymap('n', '<Leader>ds', '<cmd>call aerial#fzf()<CR>', { silen
 
 -- nvim-tree plugin
 keymap.set('n', '<F3>', '<cmd>NvimTreeToggle<CR>')
+
+
+-- Diagnostics
+vim.api.nvim_set_keymap('n', '<Leader>do', '<cmd>lua vim.diagnostic.open_float({ scope = "buffer" })<CR>',
+  { noremap = true, silent = true, desc = 'Open LSP diagnostics window' })
+vim.api.nvim_set_keymap('n', '<Leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
+  { noremap = true, silent = true, desc = 'Go to previous diagnostic' })
+vim.api.nvim_set_keymap('n', '<Leader>d]', '<cmd>lua vim.diagnostic.goto_next()<CR>',
+  { noremap = true, silent = true, desc = 'Go to next diagnostic' })
+vim.api.nvim_set_keymap('n', '<Leader>dd', '<cmd>lua vim.diagnostic.setloclist()<CR>',
+  { noremap = true, silent = true, desc = 'Open diagnostics locations in a quickbuffer' })

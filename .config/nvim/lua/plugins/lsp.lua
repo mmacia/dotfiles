@@ -30,6 +30,23 @@ function M.config()
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+
+  ---
+  --- Diagnostics setup
+  ---
+  vim.diagnostic.config({
+    underline = true,
+    signs = true,
+    float = {
+      show_header = true,
+      source = 'if_many',
+      border = 'rounded',
+      focusable = false
+    },
+    severity_sort = true,
+  })
+
+
   ---
   --- Python setup
   ---
