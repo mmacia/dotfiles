@@ -10,6 +10,10 @@ cd -
 
 if [ ! -f ~/.local/bin/nvim ]; then
   ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
+
+  # set nvim as vim alternative
+  sudo update-alternatives --install $(which vim) vim ~/.local/bin/nvim 10
+  sudo update-alternatives -set vim ~/.local/bin/nvim
 fi
 
 # install providers
@@ -18,8 +22,11 @@ pip install --upgrade pynvim proselint
 
 # LSP servers for python and ruby are installed using pyenv and rbenv
 
-# install LSP deps for C++
+# install LSP deps for C++ and dictionaries
 sudo apt install -y \
+    aspell \
+    aspell-en \
+    aspell-es \
     clangd-14 \
     clang-format \
     clang-tools \
