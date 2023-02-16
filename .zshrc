@@ -123,7 +123,7 @@ zplug load
 
 
 zstyle ':completion:*' fzf-search-display true
-zstyle ':completion::*:(ls|vim)::*' fzf-completion-opts --preview='eval exa --icons {1}'
+zstyle ':completion::*:(ls|vim|nvim)::*' fzf-completion-opts --preview='eval exa --icons {1}'
 
 local fzf_completion_file=$ZPLUG_HOME/repos/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 [ -f $fzf_completion_file ] && source $fzf_completion_file
