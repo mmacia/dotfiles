@@ -1,7 +1,7 @@
 export PATH=$HOME/.local/bin:$PATH
 export XDG_CONFIG_HOME=$HOME/.config
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export FZF_DEFAULT_OPTS='--ansi'
+export FZF_DEFAULT_OPTS='--ansi --bind "tab:down,btab:up"'
 export FZF_DEFAULT_COMMAND='/usr/lib/cargo/bin/fd --type f --hidden --ignore-case --glob --color always'
 
 
