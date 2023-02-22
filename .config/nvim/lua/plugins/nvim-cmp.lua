@@ -103,6 +103,17 @@ function M.config()
     }),
   })
 
+  cmp.setup.filetype('eruby', {
+    sources = cmp.config.sources({
+      { name = 'luasnip' },
+      { name = 'path' },                       -- for path completion
+      { name = 'buffer', keyword_length = 2 }, -- for buffer word completion
+      { name = 'emoji', insert = true },       -- for emoji completion
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
   -- command line completion
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
