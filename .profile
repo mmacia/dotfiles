@@ -4,6 +4,10 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export FZF_DEFAULT_OPTS='--ansi --bind "tab:down,btab:up"'
 export FZF_DEFAULT_COMMAND='/usr/lib/cargo/bin/fd --type f --hidden --ignore-case --glob --color always'
 
+# Wayland & GTK apps settings
+export GDK_SCALE=1
+export GDK_DPI_SCALE=0.6
+
 
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
