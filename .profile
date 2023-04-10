@@ -8,6 +8,8 @@ export FZF_DEFAULT_COMMAND='/usr/lib/cargo/bin/fd --type f --hidden --ignore-cas
 export GDK_SCALE=1
 export GDK_DPI_SCALE=0.6
 
+export CHAT_GPT_KEY='sk-secret-token'
+
 
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env

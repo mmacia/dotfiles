@@ -83,5 +83,6 @@ Plug 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
 Plug 'shime/vim-livedown'             " Live preview for markdown
 Plug 'AndrewRadev/sideways.vim'       " Swap arguments
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'CoderCookE/vim-chatgpt'         " OpenAI integration
 
 call plug#end()

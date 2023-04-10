@@ -128,3 +128,7 @@ vim.g.markdown_minlines = 100
 
 -- nvim-test
 require('nvim-test').setup()
+
+
+-- vim-chatgpt
+vim.g.chat_gpt_max_tokens = 2000
