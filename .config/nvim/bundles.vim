@@ -22,7 +22,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-tree/nvim-tree.lua' " tree view
 Plug 'junegunn/vim-easy-align'
 Plug 'stevearc/aerial.nvim'  " Class layout
-Plug 'editorconfig/editorconfig-vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'mortepau/codicons.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
