@@ -19,6 +19,7 @@ sudo apt install -y \
   fdupes \
   fd-find \
   findimagedupes \
+  flatpak \
   gawk \
   git \
   htop \
@@ -66,11 +67,20 @@ sudo apt install -y \
 
 sudo apt update && sudo apt dist-upgrade -y
 
-sudo snap install telegram-desktop
+sudo snap install \
+  telegram-desktop \
+  glaxnimate \
+  pixelorama \
+  dbeaver-ce \
+  jdownloader2 \
+
+sudo flatpak install \
+  Rnote \
+  Obsidian
 
 # virtualbox stuff
-ACCEPT_EULA=Y sudo apt install -y \
-  virtualbox \
-  virtualbox-ext-pack \
-  virtualbox-guest-utils \
-  virtualbox-qt \
+#ACCEPT_EULA=Y sudo apt install -y \
+#  virtualbox \
+#  virtualbox-ext-pack \
+#  virtualbox-guest-utils \
+#  virtualbox-qt \

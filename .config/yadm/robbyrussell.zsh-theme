@@ -23,25 +23,33 @@ prompt_hostname() {
 }
 
 prompt_python_version() {
-  # test pyenv
-  pyenv local 1> /dev/null 2>&1
-  local pyenv_enabled=$?
+  # test asdf
+  asdf info | grep python 1> /dev/null 2>&1
+  local python_enabled=$?
 
-  if [ $pyenv_enabled -eq 0 ]; then
-    echo -e "🐍%{$reset_colors%}%{$yellow%}$(pyenv_prompt_info)"
+  if [ $python_enabled -eq 0 ]; then
+    local python_version=$(asdf current python | awk '{print $2}')
+
+    if [ "$python_version" != "system" ]; then
+      echo -e "🐍%{$reset_colors%}%{$yellow%}$python_version"
+    else
+      echo ""
+    fi
   else
     echo ""
   fi
 }
 
 prompt_ruby_version() {
-  # test pyenv
-  rbenv local 1> /dev/null 2>&1
-  local rbenv_enabled=$?
+  # test asdf
+  asdf info | grep python 1> /dev/null 2>&1
+  local ruby_enabled=$?
 
-  if [ $rbenv_enabled -eq 0 ]; then
-    if [ "$(rbenv local)" != "system" ]; then
-      echo -e "💎%{$reset_colors%}%{$yellow%}$(rbenv_prompt_info)"
+  if [ $ruby_enabled -eq 0 ]; then
+    local ruby_version=$(asdf current ruby | awk '{print $2}')
+
+    if [ "$ruby_version" != "system" ]; then
+      echo -e "💎%{$reset_colors%}%{$yellow%}$ruby_version"
     else
       echo ""
     fi

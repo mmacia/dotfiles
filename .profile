@@ -10,15 +10,14 @@ export GDK_DPI_SCALE=0.6
 
 export CHAT_GPT_KEY='sk-secret-token'
 
+# asdf version manager stuff
+export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
+export ASDF_DIR=$HOME/.local/share/asdf
+export ASDF_DATA_DIR=$HOME/.local/state/asdf
 
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
 [ -f $HOME/.symfony.env ] && source $HOME/.symfony.env
-
-
-export ASDF_DIR=$HOME/.local/share/asdf
-export ASDF_CONFIG_FILE=$HOME/.config/asdfrc
-export ASDF_DATA_DIR=$HOME/.local/state/asdf
 
 # load autojump if present
 if type "autojump" > /dev/null; then
