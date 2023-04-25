@@ -41,6 +41,10 @@ function M.config()
       -- C++
       null_ls.builtins.formatting.clang_format,
       null_ls.builtins.diagnostics.clang_check,
+
+      -- Elixir
+      null_ls.builtins.diagnostics.credo,
+      null_ls.builtins.formatting.mix,
     },
 
     -- you can reuse a shared lspconfig on_attach callback here

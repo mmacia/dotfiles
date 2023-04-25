@@ -170,6 +170,17 @@ function M.config()
       capabilities = capabilities,
     })
   end
+
+
+  ---
+  --- Elixir LSP
+  ---
+  if vim.fn.filereadable(os.getenv('HOME') .. '/.local/share/elixir-ls/language_server.sh') then
+    require('lspconfig').elixirls.setup({
+      cmd = { os.getenv('HOME') .. "/.local/share/elixir-ls/language_server.sh" }
+    })
+
+  end
 end
 
 return M

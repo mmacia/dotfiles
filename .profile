@@ -15,24 +15,10 @@ export CHAT_GPT_KEY='sk-secret-token'
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
 [ -f $HOME/.symfony.env ] && source $HOME/.symfony.env
 
-# initialize pyenv if present
-if [ -d "$HOME/.pyenv" ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH";
-  export PYENV_ROOT="$HOME/.pyenv"
 
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  . $(pyenv root)/completions/pyenv.zsh
-fi
-
-# initialize rbenv if present
-if [ -d "$HOME/.rbenv" ]; then
-  export PATH=$HOME/.rbenv/bin:$PATH;
-  export RBENV_ROOT=$HOME/.rbenv;
-  eval "$(rbenv init -)";
-  . $RBENV_ROOT/completions/rbenv.zsh
-fi
+export ASDF_DIR=$HOME/.local/share/asdf
+export ASDF_CONFIG_FILE=$HOME/.config/asdfrc
+export ASDF_DATA_DIR=$HOME/.local/state/asdf
 
 # load autojump if present
 if type "autojump" > /dev/null; then
