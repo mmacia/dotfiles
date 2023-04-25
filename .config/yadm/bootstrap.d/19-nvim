@@ -36,7 +36,7 @@ sudo apt install -y \
     clang-tidy
 
 # install LSP server for HTML
-npm install \
+npm install -g \
   vscode-langservers-extracted \
   livedown \
   prettier \
