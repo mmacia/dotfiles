@@ -72,11 +72,11 @@ sudo snap install \
   glaxnimate \
   pixelorama \
   dbeaver-ce \
-  jdownloader2 \
+  jdownloader2
 
 sudo flatpak install \
-  Rnote \
-  Obsidian
+  com.github.flxzt.rnote \
+  md.obsidian.Obsidian
 
 # virtualbox stuff
 #ACCEPT_EULA=Y sudo apt install -y \

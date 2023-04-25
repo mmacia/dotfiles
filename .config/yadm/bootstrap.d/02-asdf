@@ -50,3 +50,7 @@ sudo aptitude install -y \
   libffi-dev \
   liblzma-dev \
   git
+
+asdf install ruby 3.2.1
+asdf install python 3.11.3
+asdf install nodejs 20.0.0

@@ -15,6 +15,10 @@ export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
 export ASDF_DIR=$HOME/.local/share/asdf
 export ASDF_DATA_DIR=$HOME/.local/state/asdf
 
+if [ -f $ASDF_DIR ]; then
+  . $ASDF_DIR/asdf.sh
+fi
+
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
 [ -f $HOME/.symfony.env ] && source $HOME/.symfony.env

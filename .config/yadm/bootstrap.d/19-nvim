@@ -36,10 +36,11 @@ sudo apt install -y \
     clang-tidy
 
 # install LSP server for HTML
-sudo npm install -g vscode-langservers-extracted
-
-# livedown preview for markdown
-sudo npm install -g livedown
-
-# nvim dependency
-sudo npm install -g prettier remark-cli remark-toc remark-preset-lint-consistent remark-preset-lint-recommended
+npm install \
+  vscode-langservers-extracted \
+  livedown \
+  prettier \
+  remark-cli \
+  remark-toc \
+  remark-preset-lint-consistent \
+  remark-preset-lint-recommended
