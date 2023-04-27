@@ -26,6 +26,11 @@ autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.h,*.c,*.cpp,*.php', command 
 -- Jenkinsfiles
 autocmd({ 'BufNewFile', 'BufRead' }, { pattern = 'Jenkinsfile', command = 'setf groovy' })
 
+-- Elixir and Phoenix
+autocmd({ 'BufRead', 'BufNewFile' }, { pattern = '*.ex,*.exs', command = 'set filetype=elixir' })
+autocmd({ 'BufRead', 'BufNewFile' }, { pattern = '*.heex', command = 'set filetype=heex' })
+autocmd({ 'BufRead', 'BufNewFile' }, { pattern = '*.eex,*.leex,*.sface,*.lexs', command = 'set filetype=eex' })
+autocmd({ 'BufRead', 'BufNewFile' }, { pattern = 'mix.lock', command = 'set filetype=elixir' })
 
 ---
 --- CPP autogroup

@@ -176,8 +176,12 @@ function M.config()
   --- Elixir LSP
   ---
   if vim.fn.filereadable(os.getenv('HOME') .. '/.local/share/elixir-ls/language_server.sh') then
+    local util = require('lspconfig.util')
+
     require('lspconfig').elixirls.setup({
-      cmd = { os.getenv('HOME') .. "/.local/share/elixir-ls/language_server.sh" }
+      on_attach = on_attach,
+      root_dir = util.root_pattern('mix.exs', '.git'),
+      cmd = { os.getenv('HOME') .. "/.local/share/elixir-ls/language_server.sh" },
     })
 
   end
