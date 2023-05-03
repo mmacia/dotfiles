@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # versions to install
-fzf_version='0.34.0'
+fzf_version='0.40.0'
 fzf_tab_version='master'
 
 
@@ -56,11 +56,11 @@ echo "Bootstraping tmux"
 
 pip install --upgrade powerline-status psutil
 
-tmux_tpm_install_path=~/.tmux/plugins/tpm
+tmux_tpm_install_path=~/.config/tmux/plugins/tpm
 
 if [ -d "$tmux_tpm_install_path" ]; then
   cd $tmux_tpm_install_path && git fetch -p && git pr origin master && cd -
 else
-  mkdir -p ~/.tmux/plugins
+  mkdir -p ~/.config/tmux/plugins
   git clone https://github.com/tmux-plugins/tpm $tmux_tpm_install_path
 fi
