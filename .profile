@@ -14,6 +14,7 @@ export CHAT_GPT_KEY='sk-secret-token'
 export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
 export ASDF_DIR=$HOME/.local/share/asdf
 export ASDF_DATA_DIR=$HOME/.local/state/asdf
+export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$XDF_CONFIG_HOME/asdf/default-python-packages
 
 if [ -f $ASDF_DIR ]; then
   . $ASDF_DIR/asdf.sh

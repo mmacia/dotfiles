@@ -1,0 +1,15 @@
+python-lsp-server
+jedi
+flake8
+rope
+mccabe
+pycodestyle
+pydocstyle
+autopep8
+pyls-mypy
+pyls-isort
+python-lsp-black
+python-language-server[all]
+pylint
+pylint_django
+pynvim
