@@ -23,6 +23,7 @@ asdf plugin add python
 asdf plugin add nodejs
 asdf plugin add elixir
 asdf plugin add erlang
+asdf plugin add cmake
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \
@@ -54,3 +55,4 @@ sudo aptitude install -y \
 asdf install ruby 3.2.1
 asdf install python 3.11.3
 asdf install nodejs 20.0.0
+asdf install cmake 3.26.3
