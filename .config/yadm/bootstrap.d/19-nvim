@@ -13,7 +13,7 @@ if [ ! -f ~/.local/bin/nvim ]; then
 
   # set nvim as vim alternative
   sudo update-alternatives --install $(which vim) vim ~/.local/bin/nvim 10
-  sudo update-alternatives -set vim ~/.local/bin/nvim
+  sudo update-alternatives --set vim ~/.local/bin/nvim
 fi
 
 # install providers
