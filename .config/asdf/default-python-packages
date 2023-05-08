@@ -1,15 +1,11 @@
-python-lsp-server
+python-lsp-server[yapf]
 jedi
-flake8
-rope
-mccabe
-pycodestyle
 pydocstyle
 autopep8
 pyls-mypy
 pyls-isort
 python-lsp-black
-python-language-server[all]
+python-lsp-ruff
 pylint
 pylint_django
 pynvim

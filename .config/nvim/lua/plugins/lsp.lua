@@ -57,15 +57,9 @@ function M.config()
       settings = {
         pylsp = {
           plugins = {
-            configurationSources = { "flake8" },
-            autopep8        = { enabled = false },
-            flake8          = { enabled = true },
             mypy            = { enabled = true },
-            pycodestyle     = { enabled = true },
-            pydocstyle      = { enabled = false },
             pyflakes        = { enabled = true },
-            pylint          = { enabled = true },
-            black           = { enabled = false },
+            ruff            = { enabled = true },
             jedi_completion = { enabled = true },
             jedi_definition = {
               enabled = true ,
@@ -75,8 +69,7 @@ function M.config()
             jedi_hover = { enabled = true },
             jedi_references = { enabled = true },
             jedi_signature_help = { enabled = true },
-            mccabe = { enabled = true },
-            rope_autoimport = { enabled = true, memory = true },
+            --rope_autoimport = { enabled = true, memory = true },     not working
             yapf = { enabled = true },
           },
         }
