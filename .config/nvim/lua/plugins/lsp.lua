@@ -60,7 +60,7 @@ function M.config()
             mypy            = { enabled = true },
             pyflakes        = { enabled = true },
             ruff            = { enabled = true },
-            jedi_completion = { enabled = true },
+            jedi_completion = { enabled = true, fuzzy = true },
             jedi_definition = {
               enabled = true ,
               follow_imports = true,
@@ -69,6 +69,7 @@ function M.config()
             jedi_hover = { enabled = true },
             jedi_references = { enabled = true },
             jedi_signature_help = { enabled = true },
+            jedi_symbols = { enabled = true, all_scopes = true },
             --rope_autoimport = { enabled = true, memory = true },     not working
             yapf = { enabled = true },
           },
