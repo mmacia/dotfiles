@@ -83,5 +83,6 @@ Plug 'shime/vim-livedown'             " Live preview for markdown
 Plug 'AndrewRadev/sideways.vim'       " Swap arguments
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'CoderCookE/vim-chatgpt'         " OpenAI integration
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja2'] } " Jinja2 syntax
 
 call plug#end()
