@@ -21,7 +21,7 @@ function M.config()
       null_ls.builtins.formatting.prettier,
 
       -- Markdown
-      null_ls.builtins.formatting.remark,
+      --null_ls.builtins.formatting.remark,
       null_ls.builtins.diagnostics.proselint,
 
       -- Python

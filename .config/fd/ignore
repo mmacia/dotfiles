@@ -19,3 +19,6 @@ tags
 *.tags
 *.lock
 .keep
+.elixir_ls
+deps
+_build

@@ -126,6 +126,17 @@ function M.config()
     }),
   })
 
+  cmp.setup.filetype('elixir', {
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },                   -- for nvim-lsp
+      { name = 'luasnip' },
+      { name = 'buffer', keyword_length = 3 }, -- for buffer word completion
+      { name = 'path' },                       -- for path completion
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
   -- command line completion
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),

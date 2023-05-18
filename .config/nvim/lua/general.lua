@@ -49,6 +49,7 @@ set.wildignore:append { '*.o', '*.obj', 'a.out', 'build', 'target' }            
 set.wildignore:append { 'node_modules' }                                                       -- javascript
 set.wildignore:append { '*.class' }                                                            -- java
 set.wildignore:append { '*.swp' }                                                              -- vim
+set.wildignore:append { 'deps', '_build', '*.beam', '.elixir_ls' }                             -- elixir
 
 -- spell settings
 set.spelllang = 'es_es,en_us'
