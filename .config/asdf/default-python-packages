@@ -9,3 +9,4 @@ python-lsp-ruff
 pylint
 pylint_django
 pynvim
+openai
