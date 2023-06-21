@@ -12,7 +12,7 @@ function M.config()
       'dockerfile',
       'eex',
       'elixir',
-      'embedded_language',
+      'embedded_template',
       'erlang',
       'git_config',
       'git_rebase',
