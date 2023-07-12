@@ -6,7 +6,7 @@ local yellow=$FG[011]
 local green=$FG[010]
 
 prompt_hostname() {
-  [[ -n "" ]] && echo "%{$yellow%}[`hostname`]"
+  echo "%{$fg_bold[yellow]%}[`hostname`]"
 }
 
 prompt_python_version() {
