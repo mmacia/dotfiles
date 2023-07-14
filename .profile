@@ -4,10 +4,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export FZF_DEFAULT_OPTS='--ansi --bind "tab:down,btab:up" --border=thinblock --preview-window=border-thinblock --color "bg:237,bg+:235,gutter:237,border:238,scrollbar:236" --color "preview-bg:235,preview-border:236,preview-scrollbar:234" --scrollbar "▌▐"'
 export FZF_DEFAULT_COMMAND='/usr/lib/cargo/bin/fd --type f --hidden --ignore-case --glob --color always'
 
-# Wayland & GTK apps settings
-export GDK_SCALE=1
-export GDK_DPI_SCALE=0.6
-
 export CHAT_GPT_KEY='sk-secret-token'
 
 # asdf version manager stuff
