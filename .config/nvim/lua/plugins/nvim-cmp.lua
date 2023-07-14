@@ -94,7 +94,7 @@ function M.config()
 
   cmp.setup.filetype('html', {
     sources = cmp.config.sources({
-      { name = 'luasnip' },
+      --{ name = 'luasnip' },
       { name = 'path' },                       -- for path completion
       { name = 'buffer', keyword_length = 2 }, -- for buffer word completion
       { name = 'emoji', insert = true },       -- for emoji completion
