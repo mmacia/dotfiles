@@ -53,7 +53,7 @@ prompt_language_version() {
 local ret_status="%(?:%{$green%}➜ :%{$red%}➜ %s)"
 
 
-PROMPT='${ret_status}$(prompt_language_version)$(prompt_hostname) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='${ret_status}$(prompt_language_version) %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$blue%}git:(%{$red%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
