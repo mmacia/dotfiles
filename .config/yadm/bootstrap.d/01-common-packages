@@ -46,6 +46,7 @@ sudo apt install -y \
   libnotify-bin \
   lm-sensors \
   okteta \
+  okular-extra-backends \
   pandoc \
   partitionmanager \
   powertop \
