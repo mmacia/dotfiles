@@ -137,6 +137,18 @@ function M.config()
     }),
   })
 
+  cmp.setup.filetype('python', {
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },                   -- for nvim-lsp
+      { name = 'luasnip', keyword_length = 3 },
+      { name = 'buffer', keyword_length = 3 }, -- for buffer word completion
+      { name = 'path' },                       -- for path completion
+      { name = 'emoji', insert = true },       -- for emoji completion
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
   -- command line completion
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
