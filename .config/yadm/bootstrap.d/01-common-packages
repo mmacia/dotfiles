@@ -51,6 +51,7 @@ sudo apt install -y \
   pandoc \
   partitionmanager \
   powertop \
+  python3-pip \
   pulseeffects \
   silversearcher-ag \
   sshpass \
