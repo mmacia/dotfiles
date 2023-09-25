@@ -2,7 +2,7 @@
 version: "3"
 services:
   syncthing:
-    image: syncthing/syncthing:1.23.7
+    image: syncthing/syncthing:1.24.0
     container_name: syncthing
     hostname: ${HOST}
     environment:
