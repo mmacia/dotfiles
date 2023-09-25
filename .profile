@@ -13,7 +13,7 @@ export ASDF_DATA_DIR=$HOME/.local/state/asdf
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-python-packages
 export ASDF_GEM_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-ruby-packages
 
-if [ -f $ASDF_DIR ]; then
+if [ -f $ASDF_DIR/asdf.sh ]; then
   . $ASDF_DIR/asdf.sh
 fi
 
