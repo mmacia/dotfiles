@@ -2,14 +2,11 @@
 
 echo "Bootstrap Keepassxc"
 
-version=2.7.5
-appimage_file=$HOME/.local/bin/KeePassXC-${version}-x86_64.AppImage
-appimage_url=https://github.com/keepassxreboot/keepassxc/releases/download/${version}/KeePassXC-${version}-x86_64.AppImage
 
-if [ ! -f "$appimage_file" ]; then
-  wget -O $appimage_file $appimage_url
-  chmod +x $appimage_file
-  rm -f $HOME/.local/bin/keepassxc; ln -s $appimage_file $HOME/.local/bin/keepassxc
+if [ ! -f /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-$(lsb_release -cs).list ]; then
+  sudo add-apt-repository -y ppa:phoerious/keepassxc
+  sudo apt update
+  sudo apt install keepassxc
 
   systemctl daemon-reload --user
   systemctl start ssh-agent --user
