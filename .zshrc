@@ -56,8 +56,6 @@ plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath
 
 export EDITOR=vim
 export SHELL=zsh
-export LC_TYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
 export TERM="tmux-256color"
 
 source $ZSH/oh-my-zsh.sh
