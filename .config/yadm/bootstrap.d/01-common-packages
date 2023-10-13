@@ -40,6 +40,7 @@ sudo apt install -y \
   mkvtoolnix-gui \
   mpv \
   net-tools \
+  nvtop \
   language-pack-en \
   language-pack-es \
   language-pack-kde-es \
@@ -62,6 +63,8 @@ sudo apt install -y \
   tree \
   unclutter \
   unrar \
+  vainfo \
+  vim-nox \
   vlc \
   wget \
   whois \
@@ -76,11 +79,15 @@ sudo snap install \
   glaxnimate \
   pixelorama \
   dbeaver-ce \
-  jdownloader2
+  jdownloader2 \
+  rnote \
+  obsidian
 
-sudo flatpak install \
-  com.github.flxzt.rnote \
-  md.obsidian.Obsidian
+# Install beets
+pip install beets \
+            python3-discogs-client \
+            requests \
+            pyacoustid
 
 # virtualbox stuff
 #ACCEPT_EULA=Y sudo apt install -y \
