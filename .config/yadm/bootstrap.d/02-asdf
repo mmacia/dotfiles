@@ -13,7 +13,7 @@ if [ ! -d "$asdf_install_dir" ]; then
 else
   echo "> upgrading asdf ..."
   cd $asdf_install_dir
-  git fetch -p; git checkout $asdf_version
+  git fetch -p; git checkout v$asdf_version
   cd -
   asdf plugin update --all
 fi
@@ -24,6 +24,8 @@ asdf plugin add nodejs
 asdf plugin add elixir
 asdf plugin add erlang
 asdf plugin add cmake
+asdf plugin add crystal
+asdf plugin add rust
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \
@@ -31,29 +33,31 @@ sudo aptitude install -y \
   autoconf \
   xsltproc \
   unixodbc-dev \
-  libwxbase3.0-0v5 \
-  libwxbase3.0-dev \
+  libwxbase3.2-1 \
+  libwxgtk-webview3.2-dev \
   fop \
   build-essential \
   libssl-dev \
   zlib1g-dev \
   libbz2-dev \
+  libevent-dev \
   libreadline-dev \
   libsqlite3-dev \
+  libpcre2-dev \
   libpq-dev \
   libyaml-dev \
   wget \
   curl \
   llvm \
-  libncurses5-dev \
-  libncursesw5-dev \
+  libncurses-dev \
   xz-utils \
   tk-dev \
   libffi-dev \
   liblzma-dev \
   git
 
-asdf install ruby 3.2.1
-asdf install python 3.11.3
+asdf install ruby 3.2.2
+asdf install python 3.11.6
 asdf install nodejs 20.0.0
 asdf install cmake 3.26.3
+asdf install crystal 1.10.1

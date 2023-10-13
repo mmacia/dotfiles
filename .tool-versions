@@ -3,3 +3,4 @@ ruby system
 nodejs 20.0.0 system
 elixir 1.15
 erlang 25.3
+crystal 1.10.1

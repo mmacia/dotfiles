@@ -60,7 +60,7 @@ cd -
 
 
 # install crysalline lsp
-crystalline_version=0.10.0
+crystalline_version=0.11.0
 crystalline_file=~/.local/bin/crystalline
 crystalline_release="https://github.com/elbywan/crystalline/releases/download/v${crystalline_version}/crystalline_x86_64-unknown-linux-musl.gz"
 
