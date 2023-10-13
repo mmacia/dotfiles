@@ -3,10 +3,10 @@
 echo "Bootstrap Keepassxc"
 
 
-if [ ! -f /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-$(lsb_release -cs).list ]; then
+if [[ ! -f /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-$(lsb_release -cs).list ]]; then
   sudo add-apt-repository -y ppa:phoerious/keepassxc
   sudo apt update
-  sudo apt install keepassxc
+  sudo apt install -y keepassxc
 
   systemctl daemon-reload --user
   systemctl start ssh-agent --user
