@@ -9,8 +9,7 @@ echo "Bootstraping zsh"
 
 sudo apt install -y \
   zsh \
-  tmux \
-  pip
+  tmux
 
 
 # ------
