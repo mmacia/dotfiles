@@ -47,6 +47,7 @@ sudo apt install -y \
   language-pack-kde-en \
   libnotify-bin \
   lm-sensors \
+  offlineimap \
   okteta \
   okular-extra-backends \
   pandoc \
