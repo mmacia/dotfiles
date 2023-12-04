@@ -33,6 +33,7 @@ sudo aptitude install -y \
   autoconf \
   xsltproc \
   unixodbc-dev \
+  inotify-tools \
   libwxbase3.2-1 \
   libwxgtk-webview3.2-dev \
   fop \
