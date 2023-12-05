@@ -46,7 +46,7 @@ npm install -g \
   remark-preset-lint-recommended
 
 # install elixir-ls
-elixir_ls_version=0.16.0
+elixir_ls_version=0.17.10
 elixir_ls_dir=~/.local/share/elixir-ls/
 elixir_ls_release="https://github.com/elixir-lsp/elixir-ls/releases/download/v${elixir_ls_version}/elixir-ls-v${elixir_ls_version}.zip"
 
