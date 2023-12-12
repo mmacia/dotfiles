@@ -76,7 +76,6 @@ Plug 'ellisonleao/gruvbox.nvim'
 
 " --- Other
 Plug 'vim-scripts/loremipsum'         " Lorem ipsum generator
-Plug 'rstacruz/sparkup'               " auto generate HTML
 Plug 'nvim-lualine/lualine.nvim'      " a stylized status line
 Plug 'christoomey/vim-tmux-navigator' " navigate between tmux and vim
 Plug 'shime/vim-livedown'             " Live preview for markdown

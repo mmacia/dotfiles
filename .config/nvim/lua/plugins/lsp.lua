@@ -164,6 +164,28 @@ function M.config()
       capabilities = capabilities,
     })
   end
+  if vim.fn.executable('emmet-language-server') then
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+    require('lspconfig').emmet_language_server.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {
+        "css", "eruby", "heex", "html", "javascript", "less", "saas", "javascriptreact", "scss", "svelte", "pug",
+        "typescriptreact", "vue" },
+      init_options = {
+        -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+        -- **Note:** only the options listed in the table are supported.
+        triggerExpansionOnTab = true,
+        includeLanguages = {
+          ["html-eex"] = "html",
+          ["phoenix-heex"] = "html",
+          eruby = "html",
+        },
+      }
+    })
+  end
 
 
   ---

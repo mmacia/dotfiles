@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS='--ansi --bind "tab:down,btab:up" --border=thinblock --p
 export FZF_DEFAULT_COMMAND='/usr/lib/cargo/bin/fd --type f --hidden --ignore-case --glob --color always'
 export LC_ALL=en_US.UTF-8
 
-export CHAT_GPT_KEY='sk-secret-token'
+export OPENAI_API_KEY='sk-secret-token'
 
 # asdf version manager stuff
 export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
