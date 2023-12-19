@@ -51,6 +51,7 @@ sudo aptitude install -y \
   curl \
   llvm \
   libncurses-dev \
+  libglu1-mesa-dev \
   xz-utils \
   tk-dev \
   libffi-dev \
