@@ -31,3 +31,7 @@ fi
 if type "autojump" > /dev/null; then
   . /usr/share/autojump/autojump.sh
 fi
+
+
+# erlang/elixir stuff
+ERL_AFLAGS="-kernel shell_history enabled"
