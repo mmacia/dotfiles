@@ -132,3 +132,7 @@ require('nvim-test').setup()
 
 -- vim-chatgpt
 vim.g.chat_gpt_max_tokens = 2000
+
+
+-- focus
+require('focus').setup()
