@@ -1,6 +1,6 @@
-python system 3.11.6
+python 3.11.6
 ruby system
 nodejs 20.0.0 system
-elixir 1.15
+elixir 1.15.7
 erlang 26.0
 crystal 1.10.1
