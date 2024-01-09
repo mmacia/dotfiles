@@ -58,8 +58,4 @@ sudo aptitude install -y \
   liblzma-dev \
   git
 
-asdf install ruby 3.2.2
-asdf install python 3.11.6
-asdf install nodejs 20.0.0
-asdf install cmake 3.26.3
-asdf install crystal 1.10.1
+asdf install # install versions specified in ~/.tool-versions
