@@ -3,5 +3,5 @@ ruby system 3.2.2
 nodejs 20.0.0 system
 elixir 1.15.7
 erlang 26.0
-crystal 1.11.0
+crystal 1.11.2
 cmake 3.26.3
