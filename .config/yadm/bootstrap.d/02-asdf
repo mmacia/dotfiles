@@ -28,6 +28,7 @@ asdf plugin add cmake
 asdf plugin add crystal
 asdf plugin add rust
 asdf plugin add neovim
+asdf plugin add fzf
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \

@@ -1,33 +1,10 @@
 #!/bin/bash
 
-# versions to install
-fzf_version='0.46.0'
-fzf_tab_version='master'
-
-
 echo "Bootstraping zsh"
 
 sudo apt install -y \
   zsh \
   tmux
-
-
-# ------
-# --- Install fzf
-# ------
-
-fzf_install_path='/usr/local/share/fzf'
-
-fzf_repo='https://github.com/junegunn/fzf.git'
-fzf_tab_repo='https://github.com/Aloxaf/fzf-tab.git'
-
-if [ -d "$fzf_install_path" ]; then
-  cd ${fzf_install_path} && sudo git fetch -p && sudo git checkout $fzf_version && cd -
-else
-  sudo git clone $fzf_repo $fzf_install_path -b $fzf_version
-fi
-
-sudo $fzf_install_path/install --all --xdg --no-update-rc
 
 
 # ------

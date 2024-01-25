@@ -7,3 +7,4 @@ erlang 26.0
 crystal 1.11.2
 cmake 3.26.3
 neovim 0.9.5
+fzf 0.46.0
