@@ -34,19 +34,6 @@ npm install -g \
   remark-preset-lint-recommended \
   @olrtg/emmet-language-server
 
-# install elixir-ls
-elixir_ls_version=0.19.0
-elixir_ls_dir=~/.local/share/elixir-ls/
-elixir_ls_release="https://github.com/elixir-lsp/elixir-ls/releases/download/v${elixir_ls_version}/elixir-ls-v${elixir_ls_version}.zip"
-
-cd /tmp
-curl -LO $elixir_ls_release
-unzip elixir-ls-v${elixir_ls_version}.zip -d elixir-ls
-mkdir -p $elixir_ls_dir
-rm -rf ${elixir_ls_dir}/*
-cp -R ./elixir-ls/* $elixir_ls_dir
-cd -
-
 
 # install crysalline lsp
 crystalline_version=0.12.0

@@ -22,6 +22,7 @@ asdf plugin add ruby
 asdf plugin add python
 asdf plugin add nodejs
 asdf plugin add elixir
+asdf plugin add elixir-ls
 asdf plugin add erlang
 asdf plugin add cmake
 asdf plugin add crystal

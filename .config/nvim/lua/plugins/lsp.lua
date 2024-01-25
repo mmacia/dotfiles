@@ -191,13 +191,13 @@ function M.config()
   ---
   --- Elixir LSP
   ---
-  if vim.fn.filereadable(os.getenv('HOME') .. '/.local/share/elixir-ls/language_server.sh') then
+  if vim.fn.filereadable(os.getenv('ASDF_DATA_DIR') .. '/shims/elixir-ls') then
     local util = require('lspconfig.util')
 
     require('lspconfig').elixirls.setup({
       on_attach = on_attach,
       root_dir = util.root_pattern('mix.exs', '.git'),
-      cmd = { os.getenv('HOME') .. "/.local/share/elixir-ls/language_server.sh" },
+      cmd = { os.getenv('ASDF_DATA_DIR') .. "/shims/elixir-ls" },
     })
 
   end
