@@ -1,20 +1,8 @@
 #!/bin/bash
 
-
-# install latest nvim from appimage
-neovim_appimage_url=https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-cd ~/.local/bin/
-curl -LO $neovim_appimage_url
-chmod +x nvim.appimage
-cd -
-
-if [ ! -f ~/.local/bin/nvim ]; then
-  ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
-
-  # set nvim as vim alternative
-  sudo update-alternatives --install $(which vim) vim ~/.local/bin/nvim 10
-  sudo update-alternatives --set vim ~/.local/bin/nvim
-fi
+# set nvim as vim alternative
+sudo update-alternatives --install /usr/bin/vim vim $ASDF_DATA_DIR/shims/nvim 10
+sudo update-alternatives --set vim $ASDF_DATA_DIR/shims/nvim
 
 # install providers
 pip install --upgrade \
