@@ -47,7 +47,7 @@ npm install -g \
   @olrtg/emmet-language-server
 
 # install elixir-ls
-elixir_ls_version=0.17.10
+elixir_ls_version=0.19.0
 elixir_ls_dir=~/.local/share/elixir-ls/
 elixir_ls_release="https://github.com/elixir-lsp/elixir-ls/releases/download/v${elixir_ls_version}/elixir-ls-v${elixir_ls_version}.zip"
 
@@ -61,7 +61,7 @@ cd -
 
 
 # install crysalline lsp
-crystalline_version=0.11.0
+crystalline_version=0.12.0
 crystalline_file=~/.local/bin/crystalline
 crystalline_release="https://github.com/elbywan/crystalline/releases/download/v${crystalline_version}/crystalline_x86_64-unknown-linux-musl.gz"
 
