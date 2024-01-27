@@ -90,7 +90,7 @@ autocmd({ 'FileType' }, {
 --- Disable focus on special windows
 ---
 --
-local ignore_filetypes = { 'neo-tree', 'NvimTree' }
+local ignore_filetypes = { 'neo-tree', 'NvimTree', 'aerial' }
 local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
 
 local augroup = augroup('FocusDisable', { clear = true })
