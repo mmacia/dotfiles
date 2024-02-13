@@ -15,6 +15,9 @@ function M.config()
     return vim.api.nvim_replace_termcodes(str, true, true, true)
   end
 
+  luasnip.config.set_config({
+    store_selection_keys = '<Tab>',
+  })
   require('luasnip.loaders.from_snipmate').lazy_load()
 
   cmp.setup {
