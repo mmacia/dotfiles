@@ -24,7 +24,6 @@ function M.config()
     --buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 
   ---
@@ -47,6 +46,8 @@ function M.config()
   --- Python setup
   ---
   if vim.fn.executable('pylsp') then
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     require('lspconfig').pylsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
@@ -80,6 +81,7 @@ function M.config()
   ---
   if vim.fn.executable('solargraph') then
     local util = require('lspconfig.util')
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     require('lspconfig').solargraph.setup({
       on_attach = on_attach,
@@ -109,6 +111,8 @@ function M.config()
   --- C++ setup
   ---
   if vim.fn.executable('clangd') then
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     require('lspconfig').clangd.setup({
       on_attach = on_attach,
       capabilities = capabilities,
@@ -153,7 +157,6 @@ function M.config()
   ---
   if vim.fn.executable('vscode-html-language-server') then
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require('lspconfig').html.setup({
       on_attach = on_attach,
@@ -162,7 +165,6 @@ function M.config()
   end
   if vim.fn.executable('emmet-language-server') then
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require('lspconfig').emmet_language_server.setup({
       on_attach = on_attach,
@@ -189,9 +191,12 @@ function M.config()
   ---
   if vim.fn.filereadable(os.getenv('ASDF_DATA_DIR') .. '/shims/elixir-ls') then
     local util = require('lspconfig.util')
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
 
     require('lspconfig').elixirls.setup({
       on_attach = on_attach,
+      capabilities = capabilities,
       root_dir = util.root_pattern('mix.exs', '.git'),
       cmd = { os.getenv('ASDF_DATA_DIR') .. "/shims/elixir-ls" },
     })
