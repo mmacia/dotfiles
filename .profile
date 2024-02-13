@@ -34,4 +34,4 @@ fi
 
 
 # erlang/elixir stuff
-ERL_AFLAGS="-kernel shell_history enabled"
+export ERL_AFLAGS="-kernel shell_history enabled"
