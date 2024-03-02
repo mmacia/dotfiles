@@ -24,7 +24,6 @@ function M.config()
       null_ls.builtins.diagnostics.proselint,
 
       -- Python
-      null_ls.builtins.diagnostics.ruff,
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.isort,
 
@@ -34,7 +33,6 @@ function M.config()
 
       -- C++
       null_ls.builtins.formatting.clang_format,
-      null_ls.builtins.diagnostics.clang_check,
 
       -- Elixir
       null_ls.builtins.diagnostics.credo,

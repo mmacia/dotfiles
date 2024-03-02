@@ -69,7 +69,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'onsails/lspkind.nvim'
 Plug 'nvimtools/none-ls.nvim'  " use refactor actions, formatters, linters, etc with LSP
-Plug 'nvim-lua/plenary.nvim'  " null-ls dep
+Plug 'nvim-lua/plenary.nvim'   " none-ls dep
 
 " --- Themes
 Plug 'ellisonleao/gruvbox.nvim'
