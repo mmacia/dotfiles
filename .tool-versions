@@ -6,5 +6,5 @@ elixir-ls 0.20.0
 erlang 26.0
 crystal 1.11.2
 cmake 3.28.2
-neovim 0.9.5
-fzf 0.46.1
+neovim 0.10.0
+fzf 0.52.0
