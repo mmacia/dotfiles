@@ -1,0 +1,8 @@
+vscode-langservers-extracted
+livedown
+prettier
+remark-cli
+remark-toc
+remark-preset-lint-consistent
+remark-preset-lint-recommended
+@olrtg/emmet-language-server
