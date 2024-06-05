@@ -24,6 +24,7 @@ sudo apt install -y \
   flatpak \
   gawk \
   git \
+  git-delta \
   htop \
   intel-gpu-tools \
   jq \
