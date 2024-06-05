@@ -121,7 +121,14 @@ zplug load
 
 
 zstyle ':completion:*' fzf-search-display true
-zstyle ':completion::*:(ls|vim|nvim)::*' fzf-completion-opts --preview='eval exa --icons {1}'
+zstyle ':completion::*:(ls|vim|nvim)::*' fzf-completion-opts --preview='
+        P=$(eval echo {1})
+        if [ -f "$P" ]; then
+          batcat --color=always --style=numbers,changes --line-range=1:20 "$P"
+        else
+          eza -1 --color=always --icons "$P"
+        fi
+'
 
 local fzf_completion_file=$ZPLUG_HOME/repos/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 [ -f $fzf_completion_file ] && source $fzf_completion_file

@@ -13,7 +13,7 @@ sudo apt install -y \
   digikam \
   deborphan \
   default-jre \
-  exa \
+  eza \
   ffmpegthumbs \
   firefox \
   firefox-locale-es \
