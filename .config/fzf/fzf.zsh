@@ -1,13 +1,11 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/share/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/usr/local/share/fzf/bin"
-fi
+FZF_DIR="$ASDF_DATA_DIR/installs/fzf/$(asdf current fzf | awk '{print $2}')"
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/share/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$FZF_DIR/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/usr/local/share/fzf/shell/key-bindings.zsh"
+source "$FZF_DIR/shell/key-bindings.zsh"
