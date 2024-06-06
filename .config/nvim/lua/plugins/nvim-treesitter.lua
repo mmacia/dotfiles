@@ -40,6 +40,7 @@ function M.config()
       'toml',
       'typescript',
       'vim',
+      'vimdoc',
       'yaml',
     },
     highlight = { enable = true },

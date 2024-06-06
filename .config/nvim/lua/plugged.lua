@@ -57,8 +57,18 @@ for _, v in ipairs(split(vim.o.wildignore)) do
 end
 
 require('nvim-tree').setup({
+  hijack_cursor = true,
+
+  view = {
+    width = 35,
+  },
+
   filters = {
     custom = custom_ignores,
+  },
+
+  update_focused_file = {
+    enable = true
   }
 })
 

@@ -8,3 +8,4 @@ crystal 1.11.2
 cmake 3.28.2
 neovim 0.10.0
 fzf 0.52.0
+tree-sitter 0.22.6
