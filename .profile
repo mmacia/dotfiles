@@ -30,7 +30,7 @@ fi
 
 # load autojump if present
 if type "autojump" > /dev/null; then
-  . /usr/share/autojump/autojump.sh
+  . /usr/share/autojump/autojump.zsh
 fi
 
 
