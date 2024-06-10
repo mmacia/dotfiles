@@ -8,6 +8,9 @@ export LC_ALL=en_US.UTF-8
 
 export OPENAI_API_KEY='sk-secret-token'
 
+# erlang/elixir stuff
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # asdf version manager stuff
 export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
 export ASDF_DIR=$HOME/.local/share/asdf
@@ -24,15 +27,7 @@ fi
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
 [ -f $HOME/.symfony.env ] && source $HOME/.symfony.env
 
-if [ -d ~/.gem ]; then
-  export PATH=~/.gem/ruby/3.0.0/bin:$PATH
-fi
-
 # load autojump if present
 if type "autojump" > /dev/null; then
   . /usr/share/autojump/autojump.zsh
 fi
-
-
-# erlang/elixir stuff
-export ERL_AFLAGS="-kernel shell_history enabled"

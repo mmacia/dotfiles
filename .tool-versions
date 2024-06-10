@@ -2,10 +2,10 @@ python 3.11.6
 ruby system 3.2.2
 nodejs 20.0.0 system
 elixir 1.15.7
-elixir-ls 0.20.0
+elixir-ls 0.21.3
 erlang 26.0
 crystal 1.11.2
 cmake 3.28.2
 neovim 0.10.0
-fzf 0.52.0
+fzf 0.53.0
 tree-sitter 0.22.6

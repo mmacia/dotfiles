@@ -29,6 +29,7 @@ asdf plugin add crystal
 asdf plugin add rust
 asdf plugin add neovim
 asdf plugin add fzf
+asdf plugin add tree-sitter
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \
