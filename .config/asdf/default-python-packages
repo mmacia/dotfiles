@@ -1,3 +1,4 @@
+# Python LSP, linters and dev stuff
 python-lsp-server[yapf]
 jedi
 pydocstyle
@@ -9,3 +10,14 @@ pylint
 pylint_django
 pynvim
 openai
+proselint
+
+# Beets
+beets
+python3-discogs-client
+requests
+pyacoustid
+
+# Zsh stuff
+powerline-status
+psutil

@@ -85,12 +85,6 @@ sudo snap install \
   rnote \
   obsidian
 
-# Install beets
-pip install beets \
-            python3-discogs-client \
-            requests \
-            pyacoustid
-
 # virtualbox stuff
 #ACCEPT_EULA=Y sudo apt install -y \
 #  virtualbox \

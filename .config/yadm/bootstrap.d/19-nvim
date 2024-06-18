@@ -4,13 +4,6 @@
 sudo update-alternatives --install /usr/bin/vim vim $ASDF_DATA_DIR/shims/nvim 10
 sudo update-alternatives --set vim $ASDF_DATA_DIR/shims/nvim
 
-# install providers
-pip install --upgrade \
-  pynvim \
-  proselint \
-  openai
-
-
 # LSP servers for python and ruby are installed using pyenv and rbenv
 
 # install LSP deps for C++ and dictionaries

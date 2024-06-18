@@ -31,8 +31,6 @@ fi
 
 echo "Bootstraping tmux"
 
-pip install --upgrade powerline-status psutil
-
 tmux_tpm_install_path=~/.config/tmux/plugins/tpm
 
 if [ -d "$tmux_tpm_install_path" ]; then
