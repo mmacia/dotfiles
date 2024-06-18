@@ -16,17 +16,6 @@ sudo apt install -y \
     clang-tools \
     clang-tidy
 
-# install LSP server for HTML
-npm install -g \
-  vscode-langservers-extracted \
-  livedown \
-  prettier \
-  remark-cli \
-  remark-toc \
-  remark-preset-lint-consistent \
-  remark-preset-lint-recommended \
-  @olrtg/emmet-language-server
-
 
 # install crysalline lsp
 crystalline_version=0.12.0
