@@ -9,3 +9,4 @@ cmake 3.28.2
 neovim 0.10.0
 fzf 0.53.0
 tree-sitter 0.22.6
+ctop 0.7.7

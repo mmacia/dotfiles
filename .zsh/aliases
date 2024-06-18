@@ -1,1 +1,2 @@
 alias o="xdg-open"
+alias ctop='TERM="${TERM/#tmux/screen}" ctop'
