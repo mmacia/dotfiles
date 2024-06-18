@@ -54,7 +54,6 @@ function M.config()
       settings = {
         pylsp = {
           plugins = {
-            mypy            = { enabled = true },
             pyflakes        = { enabled = true },
             ruff            = { enabled = true },
             jedi_completion = { enabled = true, fuzzy = true },

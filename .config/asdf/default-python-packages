@@ -2,7 +2,6 @@ python-lsp-server[yapf]
 jedi
 pydocstyle
 autopep8
-pyls-mypy
 pyls-isort
 python-lsp-black
 python-lsp-ruff
