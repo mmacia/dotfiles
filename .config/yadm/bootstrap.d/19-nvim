@@ -26,4 +26,5 @@ cd /tmp
 curl -LO $crystalline_release
 gunzip crystalline_x86_64-unknown-linux-musl.gz
 cp crystalline_x86_64-unknown-linux-musl $crystalline_file
+chmod +x $crystalline_file
 cd -
