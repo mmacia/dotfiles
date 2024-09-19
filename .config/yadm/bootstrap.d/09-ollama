@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Install/update ollama ..."
+
+curl -fsSL https://ollama.com/install.sh | sudo sh
