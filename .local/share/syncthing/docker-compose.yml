@@ -13,4 +13,6 @@ services:
       - ${PRIVATE_NET_ADDR}:8384:8384
       - 22000:22000/tcp
       - 22000:22000/udp
+    mem_limit: 512M
+    cpu_count: 2
     restart: unless-stopped
