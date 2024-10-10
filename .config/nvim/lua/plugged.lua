@@ -136,12 +136,14 @@ vim.g.markdown_fenced_languages = { 'html', 'python', 'bash=sh', 'ruby', 'vim', 
 vim.g.markdown_minlines = 100
 
 
--- nvim-test
-require('nvim-test').setup()
-
-
--- vim-chatgpt
-vim.g.chat_gpt_max_tokens = 2000
+-- neotest
+require('neotest').setup({
+  adapters = {
+    require('neotest-python'),
+    require('neotest-rspec'),
+    require('neotest-elixir')
+  }
+})
 
 
 -- focus

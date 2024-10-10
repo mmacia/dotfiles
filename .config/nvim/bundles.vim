@@ -44,7 +44,12 @@ Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " --- Testing
-Plug 'klen/nvim-test', { 'for': ['ruby', 'python', 'crystal', 'javascript'] }  " run tests easilly
+Plug 'antoinemadec/FixCursorHold.nvim'  " neotest dep
+Plug 'nvim-neotest/nvim-nio'            " neotest dep
+Plug 'nvim-neotest/neotest'             " run tests
+Plug 'nvim-neotest/neotest-python'      " pytest adapter
+Plug 'olimorris/neotest-rspec'          " rspec adapter
+Plug 'jfpedroza/neotest-elixir'         " elixir adapter
 
 " --- Crystal plugins
 Plug 'vim-crystal/vim-crystal'  " crystal syntax
