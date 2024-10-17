@@ -21,7 +21,7 @@ local overlength = require('overlength')
 overlength.setup({
   enabled = true,
   default_overlenght = 120,
-  disable_ft = { 'help', 'qf', '', 'NvimTree', 'html', 'css', 'scss' }
+  disable_ft = { 'help', 'qf', 'NvimTree', 'html', 'css', 'scss' }
 })
 overlength.set_overlength('markdown', 80)
 overlength.set_overlength('vimwiki', 80)
