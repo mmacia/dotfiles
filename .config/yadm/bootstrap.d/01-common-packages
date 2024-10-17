@@ -47,6 +47,12 @@ sudo apt install -y \
   language-pack-kde-es \
   language-pack-kde-en \
   libnotify-bin \
+  libreoffice \
+  libreoffice-kf5 \
+  libreoffice-plasma \
+  libreoffice-qt5 \
+  libreoffice-l10n-es \
+  libreoffice-l10n-en-gb \
   lm-sensors \
   obs-studio \
   offlineimap \
