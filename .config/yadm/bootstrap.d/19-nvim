@@ -11,7 +11,7 @@ sudo apt install -y \
     aspell \
     aspell-en \
     aspell-es \
-    clangd-14 \
+    clangd \
     clang-format \
     clang-tools \
     clang-tidy
