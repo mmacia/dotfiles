@@ -90,8 +90,9 @@ sudo snap install \
   pixelorama \
   dbeaver-ce \
   jdownloader2 \
-  rnote \
-  obsidian
+  rnote
+
+sudo snap install --classic obsidian
 
 # virtualbox stuff
 #ACCEPT_EULA=Y sudo apt install -y \
