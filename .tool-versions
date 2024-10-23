@@ -1,12 +1,12 @@
 python 3.12.4
-ruby system 3.2.2
+ruby system 3.2.5
 nodejs 20.14.0 system
 elixir 1.17.3
 elixir-ls 0.24.0
 erlang 27.1
 crystal 1.11.2
 cmake 3.28.2
-neovim 0.10.1
+neovim 0.10.2
 fzf 0.55.0
 tree-sitter 0.23.0
 ctop 0.7.7
