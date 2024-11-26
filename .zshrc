@@ -50,13 +50,14 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath copyfile mix)
+plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath copyfile mix dotenv)
 
 # User configuration
 
 export EDITOR=vim
 export SHELL=zsh
 export TERM="tmux-256color"
+export ZSH_DOTENV_ALLOWED_LIST=$HOME/.config/dotenv-allowed.list
 
 source $ZSH/oh-my-zsh.sh
 
