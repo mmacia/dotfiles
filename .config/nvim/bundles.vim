@@ -28,7 +28,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'windwp/nvim-autopairs'  " autoclose pairs
 Plug 'RRethy/nvim-treesitter-endwise' " autoclose ends in languages like ruby, lua, vimscript, elixir, etc
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'lcheylus/overlength.nvim'  " mark line overlength in other color
 Plug 'jghauser/mkdir.nvim'       " create directories if not exists as you go
 
 
