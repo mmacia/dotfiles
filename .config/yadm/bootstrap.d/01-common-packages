@@ -69,7 +69,6 @@ sudo apt install -y \
   tldr \
   translate-shell \
   tree \
-  unclutter \
   unrar \
   vainfo \
   vim-nox \
