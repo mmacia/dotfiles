@@ -136,3 +136,36 @@ require('neotest').setup({
 
 -- focus
 require('focus').setup()
+
+
+-- CodeCompanion
+require('codecompanion').setup({
+  adapters = {
+    ollama = function()
+      return require("codecompanion.adapters").extend("ollama", {
+        schema = {
+          model = {
+            default = "llama3.1"
+          },
+          num_ctx = {
+            default = 16384,
+          },
+          num_predict = {
+            default = -1,
+          },
+        },
+      })
+    end,
+  },
+  strategies = {
+    chat = {
+      adapter = "ollama",
+    },
+    inline = {
+      adapter = "ollama",
+    },
+    agent = {
+      adapter = "ollama",
+    },
+  },
+})
