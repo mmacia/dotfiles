@@ -59,6 +59,8 @@ Plug 'vim-crystal/vim-crystal'  " crystal syntax
 " --- Ruby / Rails plugins
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'mattn/emmet-vim'
+Plug 'AndrewRadev/tagalong.vim'
 
 " --- C++ plugins
 Plug 'peterhoeg/vim-qml', { 'for': 'cpp' }       " QML syntax
