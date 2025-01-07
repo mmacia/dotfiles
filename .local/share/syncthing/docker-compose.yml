@@ -1,7 +1,7 @@
 ---
 services:
   syncthing:
-    image: syncthing/syncthing:1.27.12
+    image: syncthing/syncthing:1.29.0
     container_name: syncthing
     hostname: ${HOST}
     environment:
