@@ -145,7 +145,7 @@ require('codecompanion').setup({
       return require("codecompanion.adapters").extend("ollama", {
         schema = {
           model = {
-            default = "llama3.1"
+            default = "phi4"
           },
           num_ctx = {
             default = 16384,
