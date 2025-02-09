@@ -1,6 +1,6 @@
 # Setup fzf
 # ---------
-FZF_DIR="$ASDF_DATA_DIR/installs/fzf/$(asdf current fzf | awk '{print $2}')"
+FZF_DIR="$ASDF_DATA_DIR/installs/fzf/$(asdf current --no-header fzf | awk '{print $2}')"
 
 # Auto-completion
 # ---------------

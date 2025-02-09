@@ -1,4 +1,3 @@
-export PATH=$HOME/.local/bin:$PATH
 export XDG_CONFIG_HOME=$HOME/.config
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export CPU_CORES=$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
@@ -13,15 +12,12 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # asdf version manager stuff
 export ASDF_CONFIG_FILE=$XDG_CONFIG_HOME/asdfrc
-export ASDF_DIR=$HOME/.local/share/asdf
 export ASDF_DATA_DIR=$HOME/.local/state/asdf
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-python-packages
 export ASDF_GEM_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-ruby-packages
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-node-packages
 
-if [ -d $ASDF_DIR ]; then
-  . $ASDF_DIR/asdf.sh
-fi
+export PATH="$ASDF_DATA_DIR/shims:$HOME/.local/bin:$PATH"
 
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
