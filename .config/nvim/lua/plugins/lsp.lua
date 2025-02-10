@@ -201,6 +201,21 @@ function M.config()
     })
 
   end
+
+
+  ---
+  --- Tailwind CSS
+  ---
+  if vim.fn.executable('tailwindcss-language-server') then
+    local util = require('lspconfig.util')
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
+
+    require('lspconfig').tailwindcss.setup({
+      on_attach = on_attach,
+      capabilities = capabilities
+    })
+  end
 end
 
 return M
