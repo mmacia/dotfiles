@@ -2,20 +2,32 @@
 
 echo "Install asdf version manager ..."
 
-asdf_version="0.14.1"
-asdf_install_dir="$HOME/.local/share/asdf"
+asdf_version="0.16.2"
+asdf_install_dir="$HOME/.local/bin"
 
-if [ ! -d "$asdf_install_dir" ]; then
+function _install_asdf() {
+  local version=$1
+  local install_dir=$2
+  local url="https://github.com/asdf-vm/asdf/releases/download/v${version}/asdf-v${version}-linux-amd64.tar.gz"
+  local dest=/tmp/asdf.tar.gz
+
   echo "> installing asdf ..."
-  git clone https://github.com/asdf-vm/asdf.git $asdf_install_dir --branch v$asdf_version
-  . $asdf_install_dir/asdf.sh
-  asdf plugin list all
-else
-  echo "> upgrading asdf ..."
-  cd $asdf_install_dir
-  git fetch -p; git checkout v$asdf_version
+  curl -L $url -o $dest
+  cd $install_dir
+  tar xvf $dest
   cd -
-  asdf plugin update --all
+}
+
+if [ ! -f "$asdf_install_dir/asdf" ]; then
+  _install_asdf $asdf_version $asdf_install_dir
+else
+  cur_version=`asdf --version | cut -d' ' -f3`
+
+  if [ "${cur_version}" != "v${asdf_version}" ]; then
+    echo "> upgrading asdf ..."
+    _install_asdf $asdf_version $asdf_install_dir
+    asdf plugin update --all
+  fi
 fi
 
 asdf plugin add ruby
