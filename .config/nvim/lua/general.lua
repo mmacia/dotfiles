@@ -42,7 +42,7 @@ set.background = 'dark'
 set.clipboard = 'unnamedplus'
 
 -- ignore dirs/files
-set.wildignore:append { 'cache', 'tmp', 'log', 'logs', '.DS_Store' }
+set.wildignore:append { 'tmp', 'log', 'logs', '.DS_Store' }
 set.wildignore:append { '__pycache__', 'htmlcov', 'coverage', '.coverage', '*.pyc', '.mypy', '.pytest_cache' }  -- python
 set.wildignore:append { '.gems', '.bundle' }                                                   -- ruby
 set.wildignore:append { '*.o', '*.obj', 'a.out', 'build', 'target' }                           -- c++
