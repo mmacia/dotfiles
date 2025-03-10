@@ -6,6 +6,7 @@ require('plugins/nvim-treesitter').config()
 require('plugins/nvim-cmp').config()
 require('plugins/lsp').config()
 require('plugins/null-ls').config()
+require('plugins/codecompanion').config()
 
 -- autopairs
 require('nvim-autopairs').setup()
@@ -136,36 +137,3 @@ require('neotest').setup({
 
 -- focus
 require('focus').setup()
-
-
--- CodeCompanion
-require('codecompanion').setup({
-  adapters = {
-    ollama = function()
-      return require("codecompanion.adapters").extend("ollama", {
-        schema = {
-          model = {
-            default = "phi4"
-          },
-          num_ctx = {
-            default = 16384,
-          },
-          num_predict = {
-            default = -1,
-          },
-        },
-      })
-    end,
-  },
-  strategies = {
-    chat = {
-      adapter = "ollama",
-    },
-    inline = {
-      adapter = "ollama",
-    },
-    agent = {
-      adapter = "ollama",
-    },
-  },
-})

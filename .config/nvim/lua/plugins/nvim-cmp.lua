@@ -116,6 +116,7 @@ function M.config()
       { name = 'luasnip', priority = 120 },
       { name = 'path', priority = 100 },
       { name = 'emoji', insert = true, priority = 60 },
+      { name = 'codecompanion' },
     }, {
       { name = "buffer", priotiry = 50 },
       -- slow
