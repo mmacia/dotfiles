@@ -44,7 +44,7 @@ function M.config()
         return adapters.extend('openai', {
           env = { api_key = OPENAI_API_KEY },
           schema = {
-            model = { default = 'gpt-4-turbo' },
+            model = { default = 'gpt-4o-mini' },
             max_tokens = { default = 4096 },
             temperature = { default = 0.2 },
             top_p = { default = 0.1 },
