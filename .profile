@@ -6,6 +6,7 @@ export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --ignore-case --glob --colo
 export LC_ALL=en_US.UTF-8
 
 export OPENAI_API_KEY='sk-secret-token'
+export OPENROUTER_API_KEY='sk-secret-token'
 
 # erlang/elixir stuff
 export ERL_AFLAGS="-kernel shell_history enabled"
