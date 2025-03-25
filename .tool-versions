@@ -6,7 +6,7 @@ elixir-ls 0.27.1
 erlang 27.2
 crystal 1.14.0
 cmake 3.31.3
-neovim 0.10.3
+neovim 0.10.4
 fzf 0.57.0
 tree-sitter 0.24.6
 ctop 0.7.7
