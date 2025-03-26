@@ -51,7 +51,7 @@ function M.config()
           },
         })
       end,
-      openrouter = function()
+      openrouter_claude_sonnet = function()
         return adapters.extend("openai_compatible", {
         env = {
           url = "https://openrouter.ai/api",
@@ -64,7 +64,77 @@ function M.config()
           },
         },
       })
-    end
+      end,
+      openrouter_mistral = function()
+        return adapters.extend("openai_compatible", {
+        env = {
+          url = "https://openrouter.ai/api",
+          api_key = "OPENROUTER_API_KEY",
+          chat_url = "/v1/chat/completions",
+        },
+        schema = {
+          model = {
+            default = "mistralai/mistral-large-2411",
+          },
+        },
+      })
+      end,
+      openrouter_claude_opus = function()
+        return adapters.extend("openai_compatible", {
+        env = {
+          url = "https://openrouter.ai/api",
+          api_key = "OPENROUTER_API_KEY",
+          chat_url = "/v1/chat/completions",
+        },
+        schema = {
+          model = {
+            default = "anthropic/claude-3-opus",
+          },
+        },
+      })
+      end,
+      openrouter_deepseek = function()
+        return adapters.extend("openai_compatible", {
+        env = {
+          url = "https://openrouter.ai/api",
+          api_key = "OPENROUTER_API_KEY",
+          chat_url = "/v1/chat/completions",
+        },
+        schema = {
+          model = {
+            default = "deepseek/deepseek-chat-v3-0324",
+          },
+        },
+      })
+      end,
+      openrouter_gemini = function()
+        return adapters.extend("openai_compatible", {
+        env = {
+          url = "https://openrouter.ai/api",
+          api_key = "OPENROUTER_API_KEY",
+          chat_url = "/v1/chat/completions",
+        },
+        schema = {
+          model = {
+            default = "google/gemini-2.0-flash-001",
+          },
+        },
+      })
+      end,
+      openrouter_phi4 = function()
+        return adapters.extend("openai_compatible", {
+        env = {
+          url = "https://openrouter.ai/api",
+          api_key = "OPENROUTER_API_KEY",
+          chat_url = "/v1/chat/completions",
+        },
+        schema = {
+          model = {
+            default = "microsoft/phi-4",
+          },
+        },
+      })
+      end,
     },
     strategies = {
       chat = {
