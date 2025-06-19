@@ -1,13 +1,12 @@
 python 3.12.4
 ruby system 3.2.5
 nodejs 22.13.1 system
-elixir 1.17.3
-elixir-ls 0.27.2
-erlang 27.2
+elixir 1.18.4
+elixir-ls 0.28.0
+erlang 27.3.4
 crystal 1.14.0
 cmake 3.31.3
-neovim 0.11.0
-fzf 0.57.0
-tree-sitter 0.24.6
-ctop 0.7.7
+neovim 0.11.2
+fzf 0.62.0
+tree-sitter 0.25.6
 rust 1.85.1

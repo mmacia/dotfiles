@@ -87,8 +87,7 @@ sudo snap install \
   glaxnimate \
   pixelorama \
   dbeaver-ce \
-  jdownloader2 \
-  rnote
+  jdownloader2
 
 sudo snap install --classic obsidian
 
