@@ -2,7 +2,7 @@ python 3.12.4
 ruby system 3.2.5
 nodejs 22.13.1 system
 elixir 1.18.4
-elixir-ls 0.28.0
+elixir-ls 0.29.3
 erlang 27.3.4
 crystal 1.14.0
 cmake 3.31.3

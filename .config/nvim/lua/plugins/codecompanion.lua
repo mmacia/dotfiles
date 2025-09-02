@@ -22,119 +22,107 @@ function M.config()
 
   require('codecompanion').setup({
     adapters = {
-      opts = {
-        show_defaults = true,
-      },
-      ollama = function()
-        return require("codecompanion.adapters").extend("ollama", {
+      http = {
+        opts = {
+          show_defaults = true,
+        },
+        ollama = function()
+          return require("codecompanion.adapters").extend("ollama", {
+            schema = {
+              model = {
+                default = "phi4"
+              },
+              num_ctx = {
+                default = 16384,
+              },
+              num_predict = {
+                default = -1,
+              },
+            },
+          })
+        end,
+        openai_gpt_4o_mini = function()
+          return adapters.extend('openai', {
+            env = { api_key = OPENAI_API_KEY },
+            schema = {
+              model = { default = 'gpt-4o-mini' },
+              max_tokens = { default = 4096 },
+              temperature = { default = 0.2 },
+              top_p = { default = 0.1 },
+            },
+          })
+        end,
+        openrouter_claude_sonnet = function()
+          return adapters.extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
+          },
           schema = {
             model = {
-              default = "phi4"
-            },
-            num_ctx = {
-              default = 16384,
-            },
-            num_predict = {
-              default = -1,
+              default = "anthropic/claude-3.7-sonnet",
             },
           },
         })
-      end,
-      openai_gpt_4o_mini = function()
-        return adapters.extend('openai', {
-          env = { api_key = OPENAI_API_KEY },
+        end,
+        openrouter_mistral = function()
+          return adapters.extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
+          },
           schema = {
-            model = { default = 'gpt-4o-mini' },
-            max_tokens = { default = 4096 },
-            temperature = { default = 0.2 },
-            top_p = { default = 0.1 },
+            model = {
+              default = "mistralai/mistral-large-2411",
+            },
           },
         })
-      end,
-      openrouter_claude_sonnet = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "anthropic/claude-3.7-sonnet",
+        end,
+        openrouter_claude_opus = function()
+          return adapters.extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
           },
-        },
-      })
-      end,
-      openrouter_mistral = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "mistralai/mistral-large-2411",
+          schema = {
+            model = {
+              default = "anthropic/claude-3-opus",
+            },
           },
-        },
-      })
-      end,
-      openrouter_claude_opus = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "anthropic/claude-3-opus",
+        })
+        end,
+        openrouter_deepseek = function()
+          return adapters.extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
           },
-        },
-      })
-      end,
-      openrouter_deepseek = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "deepseek/deepseek-chat-v3-0324",
+          schema = {
+            model = {
+              default = "deepseek/deepseek-chat-v3-0324",
+            },
           },
-        },
-      })
-      end,
-      openrouter_gemini = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "google/gemini-2.0-flash-001",
+        })
+        end,
+        openrouter_gemini = function()
+          return adapters.extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
           },
-        },
-      })
-      end,
-      openrouter_phi4 = function()
-        return adapters.extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "microsoft/phi-4",
+          schema = {
+            model = {
+              default = "google/gemini-2.0-flash-001",
+            },
           },
-        },
-      })
-      end,
+        })
+        end,
+      }
     },
     strategies = {
       chat = {
