@@ -4,9 +4,9 @@ nodejs 22.13.1 system
 elixir 1.18.4
 elixir-ls 0.29.3
 erlang 27.3.4
-crystal 1.14.0
+crystal 1.17.1
 cmake 3.31.3
-neovim 0.11.2
+neovim 0.11.4
 fzf 0.62.0
 tree-sitter 0.25.6
 rust 1.85.1
