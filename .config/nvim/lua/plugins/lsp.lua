@@ -1,29 +1,46 @@
 local M = {}
 
 function M.config()
-  local cmp = require('cmp')
-  local lspkind = require('lspkind')
+  local cmp = require('cmp_nvim_lsp')
 
   local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local opts = { noremap=true, silent=true }
 
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', '<Leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<Leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-
-    --buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
   end
 
+  local get_capabilities = function()
+    return vim.tbl_deep_extend(
+      'force',
+      {},
+      vim.lsp.protocol.make_client_capabilities(),
+      cmp.default_capabilities()
+    )
+  end
+
+  local servers = {
+    'elixirls',
+    'tailwindcss',
+    'html',
+    'emmet_language_server',
+    'crystaline',
+    'clangd',
+    'solargraph',
+    'pylsp',
+  }
+
+  vim.lsp.enable(servers)
 
 
   ---
@@ -41,16 +58,16 @@ function M.config()
     severity_sort = true,
   })
 
+  vim.lsp.config('*', {
+    on_attach = on_attach,
+    capabilities = get_capabilities(),
+  })
 
   ---
   --- Python setup
   ---
   if vim.fn.executable('pylsp') then
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    require('lspconfig').pylsp.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config('pylsp', {
       settings = {
         pylsp = {
           plugins = {
@@ -74,18 +91,11 @@ function M.config()
     })
   end
 
-
   ---
   --- Ruby setup
   ---
   if vim.fn.executable('solargraph') then
-    local util = require('lspconfig.util')
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    require('lspconfig').solargraph.setup({
-      on_attach = on_attach,
-      root_dir = util.root_pattern('Gemfile', '.ruby-version', '.git'),
-      capabilities = capabilities,
+    vim.lsp.config('solargraph', {
       settings = {
         solargraph = {
           diagnostics = true,
@@ -99,7 +109,6 @@ function M.config()
           symbols = true
         }
       },
-      filetypes = { 'ruby', 'gemfile', 'rakefile' },
       init_options = {
         formatting = true
       }
@@ -112,9 +121,7 @@ function M.config()
   if vim.fn.executable('clangd') then
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    require('lspconfig').clangd.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config('clangd', {
       cmd = { 'clangd',
         '--background-index',
         '--header-insertion=iwyu',
@@ -142,78 +149,36 @@ function M.config()
     })
   end
 
-
   ---
   --- Crystal LSP setup
   ---
-  if vim.fn.executable('crystalline') then
-    require('lspconfig').crystalline.setup({})
-  end
-
+  vim.lsp.config('crystaline', {})
 
   ---
   --- HTML setup
   ---
-  if vim.fn.executable('vscode-html-language-server') then
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    require('lspconfig').html.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-  end
-  if vim.fn.executable('emmet-language-server') then
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    require('lspconfig').emmet_language_server.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = {
-        "css", "eruby", "heex", "html", "javascript", "less", "saas", "javascriptreact", "scss", "svelte", "pug",
-        "typescriptreact", "vue" },
-      init_options = {
-        -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-        -- **Note:** only the options listed in the table are supported.
-        triggerExpansionOnTab = true,
-        includeLanguages = {
-          ["html-eex"] = "html",
-          ["phoenix-heex"] = "html",
-          eruby = "html",
-        },
-      }
-    })
-  end
-
+  vim.lsp.config('emmet_language_server', {
+    filetypes = {
+      "css", "eruby", "heex", "html", "javascript", "less", "saas", "javascriptreact", "scss", "svelte", "pug",
+      "typescriptreact", "vue" },
+    init_options = {
+      -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+      -- **Note:** only the options listed in the table are supported.
+      triggerExpansionOnTab = true,
+      includeLanguages = {
+        ["html-eex"] = "html",
+        ["phoenix-heex"] = "html",
+        eruby = "html",
+      },
+    }
+  })
 
   ---
   --- Elixir LSP
   ---
   if vim.fn.filereadable(os.getenv('ASDF_DATA_DIR') .. '/shims/elixir-ls') then
-    local util = require('lspconfig.util')
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
-
-    require('lspconfig').elixirls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      root_dir = util.root_pattern('mix.exs', '.git'),
+    vim.lsp.config('elixirls', {
       cmd = { os.getenv('ASDF_DATA_DIR') .. "/shims/elixir-ls" },
-    })
-
-  end
-
-
-  ---
-  --- Tailwind CSS
-  ---
-  if vim.fn.executable('tailwindcss-language-server') then
-    local util = require('lspconfig.util')
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
-
-    require('lspconfig').tailwindcss.setup({
-      on_attach = on_attach,
-      capabilities = capabilities
     })
   end
 end
