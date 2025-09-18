@@ -17,7 +17,8 @@ function M.config()
     vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
+
+    --vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
   end
 
   local get_capabilities = function()
