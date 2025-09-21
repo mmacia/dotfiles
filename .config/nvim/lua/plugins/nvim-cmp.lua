@@ -28,7 +28,6 @@ function M.config()
           nvim_lsp        = '[LSP]',
           path            = '[Path]',
           buffer          = '[Buffer]',
-          emoji           = '[Emoji]',
           omni            = '[Omni]',
           luasnip         = '[Snippet]',
           spell           = '[Spell]',
@@ -115,7 +114,6 @@ function M.config()
       { name = 'nvim_lsp', priority = 100, max_view_entries = 20 },
       { name = 'luasnip', priority = 120 },
       { name = 'path', priority = 100 },
-      { name = 'emoji', insert = true, priority = 60 },
       { name = 'codecompanion' },
     }, {
       { name = "buffer", priotiry = 50 },
@@ -143,7 +141,6 @@ function M.config()
     sources = cmp.config.sources({
        { name = "cmp_git", priority = 100 },
        { name = "path", priority = 100 },
-       { name = "emoji", insert = true, priority = 60 },
     }, {
       { name = "buffer", priority = 50 },
       { name = "spell", priority = 40 },

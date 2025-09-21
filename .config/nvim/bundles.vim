@@ -37,7 +37,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-omni'
-Plug 'hrsh7th/cmp-emoji'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
 Plug 'saadparwaiz1/cmp_luasnip'
