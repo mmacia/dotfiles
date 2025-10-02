@@ -31,7 +31,7 @@ function M.config()
   end
 
   local servers = {
-    'elixirls',
+    'expert',
     'tailwindcss',
     'html',
     'emmet_language_server',
@@ -177,9 +177,11 @@ function M.config()
   ---
   --- Elixir LSP
   ---
-  if vim.fn.filereadable(os.getenv('ASDF_DATA_DIR') .. '/shims/elixir-ls') then
-    vim.lsp.config('elixirls', {
-      cmd = { os.getenv('ASDF_DATA_DIR') .. "/shims/elixir-ls" },
+  if vim.fn.executable('expert') then
+    vim.lsp.config('expert', {
+      cmd = { 'expert' },
+      root_markers = { 'mix.exs', '.git' },
+      filetypes = { 'elixir', 'eelixir', 'heex' },
     })
   end
 end

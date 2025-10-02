@@ -97,6 +97,7 @@ nested_syntaxes['c++'] = 'cpp'
 nested_syntaxes['ruby'] = 'ruby'
 nested_syntaxes['crystal'] = 'crystal'
 nested_syntaxes['rust'] = 'rust'
+nested_syntaxes['elixir'] = 'elixir'
 
 vim.g.vimwiki_list = {
   {
