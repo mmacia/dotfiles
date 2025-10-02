@@ -26,7 +26,6 @@ sudo apt install -y \
   htop \
   intel-gpu-tools \
   jq \
-  kalendar \
   kde-config-tablet \
   krita \
   kcolorchooser \
@@ -72,6 +71,7 @@ sudo apt install -y \
   vainfo \
   vim-nox \
   vlc \
+  watchman \
   wget \
   whois \
   xclip \
