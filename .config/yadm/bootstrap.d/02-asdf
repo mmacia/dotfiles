@@ -2,7 +2,7 @@
 
 echo "Install asdf version manager ..."
 
-asdf_version="0.16.2"
+asdf_version="0.18.0"
 asdf_install_dir="$HOME/.local/bin"
 
 function _install_asdf() {
