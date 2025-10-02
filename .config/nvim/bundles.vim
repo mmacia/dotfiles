@@ -76,10 +76,9 @@ Plug 'onsails/lspkind.nvim'
 Plug 'nvimtools/none-ls.nvim'  " use refactor actions, formatters, linters, etc with LSP
 Plug 'nvim-lua/plenary.nvim'   " none-ls dep
 
-" --- CodeCompanion stuff
-Plug 'stevearc/dressing.nvim'
-Plug 'MeanderingProgrammer/render-markdown.nvim'
-Plug 'olimorris/codecompanion.nvim'
+" --- Opencode stuff
+Plug 'NickvanDyke/opencode.nvim'
+Plug 'folke/snacks.nvim'
 
 " --- Themes
 Plug 'ellisonleao/gruvbox.nvim'

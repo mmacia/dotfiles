@@ -42,6 +42,7 @@ asdf plugin add neovim
 asdf plugin add fzf
 asdf plugin add tree-sitter
 asdf plugin add ctop
+asdf plugin add opencode https://github.com/bitfrost/asdf-opencode.git
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \

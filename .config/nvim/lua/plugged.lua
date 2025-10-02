@@ -6,7 +6,7 @@ require('plugins/nvim-treesitter').config()
 require('plugins/nvim-cmp').config()
 require('plugins/lsp').config()
 require('plugins/null-ls').config()
-require('plugins/codecompanion').config()
+require('plugins/opencode').config()
 
 -- autopairs
 require('nvim-autopairs').setup()
