@@ -1,4 +1,4 @@
-python 3.12.4
+python system 3.12.4
 ruby system 3.4.6
 nodejs 24.9.0 system
 elixir 1.18.4
@@ -9,4 +9,4 @@ neovim 0.11.4
 fzf 0.65.2
 tree-sitter 0.25.10
 rust 1.90.0
-opencode 0.14.0
+opencode 0.14.5
