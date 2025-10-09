@@ -48,6 +48,7 @@ Plug 'nvim-neotest/neotest'             " run tests
 Plug 'nvim-neotest/neotest-python'      " pytest adapter
 Plug 'olimorris/neotest-rspec'          " rspec adapter
 Plug 'jfpedroza/neotest-elixir'         " elixir adapter
+Plug 'nvim-lua/plenary.nvim'            " neotest dep
 
 " --- Crystal plugins
 Plug 'vim-crystal/vim-crystal'  " crystal syntax
@@ -71,10 +72,7 @@ Plug 'vimwiki/vimwiki'                " wiki for vim
 
 " --- LSP stuff
 Plug 'neovim/nvim-lspconfig'
-Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'onsails/lspkind.nvim'
-Plug 'nvimtools/none-ls.nvim'  " use refactor actions, formatters, linters, etc with LSP
-Plug 'nvim-lua/plenary.nvim'   " none-ls dep
 
 " --- Opencode stuff
 Plug 'NickvanDyke/opencode.nvim'

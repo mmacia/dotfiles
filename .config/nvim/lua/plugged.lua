@@ -5,7 +5,6 @@
 require('plugins/nvim-treesitter').config()
 require('plugins/nvim-cmp').config()
 require('plugins/lsp').config()
-require('plugins/null-ls').config()
 require('plugins/opencode').config()
 
 -- autopairs
@@ -78,10 +77,6 @@ require('lualine').setup({
     }
   },
 })
-
-
--- Rafactoring
-require('refactoring').setup({})
 
 
 -- cmake

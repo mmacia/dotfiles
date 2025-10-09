@@ -19,6 +19,18 @@ function M.config()
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
     --vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
+
+    -- auto format on save
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = format_group,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ async = true, timeout_ms = 5000 })
+        end,
+      })
+    end
   end
 
   local get_capabilities = function()
