@@ -60,6 +60,7 @@ sudo apt install -y \
   powertop \
   python3-pip \
   pulseeffects \
+  ripgrep \
   silversearcher-ag \
   sshpass \
   sqlite3 \
