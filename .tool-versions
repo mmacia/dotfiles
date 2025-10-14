@@ -9,4 +9,4 @@ neovim 0.11.4
 fzf 0.65.2
 tree-sitter 0.25.10
 rust 1.90.0
-opencode 0.14.6
+opencode 0.15.2
