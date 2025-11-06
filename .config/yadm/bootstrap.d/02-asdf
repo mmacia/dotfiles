@@ -30,7 +30,6 @@ else
   fi
 fi
 
-asdf plugin add ruby
 asdf plugin add python
 asdf plugin add nodejs
 asdf plugin add elixir

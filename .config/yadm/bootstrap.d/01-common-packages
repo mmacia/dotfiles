@@ -86,8 +86,6 @@ sudo apt update && sudo apt dist-upgrade -y
 
 sudo snap install \
   telegram-desktop \
-  glaxnimate \
-  pixelorama \
   dbeaver-ce \
   jdownloader2
 
