@@ -43,11 +43,12 @@ function M.config()
   end
 
   local servers = {
-    'expert',
+    --'expert',
+    'elixir-ls',
     'tailwindcss',
     'html',
     'emmet_language_server',
-    'crystaline',
+    'crystalline',
     'clangd',
     'solargraph',
     'pylsp',
@@ -165,7 +166,7 @@ function M.config()
   ---
   --- Crystal LSP setup
   ---
-  vim.lsp.config('crystaline', {})
+  vim.lsp.config('crystalline', {})
 
   ---
   --- HTML setup
@@ -192,6 +193,14 @@ function M.config()
   if vim.fn.executable('expert') then
     vim.lsp.config('expert', {
       cmd = { 'expert' },
+      root_markers = { 'mix.exs', '.git' },
+      filetypes = { 'elixir', 'eelixir', 'heex' },
+    })
+  end
+
+  if vim.fn.executable('elixir-ls') then
+    vim.lsp.config('elixir-ls', {
+      cmd = { 'elixir-ls' },
       root_markers = { 'mix.exs', '.git' },
       filetypes = { 'elixir', 'eelixir', 'heex' },
     })
