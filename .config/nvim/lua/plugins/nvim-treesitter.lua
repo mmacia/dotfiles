@@ -1,8 +1,22 @@
 local M = {}
 
 function M.config()
-  require('nvim-treesitter.configs').setup({
-    ensure_installed = {
+  require('nvim-treesitter').setup({
+    highlight = { enable = true },
+    indent = { enable = true },
+    autotag = {
+      enable = true,
+      filetypes = {
+        'html',
+        'javascript',
+        'typescript',
+        'xml',
+      }
+    },
+    endwise = { enable = true },
+  })
+
+  require('nvim-treesitter').install {
       'bash',
       'c',
       'cmake',
@@ -42,20 +56,7 @@ function M.config()
       'vim',
       'vimdoc',
       'yaml',
-    },
-    highlight = { enable = true },
-    indent = { enable = true },
-    autotag = {
-      enable = true,
-      filetypes = {
-        'html',
-        'javascript',
-        'typescript',
-        'xml',
-      }
-    },
-    endwise = { enable = true },
-  })
+    }
 end
 
 return M
