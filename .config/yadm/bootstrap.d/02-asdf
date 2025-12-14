@@ -51,7 +51,6 @@ sudo aptitude install -y \
   inotify-tools \
   libwxbase3.2-1 \
   libwxgtk-webview3.2-dev \
-  fop \
   build-essential \
   libssl-dev \
   zlib1g-dev \

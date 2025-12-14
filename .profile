@@ -5,8 +5,8 @@ export FZF_DEFAULT_OPTS='--ansi --border=thinblock --preview-window=border-thinb
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --ignore-case --glob --color always'
 export LC_ALL=en_US.UTF-8
 
-export OPENAI_API_KEY='sk-secret-token'
-export OPENROUTER_API_KEY='sk-secret-token'
+export OPENAI_API_KEY='secret'
+export OPENROUTER_API_KEY='secret'
 
 # erlang/elixir stuff
 export ERL_AFLAGS="-kernel shell_history enabled"

@@ -50,7 +50,7 @@ function M.config()
     'emmet_language_server',
     'crystalline',
     'clangd',
-    'solargraph',
+    --'solargraph',
     'pylsp',
   }
 
