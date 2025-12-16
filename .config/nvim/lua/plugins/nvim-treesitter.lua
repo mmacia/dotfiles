@@ -16,7 +16,7 @@ function M.config()
     endwise = { enable = true },
   })
 
-  require('nvim-treesitter').install {
+  local languages = {
       'bash',
       'c',
       'cmake',
@@ -56,7 +56,14 @@ function M.config()
       'vim',
       'vimdoc',
       'yaml',
-    }
+  }
+
+  require('nvim-treesitter').install(languages)
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = languages,
+    callback = function() vim.treesitter.start() end,
+  })
 end
 
 return M
