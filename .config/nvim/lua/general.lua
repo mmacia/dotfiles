@@ -58,3 +58,5 @@ set.complete:append 'kspell'
 -- view special characters
 set.list = true
 set.listchars = { tab = '· ', eol = '¬' }
+
+vim.o.winborder = 'rounded'
