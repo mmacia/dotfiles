@@ -11,6 +11,8 @@ pylint_django
 pynvim
 proselint
 awscli
+sqlit
+sqlit-tui
 
 # Beets
 beets
