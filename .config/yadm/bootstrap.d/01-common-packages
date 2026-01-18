@@ -8,13 +8,10 @@ sudo apt install -y \
   blender \
   build-essential \
   chromium-browser \
-  cmus \
   digikam \
   default-jre \
   eza \
   ffmpegthumbs \
-  firefox \
-  firefox-locale-es \
   filelight \
   fdupes \
   fd-find \
@@ -66,7 +63,6 @@ sudo apt install -y \
   sshpass \
   sqlite3 \
   sweeper \
-  tldr \
   translate-shell \
   tree \
   unrar \
@@ -76,9 +72,6 @@ sudo apt install -y \
   watchman \
   wget \
   whois \
-  xclip \
-  xsel \
-  xournalpp \
   zstd
   #deborphan
 
@@ -86,7 +79,6 @@ sudo apt update && sudo apt dist-upgrade -y
 
 sudo snap install \
   telegram-desktop \
-  dbeaver-ce \
   jdownloader2
 
 sudo snap install --classic obsidian
