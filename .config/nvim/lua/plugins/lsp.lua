@@ -182,7 +182,7 @@ function M.config()
     vim.lsp.config('expert', {
       cmd = { 'expert' },
       root_markers = { 'mix.exs', '.git' },
-      filetypes = { 'elixir', 'eelixir', 'heex' },
+      filetypes = { 'elixir', 'heex' },
     })
   end
 
@@ -190,7 +190,7 @@ function M.config()
     vim.lsp.config('elixir-ls', {
       cmd = { 'elixir-ls' },
       root_markers = { 'mix.exs', '.git' },
-      filetypes = { 'elixir', 'eelixir', 'heex' },
+      filetypes = { 'elixir', 'heex' },
     })
   end
 end
