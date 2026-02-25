@@ -19,15 +19,6 @@ function M.config()
   vim.keymap.set('n', '<S-C-u>',    function() opencode.command('messages_half_page_up') end, { desc = 'Messages half page up' })
   vim.keymap.set('n', '<S-C-d>',    function() opencode.command('messages_half_page_down') end, { desc = 'Messages half page down' })
   vim.keymap.set({ 'n', 'v' }, '<leader>os', function() opencode.select() end, { desc = 'Select prompt' })
-
-  vim.g.opencode_opts = {
-    provider = {
-      enabled = 'tmux',
-      tmux = {
-        options = '-h -p 50'
-      }
-    }
-  }
 end
 
 return M
