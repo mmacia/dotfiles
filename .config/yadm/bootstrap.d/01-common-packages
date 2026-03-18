@@ -18,6 +18,7 @@ sudo apt install -y \
   findimagedupes \
   flatpak \
   gawk \
+  gh \
   git \
   git-delta \
   htop \
