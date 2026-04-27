@@ -3,10 +3,10 @@ nodejs 24.9.0
 elixir 1.18.4
 elixir-ls 0.30.0
 erlang 27.3.4
-crystal 1.17.1
+crystal 1.19.1
 cmake 4.1.2
-neovim 0.11.6
-fzf 0.65.2
-tree-sitter 0.26.3
+neovim 0.12.2
+fzf 0.70.0
+tree-sitter 0.26.7
 rust 1.90.0
 opencode 1.2.27
