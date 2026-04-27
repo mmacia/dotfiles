@@ -16,3 +16,5 @@ tags
 
 # Direnv stuff
 .envrc
+
+**/.claude/settings.local.json

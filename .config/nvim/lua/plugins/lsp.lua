@@ -1,46 +1,66 @@
 local M = {}
 
 function M.config()
-  local cmp = require('cmp_nvim_lsp')
+  vim.o.autocomplete = true
+  vim.o.completeopt = 'menu,menuone,noselect,nearest'
 
-  local on_attach = function(client, bufnr)
-    local opts = { noremap=true, silent=true }
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local bufnr = args.buf
+      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-    --vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
-
-    -- auto format on save
-    if client:supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = format_group,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
-        end,
-      })
+      -- Native LSP completion
+      if client:supports_method("textDocument/completion") then
+        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+      end
+      --
+      -- auto format on save
+      if client:supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = format_group, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = format_group,
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
+          end,
+        })
+      end
     end
-  end
+  })
 
-  local get_capabilities = function()
-    return vim.tbl_deep_extend(
-      'force',
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      cmp.default_capabilities()
-    )
-  end
+  local opts = { noremap=true, silent=true }
+
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', '<Leader>k', vim.lsp.buf.signature_help, opts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+  vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
+  vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  --vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
+
+  -- autocomplete with tab
+  vim.keymap.set({ 'i', 's' }, '<Tab>', function()
+    if vim.fn.pumvisible() == 1 then
+      return '<C-n>'
+    end
+
+    return '<Tab>'
+  end, { expr = true, silent = true })
+
+  local border = 'rounded'
+
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = border,
+  })
+
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = border,
+  })
+
 
   local servers = {
     --'expert',
@@ -56,7 +76,6 @@ function M.config()
 
   vim.lsp.enable(servers)
 
-
   ---
   --- Diagnostics setup
   ---
@@ -64,16 +83,14 @@ function M.config()
     underline = true,
     signs = true,
     float = {
+      border = border,
       show_header = true,
       source = 'if_many',
       focusable = false
     },
     severity_sort = true,
-  })
-
-  vim.lsp.config('*', {
-    on_attach = on_attach,
-    capabilities = get_capabilities(),
+    virtual_text = false,
+    virtual_lines = { current_line = true },
   })
 
   ---
