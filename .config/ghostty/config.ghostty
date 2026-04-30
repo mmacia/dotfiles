@@ -1,0 +1,19 @@
+font-family = "Fira Code Retina"
+font-size = 13
+font-feature = calt, liga, dlig
+
+theme = Breeze
+background = black
+
+minimum-contrast = 3
+
+cursor-style = block
+cursor-style-blink = true
+
+selection-clear-on-typing = true
+mouse-hide-while-typing = true
+mouse-reporting = true
+scroll-to-bottom = keystroke, no-output
+window-decoration = server
+
+keybind = ctrl+shift+r=reload_config
