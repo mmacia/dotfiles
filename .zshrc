@@ -54,9 +54,9 @@ plugins=(common-aliases git git-extras gitignore rake docker copybuffer copypath
 
 # User configuration
 
-export EDITOR=vim
+export EDITOR=nvim
 export SHELL=zsh
-export TERM="tmux-256color"
+export TERM="xterm-256color"
 export ZSH_DOTENV_ALLOWED_LIST=$HOME/.config/dotenv-allowed.list
 
 source $ZSH/oh-my-zsh.sh

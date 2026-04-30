@@ -16,6 +16,8 @@ sudo apt install -y \
     clang-tools \
     clang-tidy
 
+# enable mouse middle button paste
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
 
 # install crysalline lsp
 crystalline_version=0.13.1

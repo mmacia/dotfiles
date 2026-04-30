@@ -26,7 +26,9 @@ sudo apt install -y \
   ttf-mscorefonts-installer \
   fonts-roboto \
   cabextract \
-  fonts-symbola
+  fonts-symbola \
+  fonts-firacode \
+  fonts-recommended
 
 # install windows 10 fonts
 win10_count=$(find $fonts_dir/win10 -type f -name "calibri*" 2> /dev/null | wc -l)
@@ -34,16 +36,6 @@ win10_fonts_bundle=$external_hd/win10.tar.zst
 
 if [[ -f "$win10_fonts_bundle" && $win10_count -eq 0 ]]; then
   tar -axvf "${win10_fonts_bundle}" --directory ${fonts_dir}
-fi
-
-# install FiraCode patched font
-fira_code_count=$(find $fonts_dir -type f -name "FiraCode*" 2> /dev/null | wc -l)
-
-if [[ $fira_code_count -eq 0 ]]; then
-  git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git /tmp/nerd-fonts
-  mkdir -p $fonts_dir/FiraCode
-  find /tmp/nerd-fonts/patched-fonts/FiraCode -type f -name "*.ttf" -exec cp \{\} $fonts_dir/FiraCode \;
-  rm -rf /tmp/nerd-fonts
 fi
 
 # install Macintosh fonts
