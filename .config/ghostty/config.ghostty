@@ -18,4 +18,7 @@ mouse-reporting = true
 window-decoration = server
 window-vsync = false
 
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
 keybind = ctrl+shift+r=reload_config
