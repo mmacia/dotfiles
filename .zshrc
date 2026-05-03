@@ -161,3 +161,4 @@ if [ -f $HOME/.zsh/aliases ]; then
 fi
 
 [ -f $XDG_CONFIG_HOME/fzf/fzf.zsh ] && source $XDG_CONFIG_HOME/fzf/fzf.zsh
+[ -f $XDG_CONFIG_HOME/zsh_functions/tdl.sh ] && source $XDG_CONFIG_HOME/zsh_functions/tdl.sh
