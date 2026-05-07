@@ -1,88 +1,84 @@
 #!/bin/bash
 
 reset
-sudo apt update && sudo apt dist-upgrade -y && \
-sudo apt install -y \
-  autojump \
-  bat \
-  blender \
-  build-essential \
-  chromium-browser \
-  digikam \
-  default-jre \
-  eza \
-  ffmpegthumbs \
-  filelight \
-  fdupes \
-  fd-find \
-  findimagedupes \
-  flatpak \
-  gawk \
-  gh \
-  git \
-  git-delta \
-  htop \
-  intel-gpu-tools \
-  graphicsmagick-imagemagick-compat \
-  jq \
-  kde-config-tablet \
-  krita \
-  kcolorchooser \
-  kdenlive \
-  kruler \
-  kubuntu-restricted-addons \
-  meld \
-  mediainfo \
-  mesa-utils \
-  mkvtoolnix-gui \
-  mpv \
-  net-tools \
-  nvtop \
-  language-pack-en \
-  language-pack-es \
-  language-pack-kde-es \
-  language-pack-kde-en \
-  libnotify-bin \
-  libreoffice \
-  libreoffice-kf5 \
-  libreoffice-plasma \
-  libreoffice-qt5 \
-  libreoffice-l10n-es \
-  libreoffice-l10n-en-gb \
-  lm-sensors \
-  obs-studio \
-  offlineimap \
-  okteta \
-  okular-extra-backends \
-  pandoc \
-  partitionmanager \
-  powertop \
-  python3-pip \
-  pulseeffects \
-  ripgrep \
-  silversearcher-ag \
-  sshpass \
-  sqlite3 \
-  sweeper \
-  translate-shell \
-  tree \
-  unrar \
-  vainfo \
-  vim-nox \
-  vlc \
-  watchman \
-  wget \
-  whois \
-  zstd
-  #deborphan
+sudo apt update && sudo apt dist-upgrade -y &&
+	sudo apt install -y \
+		autojump \
+		bat \
+		blender \
+		build-essential \
+		chromium-browser \
+		digikam \
+		default-jre \
+		eza \
+		ffmpegthumbs \
+		filelight \
+		fdupes \
+		fd-find \
+		findimagedupes \
+		flatpak \
+		gawk \
+		gh \
+		git \
+		git-delta \
+		htop \
+		intel-gpu-tools \
+		graphicsmagick-imagemagick-compat \
+		jq \
+		kde-config-tablet \
+		kitty \
+		krita \
+		kcolorchooser \
+		kdenlive \
+		kruler \
+		kubuntu-restricted-addons \
+		meld \
+		mediainfo \
+		mesa-utils \
+		mkvtoolnix-gui \
+		mpv \
+		net-tools \
+		nvtop \
+		language-pack-en \
+		language-pack-es \
+		language-pack-kde-es \
+		language-pack-kde-en \
+		libnotify-bin \
+		libreoffice \
+		libreoffice-kf6 \
+		libreoffice-plasma \
+		libreoffice-qt6 \
+		libreoffice-l10n-es \
+		libreoffice-l10n-en-gb \
+		lm-sensors \
+		obs-studio \
+		offlineimap \
+		okular-extra-backends \
+		pandoc \
+		partitionmanager \
+		powertop \
+		python3-pip \
+		pulseeffects \
+		ripgrep \
+		silversearcher-ag \
+		sshpass \
+		sqlite3 \
+		sweeper \
+		translate-shell \
+		tree \
+		unrar \
+		vainfo \
+		vim-nox \
+		vlc \
+		watchman \
+		wget \
+		whois \
+		zstd
 
 sudo apt update && sudo apt dist-upgrade -y
 
 sudo snap install \
-  telegram-desktop \
-  jdownloader2
-
-sudo snap install --classic obsidian
+	telegram-desktop
 
 # virtualbox stuff
 #ACCEPT_EULA=Y sudo apt install -y \
