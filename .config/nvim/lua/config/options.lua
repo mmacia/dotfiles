@@ -5,6 +5,7 @@
 vim.opt.relativenumber = false
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 5
+vim.opt.shortmess:remove("I") -- remove lazyvim welcome message
 
 local create_user_command = vim.api.nvim_create_user_command
 
