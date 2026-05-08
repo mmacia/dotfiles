@@ -7,6 +7,10 @@ vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 5
 vim.opt.shortmess:remove("I") -- remove lazyvim welcome message
 
+-- Make it obious where 120 column is
+vim.opt.textwidth = 120
+vim.opt.colorcolumn = "+1"
+
 local create_user_command = vim.api.nvim_create_user_command
 
 -- handle mistypings
