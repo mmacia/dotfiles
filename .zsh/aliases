@@ -1,2 +1,4 @@
 alias o="xdg-open"
+alias opencode='nocorrect opencode'
+alias claude='nocorrect claude'
 alias ctop='TERM="${TERM/#tmux/screen}" ctop'
