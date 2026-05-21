@@ -6,35 +6,34 @@ asdf_version="0.18.0"
 asdf_install_dir="$HOME/.local/bin"
 
 function _install_asdf() {
-  local version=$1
-  local install_dir=$2
-  local url="https://github.com/asdf-vm/asdf/releases/download/v${version}/asdf-v${version}-linux-amd64.tar.gz"
-  local dest=/tmp/asdf.tar.gz
+	local version=$1
+	local install_dir=$2
+	local url="https://github.com/asdf-vm/asdf/releases/download/v${version}/asdf-v${version}-linux-amd64.tar.gz"
+	local dest=/tmp/asdf.tar.gz
 
-  echo "> installing asdf ..."
-  curl -L $url -o $dest
-  cd $install_dir
-  tar xvf $dest
-  cd -
+	echo "> installing asdf ..."
+	curl -L $url -o $dest
+	cd $install_dir
+	tar xvf $dest
+	cd -
 }
 
 if [ ! -f "$asdf_install_dir/asdf" ]; then
-  _install_asdf $asdf_version $asdf_install_dir
+	_install_asdf $asdf_version $asdf_install_dir
 else
-  cur_version=`asdf --version | cut -d' ' -f3`
+	cur_version=$(asdf --version | cut -d' ' -f3)
 
-  if [ "${cur_version}" != "v${asdf_version}" ]; then
-    echo "> upgrading asdf ..."
-    _install_asdf $asdf_version $asdf_install_dir
-    asdf plugin update --all
-  fi
+	if [ "${cur_version}" != "v${asdf_version}" ]; then
+		echo "> upgrading asdf ..."
+		_install_asdf $asdf_version $asdf_install_dir
+		asdf plugin update --all
+	fi
 fi
 
 asdf plugin add python
 asdf plugin add nodejs
 asdf plugin add elixir
 asdf plugin add erlang
-asdf plugin add cmake
 asdf plugin add crystal
 asdf plugin add rust
 asdf plugin add neovim
@@ -44,32 +43,32 @@ asdf plugin add opencode https://github.com/bitfrost/asdf-opencode.git
 
 # install dependencies for compile runtimes
 sudo aptitude install -y \
-  automake \
-  autoconf \
-  xsltproc \
-  unixodbc-dev \
-  inotify-tools \
-  libwxbase3.2-1 \
-  libwxgtk-webview3.2-dev \
-  build-essential \
-  libssl-dev \
-  zlib1g-dev \
-  libbz2-dev \
-  libevent-dev \
-  libreadline-dev \
-  libsqlite3-dev \
-  libpcre2-dev \
-  libpq-dev \
-  libyaml-dev \
-  wget \
-  curl \
-  llvm \
-  libncurses-dev \
-  libglu1-mesa-dev \
-  xz-utils \
-  tk-dev \
-  libffi-dev \
-  liblzma-dev \
-  git
+	automake \
+	autoconf \
+	xsltproc \
+	unixodbc-dev \
+	inotify-tools \
+	libwxbase3.2-1 \
+	libwxgtk-webview3.2-dev \
+	build-essential \
+	libssl-dev \
+	zlib1g-dev \
+	libbz2-dev \
+	libevent-dev \
+	libreadline-dev \
+	libsqlite3-dev \
+	libpcre2-dev \
+	libpq-dev \
+	libyaml-dev \
+	wget \
+	curl \
+	llvm \
+	libncurses-dev \
+	libglu1-mesa-dev \
+	xz-utils \
+	tk-dev \
+	libffi-dev \
+	liblzma-dev \
+	git
 
 asdf install # install versions specified in ~/.tool-versions
