@@ -12,9 +12,9 @@ prompt_hostname() {
 local ret_status="%(?:%{$green%}➜ :%{$red%}➜ %s)"
 
 
-PROMPT='${ret_status} %{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='${ret_status}%{$cyan%}%c%{$reset_color%} $(git_prompt_info)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$blue%}git:(%{$red%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$blue%}󰊢 %{$red%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$blue%}) %{$yellow%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$blue%})"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$blue%} %{$yellow%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$blue%}"
