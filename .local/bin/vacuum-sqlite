@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+#
+# Vacuum all SQLite databases under $HOME and report space reclaimed.
+
+set -uo pipefail
+
+search_root="${1:-$HOME}"
+
+total_old=0
+total_new=0
+found=0
+vacuumed=0
+skipped=0
+failed=0
+
+# Pretty-print a byte count (falls back to raw bytes if numfmt is missing).
+human() {
+  if command -v numfmt >/dev/null 2>&1; then
+    numfmt --to=iec --suffix=B "$1"
+  else
+    printf '%dB' "$1"
+  fi
+}
+
+echo "Scanning for SQLite databases under ${search_root} ..."
+
+while IFS= read -r -d '' filename; do
+  # Confirm it's really a SQLite 3 file, not just a *.db by name.
+  case "$(file -b "$filename")" in
+    *"SQLite 3"*) ;;
+    *) continue ;;
+  esac
+
+  found=$((found + 1))
+
+  oldsize=$(stat -c %s "$filename")
+  if [[ "$oldsize" -eq 0 ]]; then
+    skipped=$((skipped + 1))
+    continue
+  fi
+
+  # VACUUM needs an exclusive lock; if the DB is open/locked this fails
+  # harmlessly and we move on instead of aborting the whole run.
+  if ! err=$(nice sqlite3 "$filename" 'VACUUM;' 2>&1); then
+    echo "  WARNING: vacuum failed for ${filename}: ${err:-unknown error}" >&2
+    failed=$((failed + 1))
+    continue
+  fi
+
+  newsize=$(stat -c %s "$filename")
+  vacuumed=$((vacuumed + 1))
+  total_old=$((total_old + oldsize))
+  total_new=$((total_new + newsize))
+
+  if [[ "$oldsize" -ne "$newsize" ]]; then
+    saved=$((oldsize - newsize))
+    pct=$(awk -v o="$oldsize" -v n="$newsize" 'BEGIN { printf "%.1f", 100 - (100 * n / o) }')
+    printf '  %-6s (-%s)  %s\n' "${pct}%" "$(human "$saved")" "$filename"
+  fi
+done < <(find "$search_root" -type f \( -iname '*.sqlite' -o -iname '*.sqlite3' -o -iname '*.db' \) -print0 2>/dev/null)
+
+echo
+echo "------------------------------------------------------------"
+echo "Databases found:    ${found}"
+echo "Vacuumed:           ${vacuumed}"
+echo "Skipped (empty):    ${skipped}"
+echo "Skipped (locked):   ${failed}"
+if [[ "$total_old" -gt 0 ]]; then
+  total_saved=$((total_old - total_new))
+  total_pct=$(awk -v o="$total_old" -v n="$total_new" 'BEGIN { printf "%.1f", 100 - (100 * n / o) }')
+  echo "Size before:        $(human "$total_old")"
+  echo "Size after:         $(human "$total_new")"
+  echo "Total reclaimed:    $(human "$total_saved") (${total_pct}%)"
+fi
+# EOF
