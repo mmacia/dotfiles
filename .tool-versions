@@ -7,5 +7,5 @@ neovim 0.12.3
 fzf 0.70.0
 tree-sitter 0.26.8
 rust 1.90.0
-opencode 1.17.4
+opencode 1.17.13
 golang 1.26
