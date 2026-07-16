@@ -7,4 +7,4 @@ neovim 0.12.4
 fzf 0.70.0
 tree-sitter 0.26.8
 rust 1.90.0
-opencode 1.17.20
+opencode 1.18.2
