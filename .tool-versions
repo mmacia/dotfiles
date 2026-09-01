@@ -1,10 +1,10 @@
 python 3.13.7
 nodejs 24.9.0
-elixir 1.18.4
-erlang 27.3.4
+elixir 1.20.2
+erlang 29.0.3
 crystal 1.19.1
-neovim 0.12.4
+neovim 0.12.5
 fzf 0.70.0
 tree-sitter 0.26.8
 rust 1.90.0
-opencode 1.18.2
+opencode 1.18.25
