@@ -18,6 +18,9 @@ export ASDF_NPM_DEFAULT_PACKAGES_FILE=$XDG_CONFIG_HOME/asdf/default-node-package
 
 export PATH="$ASDF_DATA_DIR/shims:$HOME/.local/bin:$PATH"
 
+# set claude to follow XDG rules
+CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+
 # Load Rails/Symfony environment variables if present
 [ -f $HOME/.rails.env ] && source $HOME/.rails.env
 [ -f $HOME/.symfony.env ] && source $HOME/.symfony.env
