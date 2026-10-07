@@ -11,9 +11,6 @@ Session.vim
 .netrwhist
 *~
 
-# Auto-generated tag files
-tags
-
 # Direnv stuff
 .envrc
 
