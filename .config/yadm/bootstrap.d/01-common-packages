@@ -26,7 +26,6 @@ sudo apt update && sudo apt dist-upgrade -y &&
 		graphicsmagick-imagemagick-compat \
 		jq \
 		kde-config-tablet \
-		kitty \
 		krita \
 		kcolorchooser \
 		kdenlive \
